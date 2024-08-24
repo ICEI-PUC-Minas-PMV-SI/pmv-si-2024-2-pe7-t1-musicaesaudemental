@@ -23,10 +23,10 @@ A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É e
 
 ## Objetivos preliminares
 
-###Objetivo Geral:
+### Objetivo Geral:
 Explorar e experimentar modelos de aprendizado de máquina para analisar a relação entre o consumo de diferentes gêneros musicais e os indicadores de saúde mental, com o intuito de contribuir para uma aplicação mais eficaz da musicoterapia.
 
-###Objetivos Específicos:
+### Objetivos Específicos:
 Predizer o impacto da frequência de escuta de diferentes gêneros musicais nos indicadores de saúde mental, como níveis de ansiedade, depressão e transtorno obsessivo-compulsivo (TOC), utilizando técnicas de aprendizado de máquina.
 
 Investigar como cada estilo musical influencia os aspectos específicos da saúde mental e identificar padrões que possam ser utilizados para personalizar intervenções em musicoterapia.
