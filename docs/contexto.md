@@ -58,7 +58,7 @@ Adicione informações sobre o público-alvo por meio de uma descrição textual
 
 O estudo beneficiará pessoas de várias idades, desde adolescentes até idosos, que têm diferentes graus de familiaridade com tecnologia e diferentes motivações para o uso de música em suas vidas. O projeto pode fornecer insights valiosos para profissionais de saúde mental sobre como personalizar intervenções musicais de acordo com o perfil etário e tecnológico dos pacientes. Além disso, pode orientar desenvolvedores de aplicativos de música a criar funcionalidades que melhor atendam às necessidades de seus usuários, promovendo bem-estar e saúde mental.
 
-*Embora a base de dados utilizada possua avaliação de usuários de todas as idades, mais de 70% da base se concentra na faixa etária entre 14 e 27 anos.
+* Embora a base de dados utilizada possua avaliação de usuários de todas as idades, mais de 70% da base se concentra na faixa etária entre 14 e 27 anos.
 
 > **Links Úteis**:
 > - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
