@@ -1,6 +1,19 @@
 # Introdução
 
-Texto descritivo introdutório apresentando a visão geral do projeto a ser desenvolvido considerando o contexto em que ele se insere, os objetivos gerais, a justificativa e o público-alvo do projeto.
+<!-- Texto descritivo introdutório apresentando a visão geral do projeto a ser desenvolvido considerando o contexto em que ele se insere, os objetivos gerais, a justificativa e o público-alvo do projeto. -->
+
+A saúde mental é um componente essencial para o bem-estar do ser humano, influenciando profundamente aspectos físicos, sociais e emocionais da vida. 
+
+No cenário global atual, a prevalência de transtornos mentais tem se tornado uma questão alarmante, especialmente após os impactos da pandemia de COVID-19. Segundo a Organização Mundial da Saúde (OMS), no Brasil, estima-se que 9,3% da população adulta enfrente desafios relacionados à saúde mental, como ansiedade e depressão.
+
+Diante deste panorama, há uma crescente demanda por alternativas aos tratamentos convencionais, que muitas vezes se concentram em abordagens farmacológicas. A busca por soluções complementares, que sejam acessíveis e minimamente invasivas, é uma prioridade para profissionais de saúde e pesquisadores. 
+
+Nesse contexto, a música tem emergido como uma ferramenta terapêutica promissora. A musicoterapia, especificamente, tem sido objeto de estudos que demonstram sua eficácia na redução de sintomas de transtornos como ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC).
+
+O presente projeto Música e Saúde Mental, tem como objetivo investigar a relação entre o consumo de música e indicadores de saúde mental, utilizando um dataset que integra informações de usuários de aplicativos de música com suas autoavaliações sobre o impacto da música em seu bem-estar.
+
+A escolha do tema é fundamentada na necessidade de explorar intervenções que possam complementar os tratamentos tradicionais, oferecendo uma opção de baixo custo e fácil acesso para a mitigação dos sintomas de transtornos mentais. Além disso, a música, por ser amplamente acessível e possui o potencial de alcançar um vasto público, tornando-se uma ferramenta poderosa na promoção da saúde mental.
+
 
 ## Problema
 
