@@ -8,18 +8,21 @@
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
+O presente projeto de Ciência de Dados explora a relação entre o consumo de música e a saúde mental, focando em como diferentes gêneros musicais podem influenciar indicadores de transtornos como ansiedade, depressão e insônia. Utilizando modelos de aprendizado de máquina, o estudo visa fornecer insights sobre a eficácia da música como uma ferramenta terapêutica complementar e não invasiva, oferecendo alternativas aos tratamentos tradicionais centrados em medicamentos.
+
+A música, acessível e de baixo custo, é apresentada como uma solução promissora para melhorar a qualidade de vida de milhões de pessoas. O projeto é especialmente relevante para adolescentes e jovens adultos, fornecendo subsídios para intervenções personalizadas em saúde mental
+
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+Eduardo Ramon Cardoso Fernandes
+Gabriel Rodrigues de Lima
+Isabela Bersan Mariano Pádua
+Renan Silva Rodrigues
+Túlio Ribeiro Maia
 
 ## Orientador
 
-* Nome completo do professor 1
+Luciana de Nardin
 
 # Planejamento
 
