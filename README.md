@@ -14,11 +14,11 @@ A música, acessível e de baixo custo, é apresentada como uma solução promis
 
 ## Integrantes
 
-Eduardo Ramon Cardoso Fernandes
-Gabriel Rodrigues de Lima
-Isabela Bersan Mariano Pádua
-Renan Silva Rodrigues
-Túlio Ribeiro Maia
+Eduardo Ramon Cardoso Fernandes <br>
+Gabriel Rodrigues de Lima <br>
+Isabela Bersan Mariano Pádua <br>
+Renan Silva Rodrigues <br>
+Túlio Ribeiro Maia <br>
 
 ## Orientador
 
