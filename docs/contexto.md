@@ -25,13 +25,10 @@ Portanto, trazer a música para a rotina diária pode ser uma maneira acessível
 
 ## Questão de pesquisa
 
-A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É ela que motiva a realização da pesquisa e deverá ser adequada ao problema identificado. Ao término de sua pesquisa/experimentação, o objetivo é que seja encontrada a resposta da questão de pesquisa previamente definida.
-
-> **Links Úteis**:
-> - [Questão de pesquisa](https://www.enago.com.br/academy/how-to-develop-good-research-question-types-examples/)
-> - [Problema de pesquisa](https://blog.even3.com.br/problema-de-pesquisa/)
-
-## Objetivos preliminares
+Dado todos esses pontos em como a música pode vem sendo benéfica nos ultimos anos e como ela pode afetar na saúde mental, surge a questão do rumo que esta pesquisa tomará e o que iremos apresentar frente a todos os dados presentes no dataset. A pergunta em questão é: 
+<br/><br/>"O quão efetivo cada genero musical é no tratamento dos sintomas de doenças mentais?"<br/><br/> 
+Respondendo essa pergunta, um modelo conseguirá receber, analisar e sugerir genêros no qual as pessoas, que participaram do dataset, sentiram que a música melhorou a saúde mental.
+## Objetivos preliminares  
 
 ### Objetivo Geral:
 Explorar e experimentar modelos de aprendizado de máquina para analisar a relação entre o consumo de diferentes gêneros musicais e os indicadores de saúde mental, com o intuito de contribuir para uma aplicação mais eficaz da musicoterapia.
