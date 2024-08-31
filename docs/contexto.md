@@ -90,38 +90,38 @@ Este estado da arte tem como objetivo revisar e analisar as abordagens mais rele
 Essa revisão permitirá não apenas compreender as metodologias existentes, mas também identificar lacunas e oportunidades para futuras pesquisas, especialmente no desenvolvimento de modelos preditivos que possam ser aplicados na musicoterapia, visando melhorar a saúde mental de forma personalizada e eficaz.
 
 Analisando o artigo "Music Classification and Mental Health Analysis using Exploratory Data Analysis" temos os seguintes resultados:
-1. Contextualização do Problema
+1. Contextualização do Problema <br/>
 O impacto da música na saúde mental tem sido amplamente explorado como uma alternativa terapêutica, especialmente em tempos de crise, como a pandemia de COVID-19, onde a música serviu como um refúgio emocional. No estudo de Bhavani et al., o objetivo principal é explorar a relação entre diferentes gêneros musicais e condições de saúde mental, como ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC)​(referenciar o artigo de acordo com a ABNT). O estudo utiliza a Análise Exploratória de Dados (EDA) e algoritmos de classificação para prever como os diferentes tipos de música podem influenciar o bem-estar mental dos indivíduos.
 
-2. Revisão de Trabalhos Relacionados
-**2.1 Características dos Datasets Utilizados**
-2.1.1. Estudo de Bhavani et al. (2023):
+2. Revisão de Trabalhos Relacionados <br/>
+**2.1 Características dos Datasets Utilizados** <br/>
+2.1.1. Estudo de Bhavani et al. (2023): <br/>
 
 * Dataset: Inclui 736 registros e 33 colunas, com dados coletados via formulários online distribuídos em várias plataformas sociais. As variáveis incluem dados demográficos, preferências musicais e autoavaliações de condições de saúde mental como ansiedade e depressão​​(referenciar o artigo de acordo com a ABNT).
 * Pré-processamento: Limpeza dos dados para remover valores nulos e outliers, utilizando média e moda para imputação.
 
-2.1.2. Markov e Matsui (2014):
+2.1.2. Markov e Matsui (2014): <br/>
 
 * Dataset: Dois datasets de tamanho comparável, utilizados para classificação de gêneros musicais e estimativa de emoções. A análise comparou o desempenho dos algoritmos de Support Vector Machine (SVM) e Gaussian Process (GP), sendo o GP mais eficaz em termos de redução de erros e aumento da precisão​​(referenciar o artigo de acordo com a ABNT).
 
-2.1.3. Xu et al. (2021):
+2.1.3. Xu et al. (2021): <br/>
 
 * Dataset: Dados coletados de experimentos psicológicos, envolvendo características de personalidade e preferências por música triste. O estudo utiliza técnicas de machine learning para prever preferências musicais com base em gênero e traços de personalidade​​(referenciar o artigo de acordo com a ABNT).
 
-**2.2 Abordagens/Algoritmos Utilizados**
-2.2.1 Gaussian Naive Bayes (GNB):
+**2.2 Abordagens/Algoritmos Utilizados** <br/>
+2.2.1 Gaussian Naive Bayes (GNB): <br/>
 
 Utilizado no estudo de Bhavani et al., o GNB é adequado para dados contínuos com distribuição Gaussiana. No contexto do estudo, o GNB foi empregado para classificar o efeito da música na saúde mental, resultando em uma acurácia de 68%​​(referenciar o artigo de acordo com a ABNT).
 
-2.2.2. Support Vector Machine (SVM) e Gaussian Process (GP):
+2.2.2. Support Vector Machine (SVM) e Gaussian Process (GP): 
 
 No estudo de Markov e Matsui, ambos os algoritmos foram usados para tarefas de classificação de gênero musical e estimativa de emoções. O GP demonstrou melhor desempenho em comparação ao SVM, destacando sua eficácia em reduzir erros de classificação e melhorar a precisão na estimativa de emoções​​(referenciar o artigo de acordo com a ABNT).
 
-2.2.3. Análise de Regressão e Classificação (SVM, Naive Bayes):
+2.2.3. Análise de Regressão e Classificação (SVM, Naive Bayes): 
 
 No estudo de Xu et al., foram utilizadas abordagens de regressão e classificação para prever a preferência por música triste. A análise revelou interações significativas entre características de personalidade e preferências musicais, sendo o SVM um dos métodos mais eficazes para essa tarefa​​(referenciar o artigo de acordo com a ABNT).
 
-2.3.1 Métricas de Avaliação
+2.3.1 Métricas de Avaliação 
 **Acurácia**: Utilizada como métrica principal nos estudos de Bhavani et al. e Markov e Matsui, onde o desempenho dos modelos é avaliado pela porcentagem de previsões corretas. A acurácia varia entre 68% (GNB) a 92.3% (SVM) em diferentes contextos de análise​​(referenciar o artigo de acordo com a ABNT).
 
 **Coeficiente de Determinação**: Usado para avaliar a precisão das previsões de emoções musicais no estudo de Markov e Matsui​​(referenciar o artigo de acordo com a ABNT).
