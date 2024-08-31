@@ -83,6 +83,54 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 > - [Science Direct](https://www.sciencedirect.com/)
 > - [ACM Digital Library](https://dl.acm.org/)
 
+A investigação sobre o impacto da música na saúde mental tem se mostrado uma área promissora, especialmente como uma alternativa terapêutica complementar às abordagens tradicionais. O uso da música, particularmente durante períodos de estresse e isolamento social, como os vividos durante a pandemia de COVID-19, tem se destacado por proporcionar benefícios significativos ao bem-estar emocional e mental. Com o aumento do interesse por terapias não invasivas e de fácil acesso, a música emergiu como um meio eficaz de intervenção.
+
+Este estado da arte tem como objetivo revisar e analisar as abordagens mais relevantes presentes na literatura recente, focando em cinco estudos que exploram a relação entre o consumo de diferentes gêneros musicais e a saúde mental.
+
+Essa revisão permitirá não apenas compreender as metodologias existentes, mas também identificar lacunas e oportunidades para futuras pesquisas, especialmente no desenvolvimento de modelos preditivos que possam ser aplicados na musicoterapia, visando melhorar a saúde mental de forma personalizada e eficaz.
+
+Analisando o artigo "Music Classification and Mental Health Analysis using Exploratory Data Analysis" temos os seguintes resultados:
+1. Contextualização do Problema
+O impacto da música na saúde mental tem sido amplamente explorado como uma alternativa terapêutica, especialmente em tempos de crise, como a pandemia de COVID-19, onde a música serviu como um refúgio emocional. No estudo de Bhavani et al., o objetivo principal é explorar a relação entre diferentes gêneros musicais e condições de saúde mental, como ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC)​(referenciar o artigo de acordo com a ABNT). O estudo utiliza a Análise Exploratória de Dados (EDA) e algoritmos de classificação para prever como os diferentes tipos de música podem influenciar o bem-estar mental dos indivíduos.
+
+2. Revisão de Trabalhos Relacionados
+a) Características dos Datasets Utilizados
+Estudo de Bhavani et al. (2023):
+
+Dataset: Inclui 736 registros e 33 colunas, com dados coletados via formulários online distribuídos em várias plataformas sociais. As variáveis incluem dados demográficos, preferências musicais e autoavaliações de condições de saúde mental como ansiedade e depressão​​(referenciar o artigo de acordo com a ABNT).
+Pré-processamento: Limpeza dos dados para remover valores nulos e outliers, utilizando média e moda para imputação.
+Markov e Matsui (2014):
+
+Dataset: Dois datasets de tamanho comparável, utilizados para classificação de gêneros musicais e estimativa de emoções. A análise comparou o desempenho dos algoritmos de Support Vector Machine (SVM) e Gaussian Process (GP), sendo o GP mais eficaz em termos de redução de erros e aumento da precisão​​(referenciar o artigo de acordo com a ABNT).
+Xu et al. (2021):
+
+Dataset: Dados coletados de experimentos psicológicos, envolvendo características de personalidade e preferências por música triste. O estudo utiliza técnicas de machine learning para prever preferências musicais com base em gênero e traços de personalidade​​(referenciar o artigo de acordo com a ABNT).
+b) Abordagens/Algoritmos Utilizados
+Gaussian Naive Bayes (GNB):
+
+Utilizado no estudo de Bhavani et al., o GNB é adequado para dados contínuos com distribuição Gaussiana. No contexto do estudo, o GNB foi empregado para classificar o efeito da música na saúde mental, resultando em uma acurácia de 68%​​(referenciar o artigo de acordo com a ABNT).
+Support Vector Machine (SVM) e Gaussian Process (GP):
+
+No estudo de Markov e Matsui, ambos os algoritmos foram usados para tarefas de classificação de gênero musical e estimativa de emoções. O GP demonstrou melhor desempenho em comparação ao SVM, destacando sua eficácia em reduzir erros de classificação e melhorar a precisão na estimativa de emoções​​(referenciar o artigo de acordo com a ABNT).
+Análise de Regressão e Classificação (SVM, Naive Bayes):
+
+No estudo de Xu et al., foram utilizadas abordagens de regressão e classificação para prever a preferência por música triste. A análise revelou interações significativas entre características de personalidade e preferências musicais, sendo o SVM um dos métodos mais eficazes para essa tarefa​​(referenciar o artigo de acordo com a ABNT).
+c) Métricas de Avaliação
+Acurácia: Utilizada como métrica principal nos estudos de Bhavani et al. e Markov e Matsui, onde o desempenho dos modelos é avaliado pela porcentagem de previsões corretas. A acurácia varia entre 68% (GNB) a 92.3% (SVM) em diferentes contextos de análise​​(referenciar o artigo de acordo com a ABNT).
+Coeficiente de Determinação: Usado para avaliar a precisão das previsões de emoções musicais no estudo de Markov e Matsui​​(referenciar o artigo de acordo com a ABNT).
+d) Resultados Obtidos
+Bhavani et al.: O estudo concluiu que diferentes gêneros musicais têm impactos variados na saúde mental, com ouvintes de rock, hip-hop e lofi music apresentando maiores níveis de depressão. A acurácia do modelo GNB foi de 68%, enquanto no Rapid Miner a acurácia atingiu 74%​(referenciar o artigo de acordo com a ABNT).
+
+Markov e Matsui: O Gaussian Process superou o SVM em ambas as tarefas de classificação e estimação de emoções, demonstrando uma redução relativa de 13.6% no erro de classificação de gênero musical​(referenciar o artigo de acordo com a ABNT).
+
+Xu et al.: O estudo identificou que homens são mais propensos a preferir música triste, e que as características de extroversão e gênero possuem interações significativas na preferência musical. Essas descobertas podem ser aplicadas para personalizar intervenções musicais em terapias​​(referenciar o artigo de acordo com a ABNT).
+
+3. Discussão Comparativa
+Os estudos revisados demonstram que a música tem um impacto significativo na saúde mental, com diferentes gêneros musicais influenciando de maneira distinta o bem-estar emocional dos indivíduos. As abordagens variam desde o uso de algoritmos clássicos de classificação até modelos mais complexos como o Gaussian Process, cada um com suas vantagens e limitações em termos de precisão e aplicabilidade. Uma tendência comum é a utilização de técnicas de machine learning para identificar padrões e prever o impacto da música na saúde mental, destacando o potencial da musicoterapia como uma intervenção acessível e eficaz.
+
+4. Conclusão do Estado da Arte
+A revisão da literatura sugere que a música, quando usada de forma estratégica, pode ser uma ferramenta poderosa para melhorar a saúde mental. Os estudos analisados oferecem uma base sólida para futuras pesquisas e aplicações no campo da musicoterapia, especialmente em contextos de saúde pública. A integração de técnicas de machine learning com análises de dados musicais proporciona insights valiosos que podem ser utilizados para desenvolver intervenções personalizadas, contribuindo para o avanço da saúde mental global.
+
 # Descrição do _dataset_ selecionado
 
 Nesta seção, você deverá descrever detalhadamente o _dataset_ selecionado. Lembre-se de informar o link de acesso a ele, bem como, de descrever cada um dos seus atributos (a que se refere, tipo do atributo etc.), se existem atributos faltantes etc.
@@ -113,3 +161,5 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 * Eficácia da musicoterapia no tratamento de sintomas de transtornos mentais como ansiedade, depressão, insônia e TOC. <br/>
 **Fonte**: Bradt, Joke, et al. "Music interventions for improving psychological and physical outcomes in cancer patients." Cochrane Database of Systematic Reviews 2016, Issue 8. Art. No.: CD006911. DOI: 10.1002/14651858.CD006911.pub3. <br/>
 **Fonte**: Maratos, Anna, et al. "Music therapy for depression." Cochrane Database of Systematic Reviews 2008, Issue 1. Art. No.: CD004517. DOI: 10.1002/14651858.CD004517.pub2. <br/>
+
+BHAVANI, V.; SRAVANI, K.; SIRIVARSHITHA, A. K.; PRIYA, K. S. Music Classification and Mental Health Analysis using Exploratory Data Analysis. In: 2023 International Conference on Innovative Data Communication Technologies and Application (ICIDCA-2023), Vaddeswaram, AP, India, 2023. p. 555-561. DOI: 10.1109/ICIDCA56705.2023.10099605.
