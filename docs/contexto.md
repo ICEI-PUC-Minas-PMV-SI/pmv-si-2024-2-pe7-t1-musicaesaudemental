@@ -297,11 +297,11 @@ Nesta seção, você deverá estruturar o seu Canvas Analítico. O Canvas Analí
 > **Links Úteis**:
 > - [Padrão ABNT PUC Minas](https://portal.pucminas.br/biblioteca/index_padrao.php?pagina=5886) -->
 
-* Organização Mundial da Saúde (OMS): <br/>
+* Organização Mundial da Saúde (OMS). <br/>
 **Fonte**: World Health Organization (WHO). "Mental health and COVID-19: early evidence of the pandemic’s impact." WHO, 2022. <br/>
 **Disponível em**: [WHO Mental Health.](https://www.who.int/news/item/02-03-2022-covid-19-pandemic-triggers-25-increase-in-prevalence-of-anxiety-and-depression-worldwide) <br/>
 
-* Ministério da Saúde do Brasil: <br/>
+* Ministério da Saúde do Brasil. <br/>
 Estimativa sobre a porcentagem da população adulta brasileira diagnosticada com transtornos mentais comuns, como ansiedade e depressão. <br/>
 **Fonte**: Ministério da Saúde. "Saúde Mental no SUS: As Redes de Atenção Psicossocial." Brasília: Ministério da Saúde, 2013. <br/>
 **Disponível em**: [Ministério da Saúde - Saúde Mental.](https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/saude-mental) <br/>
@@ -310,15 +310,15 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 **Fonte**: Bradt, Joke, et al. "Music interventions for improving psychological and physical outcomes in cancer patients." Cochrane Database of Systematic Reviews 2016, Issue 8. Art. No.: CD006911. DOI: 10.1002/14651858.CD006911.pub3. <br/>
 **Fonte**: Maratos, Anna, et al. "Music therapy for depression." Cochrane Database of Systematic Reviews 2008, Issue 1. Art. No.: CD004517. DOI: 10.1002/14651858.CD004517.pub2. <br/>
 
-* Music Classification and Mental Health Analysis using Exploratory Data Analysis
+* Music Classification and Mental Health Analysis using Exploratory Data Analysis. <br/>
 *Fonte**: BHAVANI, V.; SRAVANI, K.; SIRIVARSHITHA, A. K.; PRIYA, K. S. Music Classification and Mental Health Analysis using Exploratory Data Analysis. In: 2023 International Conference on Innovative Data Communication Technologies and Application (ICIDCA-2023), Vaddeswaram, AP, India, 2023. p. 555-561. DOI: 10.1109/ICIDCA56705.2023.10099605.
 
 * Music Recommendation System Based on Emotion <br/>
 **Fonte**: [Ieeexplore. org](https://ieeexplore.ieee.org/Xplore/home.jsp) <br/>
 **Disponível em**:(https://ieeexplore.ieee.org/document/9579689)
 
-* White noise and sleep induction. Archives of Disease in Childhood <br/>
+* White noise and sleep induction. Archives of Disease in Childhood. <br/>
 **Fonte**: SPENCER, Judith A. D.; MORAN, D. J.; LEE, A.; TALBERT, D. G. Archives of Disease in Childhood, v. 65, n. 1, p. 135-137, 1990. DOI: 10.1136/adc.65.1.135.
 
-* Effects of environmental simulations and music on blood donors <br/>
+* Effects of environmental simulations and music on blood donors. <br/>
 **Fonte** ULRICH, Roger S.; DIMBERG, Lennart A.; DRIVER, Brenda L. physiologic and psychological states. Journal of the American Medical Association, v. 266, n. 5, p. 641-643, 1991. DOI: 10.1001/jama.1991.03470050121036.
