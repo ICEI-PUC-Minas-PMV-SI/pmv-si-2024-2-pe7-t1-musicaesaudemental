@@ -113,6 +113,25 @@ O sistema foi capaz de recomendar músicas com uma precisão que variava entre 7
 
 Esses resultados sugerem que o sistema proposto é eficaz para recomendar músicas baseadas nas emoções do usuário e pode ser integrado em qualquer mecanismo de recomendação de música existente.
 
+O segundo trabalho, "Padrões na preferência musical dos brasileiros sob a ótica do Spotify" busca analisar e compreender os comportamentos e tendências musicais no Brasil a partir dos dados disponíveis na plataforma Spotify.
+
+**1. Contextualização do Problema:**
+O problema central envolve a identificação de padrões e preferências musicais entre os brasileiros, considerando fatores como gênero musical, frequência de reprodução, e temporalidade, a fim de entender como esses padrões variam entre diferentes grupos demográficos.
+
+**2. Características do Dataset Utilizado:**
+O conjunto de dados utilizado é oriundo do Spotify e inclui informações detalhadas sobre faixas de música, gêneros, artistas, datas de reprodução, e dados demográficos dos usuários. Este dataset é volumoso e rico, permitindo análises profundas sobre as preferências musicais ao longo do tempo e entre diferentes grupos de usuários.
+
+**3. Abordagens/Algoritmos Utilizados:**
+Foram utilizados métodos de análise exploratória de dados, segmentação de usuários via clustering (ex: K-means), e algoritmos de machine learning como Regressão Logística e Random Forest para prever padrões de preferência e recomendação musical. Parâmetros como o número de clusters no K-means foram otimizados para maximizar a homogeneidade dentro dos clusters.
+
+**4. Métricas de Avaliação Empregadas**
+As métricas de avaliação incluem a acurácia, precisão, recall e F1-score para avaliar o desempenho dos modelos preditivos. Além disso, a análise de variância (ANOVA) foi usada para testar a significância das diferenças entre os grupos identificados.
+
+**5. Resultados Obtidos**
+Os resultados indicam que certos gêneros musicais têm uma forte associação com determinados grupos demográficos, e que a temporalidade, como o dia da semana e a hora do dia, afeta significativamente os padrões de escuta. Além disso, os modelos preditivos demonstraram bom desempenho em prever as preferências musicais, com as abordagens baseadas em Random Forest obtendo os melhores resultados.
+
+
+
 # Descrição do _dataset_ selecionado 
 
 Nesta seção, você deverá descrever detalhadamente o _dataset_ selecionado. Lembre-se de informar o link de acesso a ele, bem como, de descrever cada um dos seus atributos (a que se refere, tipo do atributo etc.), se existem atributos faltantes etc.
