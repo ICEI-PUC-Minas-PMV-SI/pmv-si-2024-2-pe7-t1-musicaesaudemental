@@ -149,6 +149,37 @@ As métricas de avaliação incluíram principalmente a Escala Hospitalar de Ans
 **5. Resultados Obtidos**
 Os resultados indicam que a musicoterapia tem um efeito positivo significativo na redução dos sintomas de ansiedade e depressão em adultos com transtornos mentais. Os pacientes que participaram das intervenções de musicoterapia apresentaram relaxamento físico e mental, bem como uma redução significativa dos sintomas ansiosos e depressivos, promovendo o bem-estar geral. Quatro dos estudos analisados foram classificados como de alta qualidade metodológica e baixo risco de viés, o que fortalece a validade dos achados. Contudo, a revisão também apontou para a necessidade de mais estudos com amostras maiores e metodologias mais robustas para elucidar completamente os mecanismos subjacentes e potencializar os efeitos benéficos da musicoterapia.
 
+**Robot Assisted Music Therapy: A Case Study with Children Diagnosed with Autism**
+
+O quarto trabalho "Robot Assisted Music Therapy: A Case Study with Children Diagnosed with Autism" busca analisar e compreender os efeitos da terapia musical assistida por robôs em crianças diagnosticadas com autismo. Utilizando o robô NAO durante as sessões de musicoterapia, o estudo incentivou as crianças a imitarem movimentos de dança sincronizados com músicas cuidadosamente selecionadas pelos terapeutas, promovendo uma abordagem inovadora para o desenvolvimento de habilidades sociais e de imitação.
+
+**1. Contextualização do Problema:**
+O problema central busca encontrar maneiras mais eficazes e amigáveis de ajudar crianças com autismo a melhorar sua interação social através de imitação e interação social. Este estudo investiga como a terapia musical, quando combinada com o robô NAO, pode tornar as sessões de musicoterapia mais dinâmicas e engajantes. A ideia é fazer com que o robô incentive as crianças a imitarem movimentos de dança enquanto os terapeutas tocam as músicas que eles escolheram. Isso torna o ambiente de aprendizado mais divertido e motivador. O estudo também procura entender como essa abordagem pode ajudar os terapeutas a trabalhar melhor, permitindo-lhes ver melhor as respostas das crianças e ajustar as intervenções de acordo com as necessidades de cada uma, resultando em um cuidado mais personalizado. 
+
+**2. Características do Dataset Utilizado:**
+O estudo usa um robô NAO para coletar dados de sessões de musicoterapia com quatro crianças com autismo. A análise de vídeo capturou informações comportamentais para o dataset. Essas informações incluem a frequência com que as crianças imitavam os movimentos de dança do robô e a frequência com que os terapeutas intervieram. As sessões de terapia ocorreram por pelo menos seis semanas, e cada uma delas foi registrada para análise. O tipo e a frequência dos movimentos imitados, a quantidade de prompts fornecidos pelos terapeutas, o tempo de resposta das crianças e o contexto das sessões (local e música utilizada) são algumas das características consideradas no dataset. Esses fatores foram utilizados para avaliar o impacto do robô na melhoria das habilidades de imitação e interação social das crianças ao longo do tempo. 
+
+**3. Abordagens/Algoritmos Utilizados:**
+Foram utilizados métodos de análise de comportamento, especificamente a observação da frequência de imitação de movimentos de dança por crianças diagnosticadas com autismo, quando instruídas por um robô NAO durante sessões de musicoterapia. A análise dos dados comportamentais foi feita por meio de vídeos gravados das sessões, avaliando o número de vezes que as crianças imitaram os movimentos do robô e a frequência de intervenções do terapeuta. Não foram mencionados algoritmos de aprendizado de máquina ou técnicas avançadas de clustering. A abordagem focou principalmente na interação humano-robô e na análise qualitativa das respostas das crianças. 
+
+**4. Métricas de Avaliação Empregadas**
+
+Frequência de Imitação: A principal métrica de avaliação utilizada foi a frequência com que as crianças imitavam os movimentos de dança dos robôs durante as sessões de musicoterapia. Ao longo das seis semanas do estudo, essa métrica foi medida em cada sessão. Os resultados mostraram que a imitação dos movimentos aumentou, passando de uma média de 12,5 movimentos na primeira semana para 21,75 na sexta semana. 
+
+Frequência de Intervenções do Terapeuta: Outra métrica importante foi a frequência de intervenções ou prompts dados pelos terapeutas para incentivar a imitação dos movimentos do robô. Essa métrica foi utilizada para avaliar o grau de independência das crianças ao seguir as instruções do robô, com os resultados indicando uma redução nas intervenções de uma média de 43,5 na primeira semana para 28,75 na sexta semana. 
+
+Análise de Concordância entre Avaliadores: Para garantir a confiabilidade na coleta de dados, foi empregada uma métrica de concordância entre dois avaliadores independentes que analisaram os vídeos das sessões. A concordância alcançada foi de 82%, assegurando que a avaliação das imitações e intervenções fosse consistente. 
+
+Evolução Temporal: A análise da evolução temporal das métricas de frequência de imitação e intervenções foi utilizada para avaliar as tendências de melhora ao longo do tempo, oferecendo uma visão longitudinal do progresso das crianças. 
+
+**5. Resultados Obtidos**
+Os resultados do estudo mostraram que a terapia assistida por robôs pode ser uma abordagem eficaz para melhorar a capacidade de imitação em crianças diagnosticadas com autismo. Observou-se que, ao longo de seis semanas de sessões de musicoterapia, houve um aumento significativo na frequência com que as crianças imitavam os movimentos de dança demonstrados pelo robô. No início do estudo, as crianças imitavam uma média de 12,5 movimentos por sessão, e esse número subiu para uma média de 21,75 movimentos na sexta semana. 
+
+Além disso, o estudo revelou uma redução no número de intervenções dos terapeutas à medida que as sessões progrediam. No início, os terapeutas precisavam intervir em média 43,5 vezes por sessão para incentivar as crianças a imitar os movimentos do robô. Esse número diminuiu para uma média de 28,75 intervenções por sessão na última semana do estudo. Isso sugere que o uso do robô não apenas ajudou a aumentar a imitação, mas também permitiu que os terapeutas se concentrassem mais na observação das crianças e menos em guiar diretamente suas ações. 
+
+Os resultados também indicaram que a resposta ao uso do robô variou entre as crianças, mostrando que algumas crianças responderam melhor à terapia do que outras. Isso destaca a importância de adaptar a terapia às necessidades individuais de cada criança. De modo geral, os resultados sugerem que o robô NAO pode ser uma ferramenta valiosa para apoiar o desenvolvimento de habilidades sociais e de imitação em crianças com autismo durante a musicoterapia. 
+
+
 # Descrição do _dataset_ selecionado 
 
 Nesta seção, você deverá descrever detalhadamente o _dataset_ selecionado. Lembre-se de informar o link de acesso a ele, bem como, de descrever cada um dos seus atributos (a que se refere, tipo do atributo etc.), se existem atributos faltantes etc.
