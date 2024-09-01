@@ -90,54 +90,22 @@ Este estado da arte tem como objetivo revisar e analisar as abordagens mais rele
 Essa revisão permitirá não apenas compreender as metodologias existentes, mas também identificar lacunas e oportunidades para futuras pesquisas, especialmente no desenvolvimento de modelos preditivos que possam ser aplicados na musicoterapia, visando melhorar a saúde mental de forma personalizada e eficaz.
 
 Analisando o artigo "Music Classification and Mental Health Analysis using Exploratory Data Analysis" temos os seguintes resultados: <br/>
+
 1. Contextualização do Problema <br/>
-O impacto da música na saúde mental tem sido amplamente explorado como uma alternativa terapêutica, especialmente em tempos de crise, como a pandemia de COVID-19, onde a música serviu como um refúgio emocional. No estudo de Bhavani et al., o objetivo principal é explorar a relação entre diferentes gêneros musicais e condições de saúde mental, como ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC)​(referenciar o artigo de acordo com a ABNT). O estudo utiliza a Análise Exploratória de Dados (EDA) e algoritmos de classificação para prever como os diferentes tipos de música podem influenciar o bem-estar mental dos indivíduos. <br/>
+O estudo aborda a relação entre o consumo de diferentes gêneros musicais e seus impactos na saúde mental, com foco em condições como ansiedade, depressão, insônia e transtorno obsessivo-compulsivo (TOC). O problema é contextualizado a partir do entendimento de que a música pode influenciar emoções humanas e, por consequência, a saúde mental. O objetivo principal é analisar como diferentes tipos de música podem afetar essas condições, possivelmente auxiliando no tratamento ou compreensão dos estados mentais dos indivíduos.(BHAVANI et al., 2023) <br/>
 
-2. Revisão de Trabalhos Relacionados <br/>
-**2.1 Características dos Datasets Utilizados** <br/>
-2.1.1. Estudo de Bhavani et al. (2023): <br/>
+2. Características do Dataset Utilizado <br/>
 
-* Dataset: Inclui 736 registros e 33 colunas, com dados coletados via formulários online distribuídos em várias plataformas sociais. As variáveis incluem dados demográficos, preferências musicais e autoavaliações de condições de saúde mental como ansiedade e depressão​​(referenciar o artigo de acordo com a ABNT). <br/>
-* Pré-processamento: Limpeza dos dados para remover valores nulos e outliers, utilizando média e moda para imputação. <br/>
+O dataset foi coletado através de um formulário do Google, distribuído por redes sociais, servidores de Discord e diversos sites no Reddit. Ele contém 736 registros e 33 colunas, sem restrições de idade ou localização dos respondentes. As colunas incluem variáveis como idade, gênero musical preferido, horas diárias de música ouvidas, e severidade de condições mentais (medida em uma escala de 0 a 10 para ansiedade, depressão, insônia e TOC). Antes de ser utilizado na análise, o dataset foi pré-processado para remover valores nulos, outliers, e observações irrelevantes.(BHAVANI et al., 2023)​ <br/>
 
-2.1.2. Markov e Matsui (2014): <br/>
+3.  Abordagens/Algoritmos Utilizados: <br/>
+O estudo utilizou a análise exploratória de dados (EDA) como principal abordagem para identificar padrões e correlações no dataset. Além disso, o algoritmo de classificação Gaussian Naive Bayes foi aplicado para prever como diferentes gêneros musicais afetam a saúde mental. Este algoritmo é escolhido devido à sua adequação para dados contínuos, assumindo que cada parâmetro pode prever o resultado de forma independente. Os passos incluem a divisão do dataset em componentes de treino e teste, e a aplicação do Gaussian Naive Bayes para modelar as predições.(BHAVANI et al., 2023) <br/>
 
-* Dataset: Dois datasets de tamanho comparável, utilizados para classificação de gêneros musicais e estimativa de emoções. A análise comparou o desempenho dos algoritmos de Support Vector Machine (SVM) e Gaussian Process (GP), sendo o GP mais eficaz em termos de redução de erros e aumento da precisão​​(referenciar o artigo de acordo com a ABNT). <br/>
+4. Métricas de Avaliação Empregadas <br/>
+A principal métrica utilizada para avaliar o desempenho do modelo foi a acurácia, que reflete a proporção de predições corretas feitas pelo modelo. No estudo, a acurácia alcançada pelo modelo Gaussian Naive Bayes foi de 68,2% utilizando Python, e 74% ao utilizar o software RapidMiner, que é capaz de lidar com grandes volumes de dados e oferece pacotes integrados e configuráveis para análise.(BHAVANI et al., 2023) <br/>
 
-2.1.3. Xu et al. (2021): <br/>
-
-* Dataset: Dados coletados de experimentos psicológicos, envolvendo características de personalidade e preferências por música triste. O estudo utiliza técnicas de machine learning para prever preferências musicais com base em gênero e traços de personalidade​​(referenciar o artigo de acordo com a ABNT). <br/>
-
-**2.2 Abordagens/Algoritmos Utilizados** <br/>
-2.2.1 Gaussian Naive Bayes (GNB): <br/>
-
-Utilizado no estudo de Bhavani et al., o GNB é adequado para dados contínuos com distribuição Gaussiana. No contexto do estudo, o GNB foi empregado para classificar o efeito da música na saúde mental, resultando em uma acurácia de 68%​​(referenciar o artigo de acordo com a ABNT). <br/>
-
-2.2.2. Support Vector Machine (SVM) e Gaussian Process (GP):  <br/>
-
-No estudo de Markov e Matsui, ambos os algoritmos foram usados para tarefas de classificação de gênero musical e estimativa de emoções. O GP demonstrou melhor desempenho em comparação ao SVM, destacando sua eficácia em reduzir erros de classificação e melhorar a precisão na estimativa de emoções​​(referenciar o artigo de acordo com a ABNT). <br/>
-
-2.2.3. Análise de Regressão e Classificação (SVM, Naive Bayes):  <br/>
-
-No estudo de Xu et al., foram utilizadas abordagens de regressão e classificação para prever a preferência por música triste. A análise revelou interações significativas entre características de personalidade e preferências musicais, sendo o SVM um dos métodos mais eficazes para essa tarefa​​(referenciar o artigo de acordo com a ABNT). <br/>
- 
-2.3.1 Métricas de Avaliação  <br/>
-**Acurácia**: Utilizada como métrica principal nos estudos de Bhavani et al. e Markov e Matsui, onde o desempenho dos modelos é avaliado pela porcentagem de previsões corretas. A acurácia varia entre 68% (GNB) a 92.3% (SVM) em diferentes contextos de análise​​(referenciar o artigo de acordo com a ABNT). <br/>
-
-**Coeficiente de Determinação**: Usado para avaliar a precisão das previsões de emoções musicais no estudo de Markov e Matsui​​(referenciar o artigo de acordo com a ABNT). <br/>
-
-2.4.1 Resultados Obtidos <br/>
-Bhavani et al.: O estudo concluiu que diferentes gêneros musicais têm impactos variados na saúde mental, com ouvintes de rock, hip-hop e lofi music apresentando maiores níveis de depressão. A acurácia do modelo GNB foi de 68%, enquanto no Rapid Miner a acurácia atingiu 74%​(referenciar o artigo de acordo com a ABNT). <br/>
-
-Markov e Matsui: O Gaussian Process superou o SVM em ambas as tarefas de classificação e estimação de emoções, demonstrando uma redução relativa de 13.6% no erro de classificação de gênero musical​(referenciar o artigo de acordo com a ABNT). <br/>
-
-Xu et al.: O estudo identificou que homens são mais propensos a preferir música triste, e que as características de extroversão e gênero possuem interações significativas na preferência musical. Essas descobertas podem ser aplicadas para personalizar intervenções musicais em terapias​​(referenciar o artigo de acordo com a ABNT). <br/>
-
-3. Discussão Comparativa <br/>
-Os estudos revisados demonstram que a música tem um impacto significativo na saúde mental, com diferentes gêneros musicais influenciando de maneira distinta o bem-estar emocional dos indivíduos. As abordagens variam desde o uso de algoritmos clássicos de classificação até modelos mais complexos como o Gaussian Process, cada um com suas vantagens e limitações em termos de precisão e aplicabilidade. Uma tendência comum é a utilização de técnicas de machine learning para identificar padrões e prever o impacto da música na saúde mental, destacando o potencial da musicoterapia como uma intervenção acessível e eficaz. <br/>
-
-4. Conclusão do Estado da Arte <br/>
-A revisão da literatura sugere que a música, quando usada de forma estratégica, pode ser uma ferramenta poderosa para melhorar a saúde mental. Os estudos analisados oferecem uma base sólida para futuras pesquisas e aplicações no campo da musicoterapia, especialmente em contextos de saúde pública. A integração de técnicas de machine learning com análises de dados musicais proporciona insights valiosos que podem ser utilizados para desenvolver intervenções personalizadas, contribuindo para o avanço da saúde mental global. <br/>
+5. Resultados Obtidos <br/>
+Os resultados indicam que o consumo de música está correlacionado com diferentes níveis de condições mentais. Por exemplo, indivíduos que escutam gêneros como rock, jazz, K-pop, hip-hop, e pop apresentam níveis mais altos de ansiedade. Já a insônia é menos prevalente entre ouvintes de metal, lofi e gospel. Além disso, a maioria dos ouvintes de rap e lofi tem níveis de TOC mais elevados, e gêneros como rock, hip-hop e lofi estão associados a níveis mais altos de depressão. A acurácia obtida sugere que o modelo é razoavelmente eficaz na previsão dos efeitos da música sobre a saúde mental, embora haja espaço para melhorias com a adição de mais dados e variáveis demográficas. (BHAVANI et al., 2023) <br/>
 
 # Descrição do _dataset_ selecionado 
 
