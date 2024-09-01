@@ -95,7 +95,6 @@ Analisando o artigo "Music Classification and Mental Health Analysis using Explo
 O estudo aborda a relação entre o consumo de diferentes gêneros musicais e seus impactos na saúde mental, com foco em condições como ansiedade, depressão, insônia e transtorno obsessivo-compulsivo (TOC). O problema é contextualizado a partir do entendimento de que a música pode influenciar emoções humanas e, por consequência, a saúde mental. O objetivo principal é analisar como diferentes tipos de música podem afetar essas condições, possivelmente auxiliando no tratamento ou compreensão dos estados mentais dos indivíduos.(BHAVANI et al., 2023) <br/>
 
 2. Características do Dataset Utilizado <br/>
-
 O dataset foi coletado através de um formulário do Google, distribuído por redes sociais, servidores de Discord e diversos sites no Reddit. Ele contém 736 registros e 33 colunas, sem restrições de idade ou localização dos respondentes. As colunas incluem variáveis como idade, gênero musical preferido, horas diárias de música ouvidas, e severidade de condições mentais (medida em uma escala de 0 a 10 para ansiedade, depressão, insônia e TOC). Antes de ser utilizado na análise, o dataset foi pré-processado para remover valores nulos, outliers, e observações irrelevantes.(BHAVANI et al., 2023)​ <br/>
 
 3.  Abordagens/Algoritmos Utilizados: <br/>
