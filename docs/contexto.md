@@ -179,6 +179,26 @@ Além disso, o estudo revelou uma redução no número de intervenções dos ter
 
 Os resultados também indicaram que a resposta ao uso do robô variou entre as crianças, mostrando que algumas crianças responderam melhor à terapia do que outras. Isso destaca a importância de adaptar a terapia às necessidades individuais de cada criança. De modo geral, os resultados sugerem que o robô NAO pode ser uma ferramenta valiosa para apoiar o desenvolvimento de habilidades sociais e de imitação em crianças com autismo durante a musicoterapia. 
 
+**Make Your Favorite Music Curative: Music Style Transfer for Anxiety Reduction**
+
+O quinto estudo tem como premissa transformar a música que as pessoas ouvem no dia-a-dia em música terapêutica, o que faz com que seja uma forma de musicoterapia, porém de forma bem mais simples, na qual uma pessoa que já ouve muitas horas de música no dia teria bastante facilidade de incorporar na sua rotina.
+
+**1. Contextualização do Problema:**
+Nos últimos anos, cada vez mais o tema saúde mental vem recebendo atenção quando se fala em saúde, onde em 2017, 300 milhões de pessoas foram afetadas com sintomas de ansiedade (OMS, 2017). Para auxiliar nessa questão, a música é uma das utilizadas ajudar as pessoas nessa jornada, e com base nessa premissa, o estudo foca em utilizar as músicas favoritas das pessoas que participaram, e transforma-las em músicas focadas no tratamento de doenças mentais.	
+
+**2. Características do Dataset Utilizado:**
+O dataset utilizado consiste em dados de músicas que o usuário gosta e dados de músicas terapêuticas as quais foram escolhidas por terapeutas.
+
+**3. Abordagens/Algoritmos Utilizados:**
+Primeiro, foi feito um algoritmo para verificar quão parecido/diferente é cada gênero musical através de um algoritmo que consegue pegar traços marcantes de cada gênero musical. Depois foi feito um teste para ver quão rápido foi executado todo o processo de conversão de música em música terapêutica, e o resultado obtido nesse teste é que o modelo proposto foi feito em um período razoável, apesar de alguns resultados terem ficado com ruídos ao invés de sair como uma música. A última avaliação do modelo proposto, foi o teste com pessoas, na qual durante quatro dias elas ouviriam ou suas músicas preferidas, ou música terapêutica, ou a música gerada pelo modelo, ou não ouviriam nenhuma para controle dos testes, e após a sessão de música, iriam responder um questionário.
+
+**4. Métricas de Avaliação Empregadas**
+Para os testes de performance do modelo, foram utilizados algoritmos de transformação de imagem para conseguirem comparar o quão eficiente estava o modelo, e no teste com pessoas, utilizaram o State Train Anxiety Inventory(STAI, Form Y Version) para medir os resultados do dia de teste após ouvirem as músicas
+
+**5. Resultados Obtidos**
+Após a apuração da última etapa de testes, foi relatado que as pessoas se sentem constantemente melhores dos sintomas da ansiedade após ouvirem músicas transformadas pelo modelo, e também pelas músicas terapêutica, e apesar dos bons resultados, esse é apenas o primeiro estudo direcionado a transformação de música para música de terapia e há muito espaço para algoritmos e modelos de deep learning para melhores resultados futuramente.
+
+
 
 # Descrição do _dataset_ selecionado 
 
@@ -342,6 +362,8 @@ Nesta seção, você deverá estruturar o seu Canvas Analítico. O Canvas Analí
 > - [Padrão ABNT PUC Minas](https://portal.pucminas.br/biblioteca/index_padrao.php?pagina=5886) -->
 
 * Organização Mundial da Saúde (OMS). <br/>
+**Fonte**: World Health Organization (WHO). "Depression and Other Common Mental Disorders: global health estimates" WHO, 2017. <br/>
+**Disponível em**: [WHO Mental Health.]https://www.who.int/publications/i/item/depression-global-health-estimates<br/>
 **Fonte**: World Health Organization (WHO). "Mental health and COVID-19: early evidence of the pandemic’s impact." WHO, 2022. <br/>
 **Disponível em**: [WHO Mental Health.](https://www.who.int/news/item/02-03-2022-covid-19-pandemic-triggers-25-increase-in-prevalence-of-anxiety-and-depression-worldwide) <br/>
 
