@@ -121,136 +121,136 @@ Link para acesso do Dataset escolhido:
 https://kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results?select=mxmh_survey_results.csv
 
 
-# 1. Timestamp:
-Descrição: Data e hora em que a entrada foi registrada.
+**1.Timestamp:** 
+Descrição: Data e hora em que a entrada foi registrada.<br/>
 Tipo: object (Texto, mas deve ser convertido para datetime para análises de tempo).
 
-# 2. Age:
-Descrição: Idade do participante.
+**2. Age:**
+Descrição: Idade do participante.<br/>
 Tipo: object (Texto, mas deve ser convertido para int).
 
-# 3. Primary streaming service:
-Descrição: Serviço de streaming de música mais utilizado pelo participante (e.g., Spotify, YouTube Music).
+**3. Primary streaming service:**
+Descrição: Serviço de streaming de música mais utilizado pelo participante (e.g., Spotify, YouTube Music).<br/>
 Tipo: object (Texto).
 
-# 4. Hours per day:
-Descrição: Quantidade de horas diárias que o participante ouve música.
+**4. Hours per day:**
+Descrição: Quantidade de horas diárias que o participante ouve música.<br/>
 Tipo: object (Texto, mas deve ser convertido para float).
 
-# 5. While working:
-Descrição: Se o participante ouve música enquanto trabalha (Sim/Não).
+**5. While working:**
+Descrição: Se o participante ouve música enquanto trabalha (Sim/Não).<br/>
 Tipo: object (Texto).
 
-# 6. Instrumentalist:
-Descrição: Se o participante toca algum instrumento (Sim/Não).
+**6. Instrumentalist:**
+Descrição: Se o participante toca algum instrumento (Sim/Não).<br/>
 Tipo: object (Texto).
 
-# 7. Composer:
-Descrição: Se o participante compõe música (Sim/Não).
+**7. Composer:**
+Descrição: Se o participante compõe música (Sim/Não).<br/>
 Tipo: object (Texto).
 
-# 8. Fav genre:
-Descrição: Gênero musical favorito do participante.
+**8. Fav genre:**
+Descrição: Gênero musical favorito do participante.<br/>
 Tipo: object (Texto).
 
-# 9. Exploratory:
-Descrição: Se o participante gosta de explorar novos gêneros musicais (Sim/Não).
+**9. Exploratory:**
+Descrição: Se o participante gosta de explorar novos gêneros musicais (Sim/Não).<br/>
 Tipo: object (Texto).
 
-# 10. Foreign languages:
-Descrição: Se o participante ouve músicas em línguas estrangeiras (Sim/Não).
+**10. Foreign languages:**
+Descrição: Se o participante ouve músicas em línguas estrangeiras (Sim/Não).<br/>
 Tipo: object (Texto).
 
-# 11. BPM:
-Descrição: Batidas por minuto (BPM) preferidas nas músicas que o participante ouve.
+**11. BPM:**
+Descrição: Batidas por minuto (BPM) preferidas nas músicas que o participante ouve.<br/>
 Tipo: object (Texto, mas deve ser convertido para int).
 
-# 12. Frequency [Classical]:
-Descrição: Frequência com que o participante ouve música clássica.
+**12. Frequency [Classical]:**
+Descrição: Frequência com que o participante ouve música clássica.<br/>
 Tipo: object (Texto).
 
-# 13. Frequency [Country]:
-Descrição: Frequência com que o participante ouve música country.
+**13. Frequency [Country]:**
+Descrição: Frequência com que o participante ouve música country.<br/>
 Tipo: object (Texto).
 
-# 14. Frequency [EDM]:
-Descrição: Frequência com que o participante ouve música eletrônica (EDM).
+**14. Frequency [EDM]:**
+Descrição: Frequência com que o participante ouve música eletrônica (EDM).<br/>
 Tipo: object (Texto).
 
-# 15. Frequency [Folk]:
-Descrição: Frequência com que o participante ouve música folk.
+**15. Frequency [Folk]:**
+Descrição: Frequência com que o participante ouve música folk.<br/>
 Tipo: object (Texto).
 
-# 16. Frequency [Gospel]:
-Descrição: Frequência com que o participante ouve música gospel.
+**16. Frequency [Gospel]:**
+Descrição: Frequência com que o participante ouve música gospel.<br/>
 Tipo: object (Texto).
 
-# 17. Frequency [Hip hop]:
-Descrição: Frequência com que o participante ouve hip hop.
+**17. Frequency [Hip hop]:**
+Descrição: Frequência com que o participante ouve hip hop.<br/>
 Tipo: object (Texto).
 
-# 18. Frequency [Jazz]:
-Descrição: Frequência com que o participante ouve jazz.
+**18. Frequency [Jazz]:**
+Descrição: Frequência com que o participante ouve jazz.<br/>
 Tipo: object (Texto).
 
-# 19. Frequency [K pop]:
-Descrição: Frequência com que o participante ouve K-pop.
+**19. Frequency [K pop]:**
+Descrição: Frequência com que o participante ouve K-pop.<br/>
 Tipo: object (Texto).
 
-# 20. Frequency [Latin]:
-Descrição: Frequência com que o participante ouve música latina.
+**20. Frequency [Latin]:**
+Descrição: Frequência com que o participante ouve música latina.<br/>
 Tipo: object (Texto).
 
-# 21. Frequency [Lofi]:
-Descrição: Frequência com que o participante ouve música lofi.
+**21. Frequency [Lofi]:**
+Descrição: Frequência com que o participante ouve música lofi.<br/>
 Tipo: object (Texto).
 
-# 22. Frequency [Metal]:
-Descrição: Frequência com que o participante ouve música metal.
+**22. Frequency [Metal]:**
+Descrição: Frequência com que o participante ouve música metal.<br/>
 Tipo: object (Texto).
 
-# 23. Frequency [Pop]:
-Descrição: Frequência com que o participante ouve música pop.
+**23. Frequency [Pop]:**
+Descrição: Frequência com que o participante ouve música pop.<br/>
 Tipo: object (Texto).
 
-# 24. Frequency [R&B]:
-Descrição: Frequência com que o participante ouve R&B.
+**24. Frequency [R&B]:**
+Descrição: Frequência com que o participante ouve R&B.<br/>
 Tipo: object (Texto).
 
-# 25. Frequency [Rap]:
-Descrição: Frequência com que o participante ouve rap.
+**25. Frequency [Rap]:**
+Descrição: Frequência com que o participante ouve rap.<br/>
 Tipo: object (Texto).
 
-# 26. Frequency [Rock]:
-Descrição: Frequência com que o participante ouve rock.
+**26. Frequency [Rock]:**
+Descrição: Frequência com que o participante ouve rock.<br/>
 Tipo: object (Texto).
 
-# 27. Frequency [Video game music]:
-Descrição: Frequência com que o participante ouve músicas de jogos eletrônicos.
+**27. Frequency [Video game music]:**
+Descrição: Frequência com que o participante ouve músicas de jogos eletrônicos.<br/>
 Tipo: object (Texto).
 
-# 28. Anxiety:
-Descrição: Nível de ansiedade do participante (escala de 0 a 10).
+**28. Anxiety:**
+Descrição: Nível de ansiedade do participante (escala de 0 a 10).<br/>
 Tipo: object (Texto, mas deve ser convertido para int).
 
-# 29. Depression:
-Descrição: Nível de depressão do participante (escala de 0 a 10).
+**29. Depression:**
+Descrição: Nível de depressão do participante (escala de 0 a 10).<br/>
 Tipo: object (Texto, mas deve ser convertido para int).
 
-# 30. Insomnia:
-Descrição: Nível de insônia do participante (escala de 0 a 10).
+**30. Insomnia:**
+Descrição: Nível de insônia do participante (escala de 0 a 10).<br/>
 Tipo: object (Texto, mas deve ser convertido para int).
 
-# 31. OCD:
-Descrição: Nível de Transtorno Obsessivo-Compulsivo (OCD) do participante (escala de 0 a 10).
+**31. OCD:**
+Descrição: Nível de Transtorno Obsessivo-Compulsivo (OCD) do participante (escala de 0 a 10).<br/>
 Tipo: object (Texto, mas deve ser convertido para int).
 
-# 32. Music effects:
-Descrição: Efeitos percebidos da música na saúde mental do participante (e.g., Improve, Worsen, No effect).
+**32. Music effects:**
+Descrição: Efeitos percebidos da música na saúde mental do participante (e.g., Improve, Worsen, No effect).<br/>
 Tipo: object (Texto).
 
-# 33. Permissions:
-Descrição: Consentimento do participante para o uso dos dados.
+**33. Permissions:**
+Descrição: Consentimento do participante para o uso dos dados.<br/>
 Tipo: object (Texto).
 
 # Canvas analítico
