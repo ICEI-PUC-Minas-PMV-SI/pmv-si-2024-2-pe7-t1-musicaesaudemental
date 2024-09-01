@@ -314,5 +314,5 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 *Fonte**: BHAVANI, V.; SRAVANI, K.; SIRIVARSHITHA, A. K.; PRIYA, K. S. Music Classification and Mental Health Analysis using Exploratory Data Analysis. In: 2023 International Conference on Innovative Data Communication Technologies and Application (ICIDCA-2023), Vaddeswaram, AP, India, 2023. p. 555-561. DOI: 10.1109/ICIDCA56705.2023.10099605.
 
 * Music Recommendation System Based on Emotion <br/>
-**Fonte**: [Ieeexplore. org](https://ieeexplore.ieee.org/Xplore/home.jsp)
+**Fonte**: [Ieeexplore. org](https://ieeexplore.ieee.org/Xplore/home.jsp) <br/>
 **Disponível em**:(https://ieeexplore.ieee.org/document/9579689)
