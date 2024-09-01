@@ -316,3 +316,9 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 * Music Recommendation System Based on Emotion <br/>
 **Fonte**: [Ieeexplore. org](https://ieeexplore.ieee.org/Xplore/home.jsp) <br/>
 **Disponível em**:(https://ieeexplore.ieee.org/document/9579689)
+
+* White noise and sleep induction. Archives of Disease in Childhood <br/>
+**Fonte**: SPENCER, Judith A. D.; MORAN, D. J.; LEE, A.; TALBERT, D. G. Archives of Disease in Childhood, v. 65, n. 1, p. 135-137, 1990. DOI: 10.1136/adc.65.1.135.
+
+* Effects of environmental simulations and music on blood donors <br/>
+**Fonte** ULRICH, Roger S.; DIMBERG, Lennart A.; DRIVER, Brenda L. physiologic and psychological states. Journal of the American Medical Association, v. 266, n. 5, p. 641-643, 1991. DOI: 10.1001/jama.1991.03470050121036.
