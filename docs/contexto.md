@@ -113,6 +113,8 @@ O sistema foi capaz de recomendar músicas com uma precisão que variava entre 7
 
 Esses resultados sugerem que o sistema proposto é eficaz para recomendar músicas baseadas nas emoções do usuário e pode ser integrado em qualquer mecanismo de recomendação de música existente.
 
+**Padrões na preferência musical dos brasileiros sob a ótica do Spotify**
+
 O segundo trabalho, "Padrões na preferência musical dos brasileiros sob a ótica do Spotify" busca analisar e compreender os comportamentos e tendências musicais no Brasil a partir dos dados disponíveis na plataforma Spotify.
 
 **1. Contextualização do Problema:**
