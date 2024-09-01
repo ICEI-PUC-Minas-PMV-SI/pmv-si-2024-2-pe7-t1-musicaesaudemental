@@ -26,7 +26,7 @@ Portanto, trazer a música para a rotina diária pode ser uma maneira acessível
 ## Questão de pesquisa
 
 Dado todos esses pontos em como a música pode vem sendo benéfica nos ultimos anos e como ela pode afetar na saúde mental, surge a questão do rumo que esta pesquisa tomará e o que iremos apresentar frente a todos os dados presentes no dataset. A pergunta em questão é: 
-<br/><br/>"O quão efetivo cada genero musical é no tratamento dos sintomas de doenças mentais?"<br/><br/> 
+<br/><br/>"O quão efetivo cada genero musical é na redução dos sintomas de depressão, ansiedade, insônia e TOC?"<br/><br/> 
 Respondendo essa pergunta, um modelo conseguirá receber, analisar e sugerir genêros no qual as pessoas, que participaram do dataset, sentiram que a música melhorou a saúde mental.
 ## Objetivos preliminares  
 
