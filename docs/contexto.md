@@ -4,7 +4,7 @@
 
 A saúde mental é um componente essencial para o bem-estar do ser humano, influenciando profundamente aspectos físicos, sociais e emocionais da vida. 
 
-No cenário global atual, a prevalência de transtornos mentais tem se tornado uma questão alarmante, especialmente após os impactos da pandemia de COVID-19. Segundo a Organização Mundial da Saúde (OMS), no Brasil, estima-se que 9,3% da população adulta enfrente desafios relacionados à saúde mental, como ansiedade e depressão.
+No cenário global atual, a prevalência de transtornos mentais tem se tornado uma questão alarmante, especialmente após os impactos da pandemia de COVID-19. Segundo a Organização Mundial da Saúde (OMS), no Brasil, estima-se que 9,3% da população adulta enfrente desafios relacionados à saúde mental, como ansiedade e depressão. (BRASIL, 2013, p. 25).
 
 Diante deste panorama, há uma crescente demanda por alternativas aos tratamentos convencionais, que muitas vezes se concentram em abordagens farmacológicas. A busca por soluções complementares, que sejam acessíveis e minimamente invasivas, é uma prioridade para profissionais de saúde e pesquisadores. 
 
@@ -105,6 +105,36 @@ A principal métrica utilizada para avaliar o desempenho do modelo foi a acurác
 
 5. Resultados Obtidos <br/>
 Os resultados indicam que o consumo de música está correlacionado com diferentes níveis de condições mentais. Por exemplo, indivíduos que escutam gêneros como rock, jazz, K-pop, hip-hop, e pop apresentam níveis mais altos de ansiedade. Já a insônia é menos prevalente entre ouvintes de metal, lofi e gospel. Além disso, a maioria dos ouvintes de rap e lofi tem níveis de TOC mais elevados, e gêneros como rock, hip-hop e lofi estão associados a níveis mais altos de depressão. A acurácia obtida sugere que o modelo é razoavelmente eficaz na previsão dos efeitos da música sobre a saúde mental, embora haja espaço para melhorias com a adição de mais dados e variáveis demográficas. (BHAVANI et al., 2023) <br/>
+
+O segundo trabalho utilizado como referência, descreve um sistema de recomendação de músicas baseado em emoções, desenvolvido em resposta ao aumento de distúrbios emocionais durante a pandemia de COVID-19. O sistema utiliza algoritmos como Random Forest e XGBoost para classificar emoções de músicas e recomendar faixas que se alinhem com o estado emocional do usuário. Os dados incluem características de áudio do Spotify e letras de músicas, com uma precisão de até 85% nas recomendações.
+
+1. Contextualização do Problema: <br/>
+O problema abordado é a necessidade de um sistema de recomendação de músicas baseado em emoções, especialmente devido ao impacto da pandemia de COVID-19, que levou a um aumento nos distúrbios de humor, como depressão e ansiedade. A música é vista como um potencial companheiro empático para ajudar as pessoas durante esses tempos difíceis, e o sistema proposto utiliza a emoção do usuário como entrada para recomendar músicas que se alinhem com seu estado emocional.
+
+2. Características do Dataset Utilizado:<br/>
+O sistema utiliza um conjunto de dados de emoções, extraído de um projeto open-source no GitHub, combinado com o Spotify Dataset, que contém recursos de áudio de músicas lançadas entre 1922 e 2021. Além disso, utiliza o Million Song Dataset, um conjunto de dados de características e metadados de músicas. As características consideradas incluem 'valance', 'acousticness', 'danceability', 'energy', 'instrumentalness', 'loudness', e 'speechiness'.
+
+3. Abordagens/Algoritmos Utilizados: <br/>
+Random Forest: Utilizado para o treinamento inicial, com o número de árvores (n_estimators) fixado em 20 e o critério de divisão como "Gini".<br/>
+
+XGBoost: Utilizado para classificar as emoções das músicas. Parâmetros incluíram learning_rates (0.1, 0.2, 0.5), max_depth (5, 10, 15), n_estimators (150, 250, 300), e min_child_weight (3, 5, 10).<br/>
+
+K-Means Clustering: Foi também utilizado para comparar o desempenho de modelos supervisionados e não supervisionados.<br/>
+
+TF-IDF (Term Frequency-Inverse Document Frequency): Usado para processar as letras das músicas e gerar uma matriz de similaridade para melhorar as recomendações.
+
+4. Métricas de Avaliação Empregadas <br/>
+
+As métricas utilizadas para avaliar o desempenho do sistema de recomendação de músicas baseado em emoções incluem:
+
+Acurácia: A acurácia foi a principal métrica de avaliação mencionada, que variou entre 77% e 85% para os modelos de classificação utilizados (Random Forest e XGBoost). A acurácia mede a proporção de predições corretas feitas pelo modelo em relação ao total de predições.
+
+Matriz de Confusão: Embora não seja explicitamente detalhado no trecho fornecido, a matriz de confusão é mencionada como uma ferramenta utilizada para avaliar o desempenho dos modelos de classificação. A matriz de confusão permite uma análise mais detalhada das predições corretas e incorretas, mostrando o número de verdadeiros positivos, verdadeiros negativos, falsos positivos e falsos negativos.
+
+5. Resultados Obtidos <br/>
+O sistema foi capaz de recomendar músicas com uma precisão que variava entre 77% e 85%. As recomendações foram baseadas tanto nas emoções identificadas nas músicas quanto na similaridade lírica. O sistema conseguiu identificar emoções com um bom nível de precisão, e os resultados observacionais indicaram que as recomendações baseadas em emoção proporcionaram uma experiência mais satisfatória para os usuários.
+
+Esses resultados sugerem que o sistema proposto é eficaz para recomendar músicas baseadas nas emoções do usuário e pode ser integrado em qualquer mecanismo de recomendação de música existente.
 
 # Descrição do _dataset_ selecionado 
 
@@ -282,3 +312,7 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 
 * Music Classification and Mental Health Analysis using Exploratory Data Analysis
 *Fonte**: BHAVANI, V.; SRAVANI, K.; SIRIVARSHITHA, A. K.; PRIYA, K. S. Music Classification and Mental Health Analysis using Exploratory Data Analysis. In: 2023 International Conference on Innovative Data Communication Technologies and Application (ICIDCA-2023), Vaddeswaram, AP, India, 2023. p. 555-561. DOI: 10.1109/ICIDCA56705.2023.10099605.
+
+* Music Recommendation System Based on Emotion <br/>
+**Fonte**: [Ieeexplore. org](https://ieeexplore.ieee.org/Xplore/home.jsp)
+**Disponível em**:(https://ieeexplore.ieee.org/document/9579689)
