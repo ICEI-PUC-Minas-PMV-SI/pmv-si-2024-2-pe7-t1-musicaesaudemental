@@ -144,7 +144,7 @@ O dataset escolhido possui 736 entradas armazenadas, todas em uma única string,
 
 De modo resumido, o dataset possui um total de 736 registros, 33 atributos.
 
-As colunas Age, Primary streaming service, While working, Instrumentalist, Composer, Foreign languages, BPM, Music effects, possui alguns dados faltantes. 
+As colunas Age, Primary streaming service, While working, Instrumentalist, Composer, Foreign languages, BPM, Music effects, possuem alguns dados faltantes. 
 
 Link para acesso do Dataset escolhido:
 
