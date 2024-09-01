@@ -83,30 +83,7 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 > - [Science Direct](https://www.sciencedirect.com/)
 > - [ACM Digital Library](https://dl.acm.org/)
 
-A investigação sobre o impacto da música na saúde mental tem se mostrado uma área promissora, especialmente como uma alternativa terapêutica complementar às abordagens tradicionais. O uso da música, particularmente durante períodos de estresse e isolamento social, como os vividos durante a pandemia de COVID-19, tem se destacado por proporcionar benefícios significativos ao bem-estar emocional e mental. Com o aumento do interesse por terapias não invasivas e de fácil acesso, a música emergiu como um meio eficaz de intervenção.
-
-Este estado da arte tem como objetivo revisar e analisar as abordagens mais relevantes presentes na literatura recente, focando em cinco estudos que exploram a relação entre o consumo de diferentes gêneros musicais e a saúde mental.
-
-Essa revisão permitirá não apenas compreender as metodologias existentes, mas também identificar lacunas e oportunidades para futuras pesquisas, especialmente no desenvolvimento de modelos preditivos que possam ser aplicados na musicoterapia, visando melhorar a saúde mental de forma personalizada e eficaz.
-
-Analisando o artigo "Music Classification and Mental Health Analysis using Exploratory Data Analysis" temos os seguintes resultados: <br/>
-
-1. Contextualização do Problema <br/>
-O estudo aborda a relação entre o consumo de diferentes gêneros musicais e seus impactos na saúde mental, com foco em condições como ansiedade, depressão, insônia e transtorno obsessivo-compulsivo (TOC). O problema é contextualizado a partir do entendimento de que a música pode influenciar emoções humanas e, por consequência, a saúde mental. O objetivo principal é analisar como diferentes tipos de música podem afetar essas condições, possivelmente auxiliando no tratamento ou compreensão dos estados mentais dos indivíduos.(BHAVANI et al., 2023) <br/>
-
-2. Características do Dataset Utilizado <br/>
-O dataset foi coletado através de um formulário do Google, distribuído por redes sociais, servidores de Discord e diversos sites no Reddit. Ele contém 736 registros e 33 colunas, sem restrições de idade ou localização dos respondentes. As colunas incluem variáveis como idade, gênero musical preferido, horas diárias de música ouvidas, e severidade de condições mentais (medida em uma escala de 0 a 10 para ansiedade, depressão, insônia e TOC). Antes de ser utilizado na análise, o dataset foi pré-processado para remover valores nulos, outliers, e observações irrelevantes.(BHAVANI et al., 2023)​ <br/>
-
-3.  Abordagens/Algoritmos Utilizados: <br/>
-O estudo utilizou a análise exploratória de dados (EDA) como principal abordagem para identificar padrões e correlações no dataset. Além disso, o algoritmo de classificação Gaussian Naive Bayes foi aplicado para prever como diferentes gêneros musicais afetam a saúde mental. Este algoritmo é escolhido devido à sua adequação para dados contínuos, assumindo que cada parâmetro pode prever o resultado de forma independente. Os passos incluem a divisão do dataset em componentes de treino e teste, e a aplicação do Gaussian Naive Bayes para modelar as predições.(BHAVANI et al., 2023) <br/>
-
-4. Métricas de Avaliação Empregadas <br/>
-A principal métrica utilizada para avaliar o desempenho do modelo foi a acurácia, que reflete a proporção de predições corretas feitas pelo modelo. No estudo, a acurácia alcançada pelo modelo Gaussian Naive Bayes foi de 68,2% utilizando Python, e 74% ao utilizar o software RapidMiner, que é capaz de lidar com grandes volumes de dados e oferece pacotes integrados e configuráveis para análise.(BHAVANI et al., 2023) <br/>
-
-5. Resultados Obtidos <br/>
-Os resultados indicam que o consumo de música está correlacionado com diferentes níveis de condições mentais. Por exemplo, indivíduos que escutam gêneros como rock, jazz, K-pop, hip-hop, e pop apresentam níveis mais altos de ansiedade. Já a insônia é menos prevalente entre ouvintes de metal, lofi e gospel. Além disso, a maioria dos ouvintes de rap e lofi tem níveis de TOC mais elevados, e gêneros como rock, hip-hop e lofi estão associados a níveis mais altos de depressão. A acurácia obtida sugere que o modelo é razoavelmente eficaz na previsão dos efeitos da música sobre a saúde mental, embora haja espaço para melhorias com a adição de mais dados e variáveis demográficas. (BHAVANI et al., 2023) <br/>
-
-O segundo trabalho utilizado como referência, descreve um sistema de recomendação de músicas baseado em emoções, desenvolvido em resposta ao aumento de distúrbios emocionais durante a pandemia de COVID-19. O sistema utiliza algoritmos como Random Forest e XGBoost para classificar emoções de músicas e recomendar faixas que se alinhem com o estado emocional do usuário. Os dados incluem características de áudio do Spotify e letras de músicas, com uma precisão de até 85% nas recomendações.
+O primeiro trabalho utilizado como referência, descreve um sistema de recomendação de músicas baseado em emoções, desenvolvido em resposta ao aumento de distúrbios emocionais durante a pandemia de COVID-19. O sistema utiliza algoritmos como Random Forest e XGBoost para classificar emoções de músicas e recomendar faixas que se alinhem com o estado emocional do usuário. Os dados incluem características de áudio do Spotify e letras de músicas, com uma precisão de até 85% nas recomendações.
 
 **1. Contextualização do Problema:**
 O problema abordado é a necessidade de um sistema de recomendação de músicas baseado em emoções, especialmente devido ao impacto da pandemia de COVID-19, que levou a um aumento nos distúrbios de humor, como depressão e ansiedade. A música é vista como um potencial companheiro empático para ajudar as pessoas durante esses tempos difíceis, e o sistema proposto utiliza a emoção do usuário como entrada para recomendar músicas que se alinhem com seu estado emocional.
