@@ -47,9 +47,9 @@ Desenvolver um modelo preditivo que, a partir do consumo musical de um indivídu
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/) -->
 
-A saúde mental é um dos pilares essenciais para a qualidade de vida, influenciando diretamente o bem-estar físico, social e emocional das pessoas. Estudos recentes indicam que uma parcela significativa da população mundial sofre de algum tipo de transtorno mental. De acordo com a Organização Mundial da Saúde (OMS, 2022), cerca de 1 em cada 8 pessoas no mundo vive com um transtorno mental, número que se agravou significativamente após a pandemia de COVID-19, que gerou um aumento de 25% na prevalência de ansiedade e depressão em nível global. No Brasil, estima-se que aproximadamente 9,3% da população adulta tenha sido diagnosticada com algum transtorno mental comum, como ansiedade ou depressão, conforme dados do Ministério da Saúde.
+A saúde mental é um dos pilares essenciais para a qualidade de vida, influenciando diretamente o bem-estar físico, social e emocional das pessoas. Estudos recentes indicam que uma parcela significativa da população mundial sofre de algum tipo de transtorno mental. De acordo com a Organização Mundial da Saúde (2022), cerca de 1 em cada 8 pessoas no mundo vive com um transtorno mental, número que se agravou significativamente após a pandemia de COVID-19, que gerou um aumento de 25% na prevalência de ansiedade e depressão em nível global. No Brasil, estima-se que aproximadamente 9,3% da população adulta tenha sido diagnosticada com algum transtorno mental comum, como ansiedade ou depressão (Ministério da Saúde, 2013, p. 25).
 
-Diante desse cenário alarmante, torna-se imperativo buscar alternativas complementares aos tratamentos tradicionais, muitas vezes centrados no uso de medicamentos. Uma dessas alternativas é a música, cuja influência positiva na saúde mental tem sido amplamente discutida. A musicoterapia, por exemplo, tem demonstrado eficácia na redução dos sintomas de ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC).
+Diante desse cenário alarmante, torna-se imperativo buscar alternativas complementares aos tratamentos tradicionais, muitas vezes centrados no uso de medicamentos. Uma dessas alternativas é a música, cuja influência positiva na saúde mental tem sido amplamente discutida. A musicoterapia, por exemplo, tem demonstrado eficácia na redução dos sintomas de ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC) (Bradt et al., 2016; Maratos et al., 2008).
 
 O presente projeto de dados visa explorar a relação entre o consumo de música através de aplicativos e a melhora nos sintomas de doenças mentais, com base em uma base de dados que combina informações de usuários e sua auto avaliação sobre os efeitos da música. A escolha desse tema se fundamenta na crescente necessidade de encontrar soluções acessíveis e não invasivas que possam complementar os tratamentos convencionais, oferecendo alívio e melhor qualidade de vida para aqueles que sofrem de transtornos mentais.
 
@@ -67,11 +67,11 @@ O estudo beneficiará pessoas de várias idades, desde adolescentes até idosos,
 
 * Embora a base de dados utilizada possua avaliação de usuários de todas as idades, mais de 70% da base se concentra na faixa etária entre 14 e 27 anos.
 
-> **Links Úteis**:
+<!-- > **Links Úteis**:
 > - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
 > - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
 > - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/) -->
 
 ## Estado da arte
 
