@@ -88,10 +88,10 @@ O primeiro trabalho utilizado como referência, descreve um sistema de recomenda
 **1. Contextualização do Problema:**
 O problema abordado é a necessidade de um sistema de recomendação de músicas baseado em emoções, especialmente devido ao impacto da pandemia de COVID-19, que levou a um aumento nos distúrbios de humor, como depressão e ansiedade. A música é vista como um potencial companheiro empático para ajudar as pessoas durante esses tempos difíceis, e o sistema proposto utiliza a emoção do usuário como entrada para recomendar músicas que se alinhem com seu estado emocional.
 
-**Características do Dataset Utilizado:**
+**2. Características do Dataset Utilizado:**
 O sistema utiliza um conjunto de dados de emoções, extraído de um projeto open-source no GitHub, combinado com o Spotify Dataset, que contém recursos de áudio de músicas lançadas entre 1922 e 2021. Além disso, utiliza o Million Song Dataset, um conjunto de dados de características e metadados de músicas. As características consideradas incluem 'valance', 'acousticness', 'danceability', 'energy', 'instrumentalness', 'loudness', e 'speechiness'.
 
-**Abordagens/Algoritmos Utilizados:**
+**3. Abordagens/Algoritmos Utilizados:**
 Random Forest: Utilizado para o treinamento inicial, com o número de árvores (n_estimators) fixado em 20 e o critério de divisão como "Gini".<br/>
 
 XGBoost: Utilizado para classificar as emoções das músicas. Parâmetros incluíram learning_rates (0.1, 0.2, 0.5), max_depth (5, 10, 15), n_estimators (150, 250, 300), e min_child_weight (3, 5, 10).<br/>
@@ -100,7 +100,7 @@ K-Means Clustering: Foi também utilizado para comparar o desempenho de modelos 
 
 TF-IDF (Term Frequency-Inverse Document Frequency): Usado para processar as letras das músicas e gerar uma matriz de similaridade para melhorar as recomendações.
 
-**Métricas de Avaliação Empregadas**
+**4. Métricas de Avaliação Empregadas**
 
 As métricas utilizadas para avaliar o desempenho do sistema de recomendação de músicas baseado em emoções incluem:
 
@@ -108,7 +108,7 @@ Acurácia: A acurácia foi a principal métrica de avaliação mencionada, que v
 
 Matriz de Confusão: Embora não seja explicitamente detalhado no trecho fornecido, a matriz de confusão é mencionada como uma ferramenta utilizada para avaliar o desempenho dos modelos de classificação. A matriz de confusão permite uma análise mais detalhada das predições corretas e incorretas, mostrando o número de verdadeiros positivos, verdadeiros negativos, falsos positivos e falsos negativos.
 
-**Resultados Obtidos**
+**5. Resultados Obtidos**
 O sistema foi capaz de recomendar músicas com uma precisão que variava entre 77% e 85%. As recomendações foram baseadas tanto nas emoções identificadas nas músicas quanto na similaridade lírica. O sistema conseguiu identificar emoções com um bom nível de precisão, e os resultados observacionais indicaram que as recomendações baseadas em emoção proporcionaram uma experiência mais satisfatória para os usuários.
 
 Esses resultados sugerem que o sistema proposto é eficaz para recomendar músicas baseadas nas emoções do usuário e pode ser integrado em qualquer mecanismo de recomendação de música existente.
