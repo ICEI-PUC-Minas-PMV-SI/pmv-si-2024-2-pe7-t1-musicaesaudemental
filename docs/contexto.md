@@ -354,7 +354,7 @@ Tipo: object (Texto).
 > **Links Úteis**:
 > - [Modelo do Canvas Analítico](https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Software-Analtics-Canvas-v1.0.pdf) -->
 
-
+> - [Canvas Analítico Música e Saúde Mental](https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Canvas analitico Música e Saúde Mental (2).pdf)
 
 # Referências
 
