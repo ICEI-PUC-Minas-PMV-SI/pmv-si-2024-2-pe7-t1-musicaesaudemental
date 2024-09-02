@@ -354,6 +354,10 @@ Tipo: object (Texto).
 > **Links Úteis**:
 > - [Modelo do Canvas Analítico](https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Software-Analtics-Canvas-v1.0.pdf) -->
 
+Nesta seção, iremos estruturar o Canvas Analítico do projeto "Música e Saúde Mental". O Canvas Analítico é uma ferramenta essencial para organizar as ideias e detalhar o modelo de negócio, permitindo uma visão clara e estruturada do projeto. Ele servirá como um mapa estratégico que guiará todas as fases da pesquisa, desde a concepção até a implementação e avaliação dos resultados.
+
+Dada a complexidade e a interdisciplinaridade envolvidas na investigação da relação entre o consumo de música e a saúde mental, o Canvas Analítico ajudará a esclarecer como cada componente do projeto se conecta e contribui para os objetivos gerais e específicos. Ao preencher este canvas, mesmo que algumas áreas ainda não estejam completamente definidas, será possível identificar lacunas, ajustar estratégias e garantir que o projeto se mantenha focado e alinhado com suas metas.
+
 > - [Canvas Analítico Música e Saúde Mental]([https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Canvas analitico Música e Saúde Mental (2).pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental/blob/main/help/Canvas%20analitico%20M%C3%BAsica%20e%20Sa%C3%BAde%20Mental%20(2).pdf))
 
 # Referências
