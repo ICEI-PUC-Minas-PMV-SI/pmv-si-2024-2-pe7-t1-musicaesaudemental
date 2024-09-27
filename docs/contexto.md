@@ -32,7 +32,7 @@ Explorar e experimentar modelos de aprendizado de máquina para analisar a rela�
 ### Objetivos Específicos:
 Predizer o impacto da frequência de escuta de diferentes gêneros musicais nos indicadores de saúde mental, como níveis de ansiedade, depressão e transtorno obsessivo-compulsivo (TOC), utilizando técnicas de aprendizado de máquina.
 
-Investigar como cada estilo musical influencia os aspectos específicos da saúde mental e identificar padrões que possam ser utilizados para personalizar intervenções em musicoterapia.
+Investigar como cada estilo musical influencia os aspectos específicos da saúde mental.
 
 Desenvolver um modelo preditivo que, a partir do consumo musical de um indivíduo, possa prever o impacto futuro em sua saúde mental, oferecendo insights para prevenir possíveis agravamentos de condições psicológicas.
 
@@ -130,22 +130,36 @@ As métricas de avaliação incluem a acurácia, precisão, recall e F1-score pa
 **5. Resultados Obtidos**
 Os resultados indicam que certos gêneros musicais têm uma forte associação com determinados grupos demográficos, e que a temporalidade, como o dia da semana e a hora do dia, afeta significativamente os padrões de escuta. Além disso, os modelos preditivos demonstraram bom desempenho em prever as preferências musicais, com as abordagens baseadas em Random Forest obtendo os melhores resultados.
 
-O terceiro artigo utilizado como referência, intitulado "Efeitos da musicoterapia sobre os sintomas de ansiedade e depressão em adultos com diagnóstico de transtornos mentais: revisão sistemática", explora o impacto da musicoterapia como uma intervenção terapêutica para aliviar sintomas de ansiedade e depressão em adultos. Através de uma revisão sistemática de ensaios clínicos randomizados, o estudo busca identificar e sintetizar as evidências sobre a eficácia dessa abordagem, fornecendo uma análise detalhada de como a musicoterapia pode melhorar o bem-estar mental dos pacientes em diferentes contextos clínicos.
+O terceiro artigo utilizado como referência, intitulado "A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition" (2024), aborda a aplicação de métodos de aprendizado profundo para o reconhecimento de emoções em músicas e suas implicações na saúde mental.
 
 **1. Contextualização do Problema:**
-O artigo "Efeitos da musicoterapia sobre os sintomas de ansiedade e depressão em adultos com diagnóstico de transtornos mentais: revisão sistemática" aborda a crescente preocupação com os transtornos mentais, como ansiedade e depressão, que afetam cerca de 700 milhões de pessoas globalmente. Essas condições são particularmente prevalentes em adultos e têm um impacto devastador na qualidade de vida, especialmente em pacientes com transtornos mentais. A musicoterapia é discutida como uma intervenção complementar promissora que pode aliviar esses sintomas, melhorando o bem-estar físico e mental dos pacientes. A revisão sistemática realizada no estudo busca sintetizar as evidências disponíveis sobre os efeitos da musicoterapia especificamente em adultos diagnosticados com transtornos mentais, oferecendo uma visão crítica sobre a eficácia dessa abordagem terapêutica​​.
+O problema abordado no artigo de Louro et al. (2024) é a necessidade de melhorar a identificação e classificação de emoções em músicas, uma área conhecida como Music Emotion Recognition (MER). A conexão entre música e emoções tem sido extensivamente pesquisada devido ao impacto da música no bem-estar emocional e psicológico. No contexto da saúde mental, a música tem sido reconhecida como uma ferramenta terapêutica importante, especialmente para ajudar na regulação emocional em indivíduos com ansiedade e depressão.
+
+A inovação trazida pelo estudo reside na comparação de técnicas de aprendizado profundo para superar os desafios impostos por abordagens tradicionais de aprendizado de máquina. Estas, embora eficazes, enfrentam limitações em capturar adequadamente a riqueza das emoções musicais devido à necessidade de engenharia manual de características sonoras.
 
 **2. Características do Dataset Utilizado:**
-O dataset utilizado na revisão foi composto por 1.649 estudos identificados em bases de dados como MEDLINE, Embase, CENTRAL Cochrane, CINAHL, PsycINFO e LILACS. Destes, após um rigoroso processo de triagem e avaliação metodológica, apenas oito estudos foram selecionados para análise detalhada. Esses estudos foram realizados em diferentes países, incluindo Brasil, Canadá, Finlândia, França, Irã, Noruega, Coreia do Sul e Estados Unidos, com amostras que variaram de 26 a 113 participantes adultos diagnosticados com transtornos mentais. As intervenções de musicoterapia analisadas incluíam tanto abordagens ativas quanto passivas, com diferentes durações e frequências de sessões.
+O estudo utiliza o 4 Quadrant Audio Emotion Dataset (4QAED), que contém amostras de áudio divididas em quatro quadrantes emocionais baseados no modelo Circumplex de Russell. Cada quadrante representa diferentes emoções, como felicidade, tristeza, raiva e serenidade. O conjunto de dados foi expandido durante a pesquisa, aumentando de 900 para 1629 amostras musicais.
+
+O conjunto de dados original continha características extraídas de representações espectrais da música, com um total de 1714 características, além de um conjunto reduzido com as 100 melhores características selecionadas. Para melhorar o treinamento dos modelos de aprendizado profundo, o estudo utilizou técnicas de data augmentation, incluindo mudanças no tom e amplitude das músicas​
 
 **3. Abordagens/Algoritmos Utilizados:**
-A revisão sistemática utilizou uma metodologia rigorosa para selecionar e analisar os ensaios clínicos randomizados (ECR). A qualidade metodológica dos estudos incluídos foi avaliada por meio da Escala de Jadad, que classifica os estudos em uma pontuação de 0 a 5, sendo os estudos com pontuação maior ou igual a 3 considerados de alta qualidade. Além disso, foi utilizada a ferramenta de Risco de Viés da Cochrane (RoB 1) para avaliar a validade interna e o risco de viés dos estudos. Os principais domínios de avaliação incluíam a alocação da sequência de randomização, cegamento dos participantes e equipe, desfechos incompletos, e relato seletivo de desfechos.
+Louro et al. (2024) compararam várias metodologias de aprendizado de máquina clássico e aprendizado profundo:
+
+* Redes Neurais Convolucionais (CNNs): As CNNs foram utilizadas como base para a extração de características relevantes de representações espectrais das músicas. Modelos baseados em CNNs alcançaram resultados promissores, demonstrando a eficácia dessas redes em reconhecer padrões emocionais em músicas.
+
+* Redes Neurais Densas (DNNs): Um modelo DNN foi combinado com uma CNN para formar um ensemble que integrava características aprendidas automaticamente com características extraídas manualmente, melhorando a precisão geral.
+
+* Data Augmentation: Foram aplicadas técnicas de aumento de dados, como mudança de tom e ruído de fundo, para aumentar o número de amostras e melhorar o desempenho do modelo. Essa técnica ajudou a superar a limitação do número de amostras no dataset original.
 
 **4. Métricas de Avaliação Empregadas**
-As métricas de avaliação incluíram principalmente a Escala Hospitalar de Ansiedade e Depressão (HADS), utilizada em cinco dos oito estudos para medir os níveis de ansiedade e depressão. Outros instrumentos incluíram o State-Trait Anxiety Inventory (STAI), o Beck Depression Inventory (BDI), a Visual Analog Scale (VAS) para dor, e o Profile of Mood States (POMS) para avaliar o humor. A qualidade dos estudos foi também mensurada pela Escala de Jadad e pelo risco de viés segundo a Cochrane, com quatro estudos classificados como de baixo risco de viés e os demais com alto risco.
+As métricas utilizadas para avaliar os modelos incluíram:
+
+* F1-Score: A principal métrica de avaliação foi o F1-Score, que é a média harmônica entre precisão e recall. O melhor desempenho foi obtido pela metodologia Hybrid Augmented, que alcançou um F1-Score de 80,20%, superando os resultados anteriores do estado da arte em MER.
+
+* Precisão e Recall: Ambas as métricas foram utilizadas para avaliar o desempenho em termos de amostras corretamente classificadas e a capacidade de detectar corretamente as emoções presentes nas músicas.
 
 **5. Resultados Obtidos**
-Os resultados indicam que a musicoterapia tem um efeito positivo significativo na redução dos sintomas de ansiedade e depressão em adultos com transtornos mentais. Os pacientes que participaram das intervenções de musicoterapia apresentaram relaxamento físico e mental, bem como uma redução significativa dos sintomas ansiosos e depressivos, promovendo o bem-estar geral. Quatro dos estudos analisados foram classificados como de alta qualidade metodológica e baixo risco de viés, o que fortalece a validade dos achados. Contudo, a revisão também apontou para a necessidade de mais estudos com amostras maiores e metodologias mais robustas para elucidar completamente os mecanismos subjacentes e potencializar os efeitos benéficos da musicoterapia.
+Os resultados indicam que a abordagem baseada em Deep Learning superou os métodos tradicionais de aprendizado de máquina em termos de reconhecimento de emoções musicais. A combinação de CNN e DNN, juntamente com técnicas de aumento de dados, resultou em uma melhoria significativa, com um F1-Score de 80,20%. Além disso, o aumento do conjunto de dados (de 900 para 1629 amostras) também melhorou a estabilidade dos modelos e a precisão das previsões
 
 **Robot Assisted Music Therapy: A Case Study with Children Diagnosed with Autism**
 
@@ -380,9 +394,6 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 **Fonte**: Bradt, Joke, et al. "Music interventions for improving psychological and physical outcomes in cancer patients." Cochrane Database of Systematic Reviews 2016, Issue 8. Art. No.: CD006911. DOI: 10.1002/14651858.CD006911.pub3. <br/>
 **Fonte**: Maratos, Anna, et al. "Music therapy for depression." Cochrane Database of Systematic Reviews 2008, Issue 1. Art. No.: CD004517. DOI: 10.1002/14651858.CD004517.pub2. <br/>
 
-* Music Classification and Mental Health Analysis using Exploratory Data Analysis. <br/>
-**Fonte**: BHAVANI, V.; SRAVANI, K.; SIRIVARSHITHA, A. K.; PRIYA, K. S. Music Classification and Mental Health Analysis using Exploratory Data Analysis. In: 2023 International Conference on Innovative Data Communication Technologies and Application (ICIDCA-2023), Vaddeswaram, AP, India, 2023. p. 555-561. DOI: 10.1109/ICIDCA56705.2023.10099605.
-
 * Music Recommendation System Based on Emotion <br/>
 **Fonte**: [Ieeexplore. org](https://ieeexplore.ieee.org/Xplore/home.jsp) <br/>
 **Disponível em**:(https://ieeexplore.ieee.org/document/9579689)
@@ -394,3 +405,6 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 **Fonte** ULRICH, Roger S.; DIMBERG, Lennart A.; DRIVER, Brenda L. physiologic and psychological states. Journal of the American Medical Association, v. 266, n. 5, p. 641-643, 1991. DOI: 10.1001/jama.1991.03470050121036.
 
 * IBIAPINA, Aline Raquel de Sousa; LOPES-JUNIOR, Luís Carlos; VELOSO, Lorena Uchôa Portela; COSTA, Ana Paula Cardoso; SILVA JÚNIOR, Fernando José Guedes da; SALES, Jaqueline Carvalho e Silva; MONTEIRO, Claudete Ferreira de Souza. Efeitos da musicoterapia sobre os sintomas de ansiedade e depressão em adultos com diagnóstico de transtornos mentais: revisão sistemática. Acta Paulista de Enfermagem, v. 35, p. eAPE002212, 2022. DOI: http://dx.doi.org/10.37689/acta-ape/2022AR02212.
+
+* A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition
+Louro, P.L.; Redinho, H.; Malheiro, R.; Paiva, R.P.; Panda, R. A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition. Sensors 2024, 24, 2201. https://doi.org/10.3390/s24072201
