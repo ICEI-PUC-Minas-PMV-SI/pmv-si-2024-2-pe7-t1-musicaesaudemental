@@ -14,3 +14,8 @@ A partir da análise descrita e exploratória realizada, descreva todos os achad
 
 Existem muitas ferramentas diferentes que podem ser utilizadas para fazer a análise dos dados. Nesta seção, descreva as ferramentas/tecnologias utilizadas e sua aplicação. Vale destacar que, preferencialmente, as análises deverão ser realizadas utilizando a linguagem de programação Python.
 
+  * **(Renan) Ferramentas utilizadas:**
+    * Excel
+    * Jupyter Notebook
+    * Linguagem: Python
+
