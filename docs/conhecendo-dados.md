@@ -54,6 +54,19 @@ ax = genre_improve_percent.plot(kind='bar', figsize=(10, 7), color='#66b3ff') <b
   
 ![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
 
+**Trecho do cógigo:** <br/>
+file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+anxiety_counts = df['Anxiety_level'].value_counts() <br/>
+depression_counts = df['Depression_level'].value_counts() <br/>
+insomnia_counts = df['Insomnia_level'].value_counts() <br/>
+ocd_counts = df['OCD_level'].value_counts() <br/>
+music_effects = df['Music effects'].value_counts() <br/>
+anxiety_effects = df.groupby('Anxiety_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+depression_effects = df.groupby('Depression_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+insomnia_effects = df.groupby('Insomnia_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+ocd_effects = df.groupby('OCD_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+
 * **Gráfico 7**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
 * **Gráfico 8**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
   
