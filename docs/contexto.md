@@ -17,11 +17,7 @@ A escolha do tema é fundamentada na necessidade de explorar intervenções que 
 
 ## Problema
 
-A música tem ajudado bastante na promoção do bem-estar emocional e mental no dia-a-dia, especialmente em tempos de grande estresse, como ocorreu durante a pandemia de COVID-19, por exemplo, o que trouxe uma restrição social e a ansiedade para o cotidiano, muitas pessoas encontraram na música um refúgio, conforto, assim como também conseguiram aliviar o peso emocional que a incerteza do período trouxe.
-
-Além de proporcionar alívio imediato, a música tem um papel importante na redução dos sintomas de ansiedade, depressão, insônia e transtorno obsessivo-compulsivo (TOC). O quanto alguém escuta música e os tipos de gêneros musicais que prefere podem influenciar positivamente a saúde mental. Pesquisas recentes mostram que a exposição regular a determinados tipos de música pode diminuir de forma significativa os níveis de ansiedade e depressão, induzindo um estado de relaxamento e bem-estar (Aalbers et al., 2017).
-
-Portanto, trazer a música para a rotina diária pode ser uma maneira acessível e eficaz de combater esses transtornos. Sendo assim, este trabalho busca investigar como a música utilizada pelo usuário pode contribuir para sua saúde mental, considerando informações sobre a frequência com que ele escuta música e seus gêneros preferidos. Com isso, esperamos que ao introduzir novos dados de usuários, utilizando o histórico do dataset possamos oferecer uma abordagem que possa prever o impacto futuro em sua saúde mental.
+O problema que motivou este estudo é a busca por soluções mais simples e acessíveis para lidar com questões de saúde mental, como ansiedade, depressão e insônia, que têm afetado cada vez mais pessoas, especialmente em momentos de grande estresse. A música se tornou uma forma comum de aliviar essas tensões, mas ainda precisamos entender melhor como o hábito de ouvir determinados gêneros musicais e com que frequência isso acontece impacta a saúde mental das pessoas.
 
 ## Questão de pesquisa
 
