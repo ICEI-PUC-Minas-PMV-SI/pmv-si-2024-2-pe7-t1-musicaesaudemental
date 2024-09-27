@@ -26,18 +26,18 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
 
-* Gráfico 6: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
-* Gráfico 7: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
+* Gráfico 7: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
+* Gráfico 8: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
   
 ![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
-* Gráfico 8: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
+* Gráfico 9: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
     * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical. 
     * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
   
 ![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
 
-* Gráfico 9: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
+* Tabela 1: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
      * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical.
      * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
   
@@ -47,6 +47,15 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
 ## Descrição dos achados
 
 A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? 
+
+**(Renan)**
+  Com base na análise dos dados e também dos gráficos e tabelas gerados, foi possível concluir os seguintes pontos.
+    * A maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
+    * Mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
+    * Pessoas que trabalham ouvindo música tendem a perceber mais impacto positivo da música.
+    * 100% das pessoas que tem como estilo musical favorito o Gospel e o Lofi avaliaram a música como benéfica. Porém na sequência da análise é possível verificar que não necessariamente essas pessoas ouvem apenas o seu estilo musical favorito.
+    * Através dos gráficos 5, 6, 7 e 8 é possível perceber que pessoas que se classificam com algum transtorno tendem a perceber mais o impacto positivo da música.
+    * Através do gráfico 9 é possível perceber que Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.      * Foi possível perceber também que pessoas que possuem outros estilos músicais como favorito (Ex: Gospel) também ouvem com frequência estilos como Rock e Pop.
 
 ## Ferramentas utilizadas
 
