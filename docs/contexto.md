@@ -83,6 +83,8 @@ O estudo beneficiará pessoas de várias idades, desde adolescentes até idosos,
 > - [Science Direct](https://www.sciencedirect.com/)
 > - [ACM Digital Library](https://dl.acm.org/) -->
 
+**Music Recommendation System Based on Emotion** (2021 12th International Conference on Computing Communication and Networking Technologies (ICCCNT)).
+
 O primeiro trabalho utilizado como referência, descreve um sistema de recomendação de músicas baseado em emoções, desenvolvido em resposta ao aumento de distúrbios emocionais durante a pandemia de COVID-19. O sistema utiliza algoritmos como Random Forest e XGBoost para classificar emoções de músicas e recomendar faixas que se alinhem com o estado emocional do usuário. Os dados incluem características de áudio do Spotify e letras de músicas, com uma precisão de até 85% nas recomendações.
 
 **1. Contextualização do Problema:**
