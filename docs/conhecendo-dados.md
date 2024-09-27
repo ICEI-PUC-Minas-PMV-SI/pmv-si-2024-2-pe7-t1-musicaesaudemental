@@ -9,6 +9,7 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
 **(Renan)**
 **Análise exploratória dos dados e criação de insights**
 * Gráfico 1: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
+* Gráfico 2: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
 
 ![Gráficos por faixa de idade e streaming](img/graf_1_r.jpg)
 
