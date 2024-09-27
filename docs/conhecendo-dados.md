@@ -35,7 +35,9 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
 
-
+* Gráfico 9: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
+  
+![Gráficos por faixa de idade e streaming](img/tab_7_r.jpg)
 
 
 ## Descrição dos achados
