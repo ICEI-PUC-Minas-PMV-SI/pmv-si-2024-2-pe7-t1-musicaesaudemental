@@ -17,6 +17,9 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
 
+* Gráfico 4: Compara as avaliações sobre o efeito da música em relação a quem trabalho ouvindo música e quem não trabalha ouvindo música. Indicando maior percepção de impacto positivo da música nas pessoas que trabalham ouvindo música.
+  
+![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
 
 
 ## Descrição dos achados
