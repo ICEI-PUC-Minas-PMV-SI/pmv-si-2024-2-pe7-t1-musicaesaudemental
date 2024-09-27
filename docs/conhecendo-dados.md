@@ -32,10 +32,14 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
 ![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
 * Gráfico 8: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
+    * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical. 
+    * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
   
 ![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
 
-* Gráfico 9: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
+* Gráfico 9: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
+     * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical.
+     * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
   
 ![Gráficos por faixa de idade e streaming](img/tab_7_r.jpg)
 
