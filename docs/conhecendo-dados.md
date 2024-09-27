@@ -40,6 +40,14 @@ ax = while_working_percent.plot(kind='bar', stacked=True, figsize=(10, 7), color
   
 ![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
 
+**Trecho do cógigo:** <br/>
+file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+improve_data = df[df['Music effects'] == 'Improve'] <br/>
+genre_improve_counts = improve_data['Fav genre'].value_counts() <br/>
+genre_total_counts = df['Fav genre'].value_counts() <br/>
+genre_improve_percent = (genre_improve_counts / genre_total_counts) * 100 <br/>
+ax = genre_improve_percent.plot(kind='bar', figsize=(10, 7), color='#66b3ff') <br/>
 
 * **Gráfico 5**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
 * **Gráfico 6**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
