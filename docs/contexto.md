@@ -406,5 +406,5 @@ Estimativa sobre a porcentagem da população adulta brasileira diagnosticada co
 
 * IBIAPINA, Aline Raquel de Sousa; LOPES-JUNIOR, Luís Carlos; VELOSO, Lorena Uchôa Portela; COSTA, Ana Paula Cardoso; SILVA JÚNIOR, Fernando José Guedes da; SALES, Jaqueline Carvalho e Silva; MONTEIRO, Claudete Ferreira de Souza. Efeitos da musicoterapia sobre os sintomas de ansiedade e depressão em adultos com diagnóstico de transtornos mentais: revisão sistemática. Acta Paulista de Enfermagem, v. 35, p. eAPE002212, 2022. DOI: http://dx.doi.org/10.37689/acta-ape/2022AR02212.
 
-* A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition
-Louro, P.L.; Redinho, H.; Malheiro, R.; Paiva, R.P.; Panda, R. A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition. Sensors 2024, 24, 2201. https://doi.org/10.3390/s24072201
+* A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition <br/>
+**Fonte**: Louro, P.L.; Redinho, H.; Malheiro, R.; Paiva, R.P.; Panda, R. A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition. Sensors 2024, 24, 2201. https://doi.org/10.3390/s24072201
