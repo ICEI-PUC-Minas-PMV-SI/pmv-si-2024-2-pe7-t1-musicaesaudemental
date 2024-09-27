@@ -72,6 +72,19 @@ ocd_effects = df.groupby('OCD_level')['Music effects'].value_counts(normalize=Tr
   
 ![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
+**Trecho do cógigo:** <br/>
+file_path = 'tab_musicaesaude.xlsx' <br/><br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude')<br/>
+df_improve = df[df['Music effects'] == 'Improve']<br/>
+score_columns = [<br/>
+    'Score [Country]', 'Score [EDM]', 'Score [Folk]', 'Score [Gospel]', 'Score [Hip hop]',<br/>
+    'Score [Jazz]', 'Score [K pop]', 'Score [Latin]', 'Score [Lofi]', 'Score [Metal]', <br/>
+    'Score [Pop]', 'Score [R&B]', 'Score [Rap]', 'Score [Rock]', 'Score [Video game music]'<br/>
+    ]<br/>
+effects_by_genre = df_improve.groupby('Music effects')[score_columns].sum() <br/>
+total_scores = effects_by_genre.sum(axis=1) <br/>
+effects_percent = (effects_by_genre.T / total_scores).T * 100 <br/>
+
 * **Gráfico 9**: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
     * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical. 
     * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
