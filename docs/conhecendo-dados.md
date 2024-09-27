@@ -110,6 +110,18 @@ effects_percent = (effects_by_genre.T / total_scores).T * 100 <br/>
   
 ![Gráficos por faixa de idade e streaming](img/tab_7_r.jpg)
 
+**Trecho do cógigo:** <br/>
+columns_of_interest = [<br/>
+    'Fav genre', 'Score [Country]', 'Score [EDM]', 'Score [Folk]', 'Score [Gospel]', <br/>
+    'Score [Hip hop]', 'Score [Jazz]', 'Score [K pop]', 'Score [Latin]', <br/>
+    'Score [Lofi]', 'Score [Metal]', 'Score [Pop]', 'Score [R&B]', <br/>
+    'Score [Rap]', 'Score [Rock]', 'Score [Video game music]'<br/>
+]<br/>
+df_selected = df[columns_of_interest]<br/>
+grouped_scores = df_selected.groupby('Fav genre').mean()<br/>
+percentage_scores = grouped_scores.apply(lambda x: 100 * x / x.sum(), axis=1)<br/>
+inverted_percentage_scores = percentage_scores.transpose()<br/>
+inverted_percentage_scores = inverted_percentage_scores.round(1) <br/>
 
 ## Descrição dos achados
 
