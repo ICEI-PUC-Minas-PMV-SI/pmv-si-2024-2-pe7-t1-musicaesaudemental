@@ -10,7 +10,7 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
 **Análise exploratória da base dados e criação de insights para a pesquisa sobre o impacto da música sobre transtornos**
 
 **Tabela de dados:** tab_musicaesaude_r.xlsx <br/>
-**Arquivo Jupyter (python):** Analise_MusicaeSaude_R.jpynb <br/>
+**Arquivo Jupyter (python):** Analise_MusicaeSaude_r.jpynb <br/>
 
 * Gráfico 1: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
 * Gráfico 2: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
