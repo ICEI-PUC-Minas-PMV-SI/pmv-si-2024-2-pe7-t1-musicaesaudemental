@@ -12,36 +12,52 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
 **Tabela de dados:** tab_musicaesaude_r.xlsx <br/>
 **Arquivo Jupyter (python):** Analise_MusicaeSaude_r.jpynb <br/>
 
-* Gráfico 1: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
-* Gráfico 2: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
+* **Gráfico 1**: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
+* **Gráfico 2**: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
 
 ![Gráficos por faixa de idade e streaming](img/graf_1_r.jpg)
 
-* Gráfico 3: Compara as avaliações sobre o efeito da música em relação a quem trabalho ouvindo música e quem não trabalha ouvindo música. Indicando maior percepção de impacto positivo da música nas pessoas que trabalham ouvindo música.
+**Trecho do cógigo:** <br/>
+file_path = 'tab_musicaesaude.xlsx'<br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude')<br/>
+faixas_idade = pd.cut(df['Age'], bins=[10, 20, 30, 40, 50, 60], <br/>
+                      labels=['10-20', '20-30', '30-40', '40-50', '50-60'])<br/>
+faixa_idade_counts = faixas_idade.value_counts()<br/>
+streaming_counts = df['Primary streaming service'].value_counts() <br/>
+
+* **Gráfico 3**: Compara as avaliações sobre o efeito da música em relação a quem trabalho ouvindo música e quem não trabalha ouvindo música. Indicando maior percepção de impacto positivo da música nas pessoas que trabalham ouvindo música.
   
 ![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
 
-* Gráfico 4: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que indicaram como gênero favorito música Gospel e Lofi.
+**Trecho do cógigo:** <br/>
+file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+while_working_effects = df.groupby(['While working', 'Music effects']).size().unstack(fill_value=0) <br/>
+while_working_percent = while_working_effects.div(while_working_effects.sum(axis=1), axis=0) * 100 <br/>
+ax = while_working_percent.plot(kind='bar', stacked=True, figsize=(10, 7), color=['#66b3ff', '#ff9999', '#99ff99', '#ffcc99']) <br/>
+
+* **Gráfico 4**: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que indicaram como gênero favorito música Gospel e Lofi.
   
 ![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
 
-* Gráfico 5: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
-* Gráfico 6: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
+
+* **Gráfico 5**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
+* **Gráfico 6**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
   
 ![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
 
-* Gráfico 7: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
-* Gráfico 8: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
+* **Gráfico 7**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
+* **Gráfico 8**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
   
 ![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
-* Gráfico 9: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
+* **Gráfico 9**: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
     * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical. 
     * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
   
 ![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
 
-* Tabela 1: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
+* **Tabela 1**: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
      * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical.
      * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
   
