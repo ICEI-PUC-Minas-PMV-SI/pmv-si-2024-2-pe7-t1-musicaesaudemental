@@ -17,14 +17,19 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
 
-* Gráfico 4: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que tem como gênero favorito música Gospel e Lofi.
+* Gráfico 4: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que indicaram como gênero favorito música Gospel e Lofi.
   
 ![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
 
-* Gráfico 5: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito.
-* * Gráfico 6: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito.
+* Gráfico 5: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
+* Gráfico 6: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
   
 ![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
+
+* Gráfico 6: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
+* Gráfico 7: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
+  
+![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
 
 ## Descrição dos achados
