@@ -26,8 +26,8 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
 
-* Gráfico 6: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
-* Gráfico 7: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
+* Gráfico 6: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
+* Gráfico 7: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
   
 ![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
