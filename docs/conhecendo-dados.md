@@ -7,11 +7,13 @@ Para isso, sugere-se que sejam utilizados cálculos de medidas de tendência cen
 Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere relevantes para entender os dados com os quais você irá trabalhar.  Além disso, inclua e comente os trechos de código mais relevantes desenvolvidos para realizar suas análises. Na pasta "src", inclua o código fonte completo.
 
 **(Renan)**
-**Análise exploratória dos dados e criação de insights**
+**Análise exploratória da base dados e criação de insights para a pesquisa sobre o impacto da música sobre transtornos**
 * Gráfico 1: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
 * Gráfico 2: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
 
 ![Gráficos por faixa de idade e streaming](img/graf_1_r.jpg)
+
+![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
 
 ## Descrição dos achados
 
