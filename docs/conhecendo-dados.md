@@ -31,9 +31,11 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
 
-* Gráfico 8: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
+* Gráfico 8: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
   
 ![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
+
+
 
 
 ## Descrição dos achados
