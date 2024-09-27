@@ -17,9 +17,14 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
   
 ![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
 
-* Gráfico 4: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito.
+* Gráfico 4: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que tem como gênero favorito música Gospel e Lofi.
   
 ![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
+
+* Gráfico 5: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito.
+* * Gráfico 6: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito.
+  
+![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
 
 
 ## Descrição dos achados
