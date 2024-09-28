@@ -263,12 +263,13 @@ A partir da análise descrita e exploratória realizada, descreva todos os achad
 
 **(Renan)**
   Com base na análise dos dados e também dos gráficos e tabelas gerados, foi possível concluir os seguintes pontos.
-    * A maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
-    * Mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
-    * Pessoas que trabalham ouvindo música tendem a perceber mais impacto positivo da música.
-    * 100% das pessoas que tem como estilo musical favorito o Gospel e o Lofi avaliaram a música como benéfica. Porém na sequência da análise é possível verificar que não necessariamente essas pessoas ouvem apenas o seu estilo musical favorito.
-    * Através dos gráficos 5, 6, 7 e 8 é possível perceber que pessoas que se classificam com algum transtorno tendem a perceber mais o impacto positivo da música.
-    * Através do gráfico 9 é possível perceber que Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.      * Foi possível perceber também que pessoas que possuem outros estilos músicais como favorito (Ex: Gospel) também ouvem com frequência estilos como Rock e Pop.
+    * A maioria dos participantes são adolescentes e adultos abaixo dos 30 anos. <br>
+    * Mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.<br>
+    * Pessoas que trabalham ouvindo música tendem a perceber mais impacto positivo da música.<br>
+    * 100% das pessoas que tem como estilo musical favorito o Gospel e o Lofi avaliaram a música como benéfica. Porém na sequência da análise é possível verificar que não necessariamente essas pessoas ouvem apenas o seu estilo musical favorito.<br>
+    * Através dos gráficos 5, 6, 7 e 8 é possível perceber que pessoas que se classificam com algum transtorno tendem a perceber mais o impacto positivo da música.<br>
+    * Através do gráfico 9 é possível perceber que Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.  <br>
+    * Foi possível perceber também que pessoas que possuem outros estilos músicais como favorito (Ex: Gospel) também ouvem com frequência estilos como Rock e Pop.
 
 **A partir da tabela com os dados da estatística descritiva, alguns insigths foram gerados: (Isabela)**
 
@@ -333,7 +334,7 @@ Existem muitas ferramentas diferentes que podem ser utilizadas para fazer a aná
     * Ferramenta para construção de gráficos e tabelas: Jupyter Notebook
     * Linguagem utilizada: Python
 
-    * **(Isabela) Ferramentas utilizadas:**
+  * **(Isabela) Ferramentas utilizadas:**
     * Base de dados: csv
     * Ferramenta para análise, construção de gráficos e tabelas: Jupyter Notebook
     * Linguagem utilizada: Python
