@@ -43,7 +43,7 @@ Desenvolver um modelo preditivo que, a partir do consumo musical de um indivídu
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/) -->
 
-A saúde mental é um dos pilares essenciais para a qualidade de vida, influenciando diretamente o bem-estar físico, social e emocional das pessoas. Estudos recentes indicam que uma parcela significativa da população mundial sofre de algum tipo de transtorno mental. De acordo com a Organização Mundial da Saúde (OMS, 2022), cerca de 1 em cada 8 pessoas no mundo vive com um transtorno mental, número que se agravou significativamente após a pandemia de COVID-19, que gerou um aumento de 25% na prevalência de ansiedade e depressão em nível global. No Brasil, estima-se que aproximadamente 9,3% da população adulta tenha sido diagnosticada com algum transtorno mental comum, como ansiedade ou depressão (BRASIL, 2013, p. 25).
+A saúde mental é um dos pilares essenciais para a qualidade de vida, influenciando diretamente o bem-estar físico, social e emocional das pessoas. Estudos recentes indicam que uma parcela significativa da população mundial sofre de algum tipo de transtorno mental. De acordo com a Organização Mundial da Saúde (OMS, 2022), cerca de 1 em cada 8 pessoas no mundo vive com um transtorno mental, número que se agravou significativamente após a pandemia de COVID-19, que gerou um aumento de 25% na prevalência de ansiedade e depressão em nível global. No Brasil, dados mais recentes apontam que cerca de 12% da população apresenta algum diagnóstico relacionado a transtornos mentais, como ansiedade ou depressão (OMS, 2023).
 
 Diante desse cenário alarmante, torna-se imperativo buscar alternativas complementares aos tratamentos tradicionais, muitas vezes centrados no uso de medicamentos. Uma dessas alternativas é a música, cuja influência positiva na saúde mental tem sido amplamente discutida. A musicoterapia, por exemplo, tem demonstrado eficácia na redução dos sintomas de ansiedade, depressão, insônia e Transtorno Obsessivo-Compulsivo (TOC) (BRADT et al., 2016; MARATOS et al., 2008). Além disso, estudos indicam que a exposição ao ruído branco pode ser benéfica para melhorar o sono em crianças, ajudando a acalmar e reduzir a ansiedade (SPENCER et al., 1990). A música também tem sido associada a melhorias no bem-estar físico e mental de pacientes hospitalizados, contribuindo para a recuperação mais rápida e a diminuição do estresse (ULRICH et al., 1991).
 
@@ -384,11 +384,8 @@ Dada a complexidade e a interdisciplinaridade envolvidas na investigação da re
 **Disponível em**: [WHO Mental Health.]https://www.who.int/publications/i/item/depression-global-health-estimates<br/>
 **Fonte**: World Health Organization (WHO). "Mental health and COVID-19: early evidence of the pandemic’s impact." WHO, 2022. <br/>
 **Disponível em**: [WHO Mental Health.](https://www.who.int/news/item/02-03-2022-covid-19-pandemic-triggers-25-increase-in-prevalence-of-anxiety-and-depression-worldwide) <br/>
-
-* Ministério da Saúde do Brasil. <br/>
-Estimativa sobre a porcentagem da população adulta brasileira diagnosticada com transtornos mentais comuns, como ansiedade e depressão. <br/>
-**Fonte**: Ministério da Saúde. "Saúde Mental no SUS: As Redes de Atenção Psicossocial." Brasília: Ministério da Saúde, 2013. <br/>
-**Disponível em**: [Ministério da Saúde - Saúde Mental.](https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/saude-mental) <br/>
+**Fonte**: Relatório mundial sobre saúde mental: transformar a saúde mental para todos. 2023 <br/>
+**Disponível em**:  https://www.who.int <br/>
 
 * Eficácia da musicoterapia no tratamento de sintomas de transtornos mentais como ansiedade, depressão, insônia e TOC. <br/>
 **Fonte**: Bradt, Joke, et al. "Music interventions for improving psychological and physical outcomes in cancer patients." Cochrane Database of Systematic Reviews 2016, Issue 8. Art. No.: CD006911. DOI: 10.1002/14651858.CD006911.pub3. <br/>
