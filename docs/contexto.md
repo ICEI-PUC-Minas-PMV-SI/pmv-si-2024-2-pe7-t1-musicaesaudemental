@@ -4,7 +4,7 @@
 
 A saúde mental é um componente essencial para o bem-estar do ser humano, influenciando profundamente aspectos físicos, sociais e emocionais da vida. 
 
-No cenário global atual, a prevalência de transtornos mentais tem se tornado uma questão alarmante, especialmente após os impactos da pandemia de COVID-19. Segundo a Organização Mundial da Saúde (OMS, 2022), no Brasil, estima-se que 9,3% da população adulta enfrente desafios relacionados à saúde mental, como ansiedade e depressão. (BRASIL, 2013, p. 25).
+No cenário global atual, a prevalência de transtornos mentais tem se tornado uma questão alarmante, especialmente após os impactos da pandemia de COVID-19 que gerou um aumento de 25% na prevalência de ansiedade e depressão em nível global, de acordo com a Organização Mundial da Saúde (OMS, 2022), cerca de 1 em cada 8 pessoas no mundo vive com um transtorno mental. No Brasil, dados mais recentes apontam que cerca de 12% da população apresenta algum diagnóstico relacionado a transtornos mentais, como ansiedade ou depressão (OMS, 2023).
 
 Diante deste panorama, há uma crescente demanda por alternativas aos tratamentos convencionais, que muitas vezes se concentram em abordagens farmacológicas. A busca por soluções complementares, que sejam acessíveis e minimamente invasivas, é uma prioridade para profissionais de saúde e pesquisadores. 
 
