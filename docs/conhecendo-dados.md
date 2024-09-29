@@ -260,7 +260,7 @@ inverted_percentage_scores = inverted_percentage_scores.round(1) <br/>
 
 **Parte 1: Insigths da análise exploratória e descritiva da base de dados sobre o efeito da música nos transtornos mentais**
 
-**A partir da tabela com os dados da estatística descritiva, alguns insigths foram gerados: (Isabela)**
+**A partir da tabela com os dados da estatística descritiva, alguns insigths foram gerados:**
 
   * Média (mean): A idade média dos participantes é de aproximadamente 25 anos. Eles escutam música, em média, cerca de 3,57 horas por dia. A média para ansiedade, depressão, insônia e OCD é relativamente baixa, o que pode indicar uma baixa frequência geral de alta gravidade desses transtornos na amostra.
 
