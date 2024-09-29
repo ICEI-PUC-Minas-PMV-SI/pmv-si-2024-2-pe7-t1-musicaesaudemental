@@ -6,7 +6,7 @@ Para isso, sugere-se que sejam utilizados cálculos de medidas de tendência cen
 
 Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere relevantes para entender os dados com os quais você irá trabalhar.  Além disso, inclua e comente os trechos de código mais relevantes desenvolvidos para realizar suas análises. Na pasta "src", inclua o código fonte completo. -->
 
-**Parte 1: Análise exploratória e descritiva da base de dados sobre o efeito da muúsica nos transtornos metais**
+**Parte 1: Análise exploratória e descritiva da base de dados sobre o efeito da música nos transtornos mentais**
 
 O primeiro passo para iniciar a análise exploratória e descritiva da base de dados foi importar as bibliotecas necessárias. Em seguida, importamos a base de dados contida no arquivo .csv e realizamos a contagem total de linhas e colunas presentes na base.
 
@@ -258,15 +258,7 @@ inverted_percentage_scores = inverted_percentage_scores.round(1) <br/>
 
 <!-- A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? -->
 
-**(Renan)**
-  Com base na análise dos dados e também dos gráficos e tabelas gerados, foi possível concluir os seguintes pontos.
-    * A maioria dos participantes são adolescentes e adultos abaixo dos 30 anos. <br>
-    * Mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.<br>
-    * Pessoas que trabalham ouvindo música tendem a perceber mais impacto positivo da música.<br>
-    * 100% das pessoas que tem como estilo musical favorito o Gospel e o Lofi avaliaram a música como benéfica. Porém na sequência da análise é possível verificar que não necessariamente essas pessoas ouvem apenas o seu estilo musical favorito.<br>
-    * Através dos gráficos 5, 6, 7 e 8 é possível perceber que pessoas que se classificam com algum transtorno tendem a perceber mais o impacto positivo da música.<br>
-    * Através do gráfico 9 é possível perceber que Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.  <br>
-    * Foi possível perceber também que pessoas que possuem outros estilos músicais como favorito (Ex: Gospel) também ouvem com frequência estilos como Rock e Pop.
+**Parte 1: Insigths da análise exploratória e descritiva da base de dados sobre o efeito da música nos transtornos mentais**
 
 **A partir da tabela com os dados da estatística descritiva, alguns insigths foram gerados: (Isabela)**
 
@@ -319,21 +311,35 @@ inverted_percentage_scores = inverted_percentage_scores.round(1) <br/>
   * Gêneros como Gospel e Latin aparecem nas últimas posições, com as menores frequências absolutas, representando menos de 1% cada, o que indica que são menos populares entre os respondentes desta amostra.
 
   * A frequência acumulada mostra que, ao atingir os primeiros 4 gêneros (Rock, Pop, Metal, Classical), já se cobre mais de 60% das preferências. Isso indica uma concentração de gostos em um pequeno número de gêneros, enquanto os demais têm menor representatividade individual.
+  
+
+**Parte 2: Insights da análise quantitativa da base dados para a pesquisa sobre o impacto da música sobre transtornos**
+
+  Com base na análise dos dados e também dos gráficos e tabelas gerados, foi possível concluir os seguintes pontos.<br/>
+  
+  * A maioria dos participantes são adolescentes e adultos abaixo dos 30 anos. <br/>
+  
+  * Mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.<br/>
+  
+  * Pessoas que trabalham ouvindo música tendem a perceber mais impacto positivo da música.<br/>
+  
+  * 100% das pessoas que tem como estilo musical favorito o Gospel e o Lofi avaliaram a música como benéfica. Porém na sequência da análise é possível verificar que não necessariamente essas pessoas ouvem apenas o seu estilo musical favorito.<br/>
+  
+  * Através dos gráficos 5, 6, 7 e 8 é possível perceber que pessoas que se classificam com algum transtorno tendem a perceber mais o impacto positivo da música.<br/>
+  
+  * Através do gráfico 9 é possível perceber que Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.<br/>
+  
+  * Foi possível perceber também que pessoas que possuem outros estilos músicais como favorito (Ex: Gospel) também ouvem com frequência estilos como Rock e Pop.
+
 
 
 ## Ferramentas utilizadas
-
 <!-- Existem muitas ferramentas diferentes que podem ser utilizadas para fazer a análise dos dados. Nesta seção, descreva as ferramentas/tecnologias utilizadas e sua aplicação. Vale destacar que, preferencialmente, as análises deverão ser realizadas utilizando a linguagem de programação Python. -->
 
-  * **(Renan) Ferramentas utilizadas:**
-    * Análise exploratória inicial: Excel
-    * Base de dados: csv
-    * Ferramenta para construção de gráficos e tabelas: Jupyter Notebook
-    * Linguagem utilizada: Python
-
-  * **(Isabela) Ferramentas utilizadas:**
-    * Base de dados: csv
-    * Ferramenta para análise, construção de gráficos e tabelas: Jupyter Notebook
-    * Linguagem utilizada: Python
-    * IDE: VS Code
+**Ferramentas utilizadas:**
+  * Análise exploratória inicial: Excel <br/>
+  * Base de dados: csv <br/>
+  * Ferramenta para análise, construção de gráficos e tabelas: Jupyter Notebook <br/>
+  * Linguagem utilizada: Python<br/>
+  * IDE: VS Code
 
