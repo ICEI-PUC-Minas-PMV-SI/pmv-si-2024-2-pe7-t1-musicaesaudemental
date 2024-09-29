@@ -130,8 +130,11 @@ As métricas de avaliação incluem a acurácia, precisão, recall e F1-score pa
 **5. Resultados Obtidos**
 Os resultados indicam que certos gêneros musicais têm uma forte associação com determinados grupos demográficos, e que a temporalidade, como o dia da semana e a hora do dia, afeta significativamente os padrões de escuta. Além disso, os modelos preditivos demonstraram bom desempenho em prever as preferências musicais, com as abordagens baseadas em Random Forest obtendo os melhores resultados.
 
+<<<<<<< HEAD
 **Louro, P.L.; Redinho, H.; Malheiro, R.; Paiva, R.P.; Panda, R. A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition. Sensors 2024**
 
+=======
+>>>>>>> parent of 40794b5 (Removendo arquivos desnecessários e adicionando referência para o terceiro artigo no contexto.md)
 O terceiro artigo utilizado como referência, intitulado "A Comparison Study of Deep Learning Methodologies for Music Emotion Recognition" (2024), aborda a aplicação de métodos de aprendizado profundo para o reconhecimento de emoções em músicas e suas implicações na saúde mental.
 
 **1. Contextualização do Problema:**
