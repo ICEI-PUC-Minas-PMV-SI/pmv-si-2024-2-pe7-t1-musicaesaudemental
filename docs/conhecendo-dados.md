@@ -6,126 +6,7 @@ Para isso, sugere-se que sejam utilizados cálculos de medidas de tendência cen
 
 Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere relevantes para entender os dados com os quais você irá trabalhar.  Além disso, inclua e comente os trechos de código mais relevantes desenvolvidos para realizar suas análises. Na pasta "src", inclua o código fonte completo. -->
 
-**(Renan)**
-**Análise exploratória da base dados e criação de insights para a pesquisa sobre o impacto da música sobre transtornos**
-
-**Tabela de dados:** tab_musicaesaude_r.xlsx <br/>
-**Arquivo Jupyter (python):** Analise_MusicaeSaude_r.jpynb <br/>
-
-* **Gráfico 1**: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
-* **Gráfico 2**: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
-
-![Gráficos por faixa de idade e streaming](img/graf_1_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>file_path = 'tab_musicaesaude.xlsx'<br/>
-df = pd.read_excel(file_path, sheet_name='musicaesaude')<br/>
-faixas_idade = pd.cut(df['Age'], bins=[10, 20, 30, 40, 50, 60], <br/>
-                      labels=['10-20', '20-30', '30-40', '40-50', '50-60'])<br/>
-faixa_idade_counts = faixas_idade.value_counts()<br/>
-streaming_counts = df['Primary streaming service'].value_counts() <br/>
- <br/>
-* **Gráfico 3**: Compara as avaliações sobre o efeito da música em relação a quem trabalho ouvindo música e quem não trabalha ouvindo música. Indicando maior percepção de impacto positivo da música nas pessoas que trabalham ouvindo música.
-  
-![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
-df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
-while_working_effects = df.groupby(['While working', 'Music effects']).size().unstack(fill_value=0) <br/>
-while_working_percent = while_working_effects.div(while_working_effects.sum(axis=1), axis=0) * 100 <br/>
-ax = while_working_percent.plot(kind='bar', stacked=True, figsize=(10, 7), color=['#66b3ff', '#ff9999', '#99ff99', '#ffcc99']) <br/>
- <br/>
-* **Gráfico 4**: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que indicaram como gênero favorito música Gospel e Lofi.
-  
-![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
-df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
-improve_data = df[df['Music effects'] == 'Improve'] <br/>
-genre_improve_counts = improve_data['Fav genre'].value_counts() <br/>
-genre_total_counts = df['Fav genre'].value_counts() <br/>
-genre_improve_percent = (genre_improve_counts / genre_total_counts) * 100 <br/>
-ax = genre_improve_percent.plot(kind='bar', figsize=(10, 7), color='#66b3ff') <br/>
- <br/>
-* **Gráfico 5**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
-* **Gráfico 6**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
-  
-![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
-df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
-anxiety_counts = df['Anxiety_level'].value_counts() <br/>
-depression_counts = df['Depression_level'].value_counts() <br/>
-insomnia_counts = df['Insomnia_level'].value_counts() <br/>
-ocd_counts = df['OCD_level'].value_counts() <br/>
-music_effects = df['Music effects'].value_counts() <br/>
-anxiety_effects = df.groupby('Anxiety_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-depression_effects = df.groupby('Depression_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-insomnia_effects = df.groupby('Insomnia_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-ocd_effects = df.groupby('OCD_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
- <br/>
-* **Gráfico 7**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
-* **Gráfico 8**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
-  
-![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
-df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
-anxiety_counts = df['Anxiety_level'].value_counts() <br/>
-depression_counts = df['Depression_level'].value_counts() <br/>
-insomnia_counts = df['Insomnia_level'].value_counts() <br/>
-ocd_counts = df['OCD_level'].value_counts() <br/>
-music_effects = df['Music effects'].value_counts() <br/>
-anxiety_effects = df.groupby('Anxiety_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-depression_effects = df.groupby('Depression_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-insomnia_effects = df.groupby('Insomnia_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-ocd_effects = df.groupby('OCD_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
-  <br/>
-* **Gráfico 9**: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
-    * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical. 
-    * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
-  
-![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>file_path = 'tab_musicaesaude.xlsx' <br/><br/>
-df = pd.read_excel(file_path, sheet_name='musicaesaude')<br/>
-df_improve = df[df['Music effects'] == 'Improve']<br/>
-score_columns = [<br/>
-    'Score [Country]', 'Score [EDM]', 'Score [Folk]', 'Score [Gospel]', 'Score [Hip hop]',<br/>
-    'Score [Jazz]', 'Score [K pop]', 'Score [Latin]', 'Score [Lofi]', 'Score [Metal]', <br/>
-    'Score [Pop]', 'Score [R&B]', 'Score [Rap]', 'Score [Rock]', 'Score [Video game music]'<br/>
-    ]<br/>
-effects_by_genre = df_improve.groupby('Music effects')[score_columns].sum() <br/>
-total_scores = effects_by_genre.sum(axis=1) <br/>
-effects_percent = (effects_by_genre.T / total_scores).T * 100 <br/>
- <br/>
-* **Tabela 1**: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
-     * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical.
-     * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
-  
-![Gráficos por faixa de idade e streaming](img/tab_7_r.jpg)
-
-**Trecho do cógigo:** <br/>
-<br/>columns_of_interest = [<br/>
-    'Fav genre', 'Score [Country]', 'Score [EDM]', 'Score [Folk]', 'Score [Gospel]', <br/>
-    'Score [Hip hop]', 'Score [Jazz]', 'Score [K pop]', 'Score [Latin]', <br/>
-    'Score [Lofi]', 'Score [Metal]', 'Score [Pop]', 'Score [R&B]', <br/>
-    'Score [Rap]', 'Score [Rock]', 'Score [Video game music]'<br/>
-]<br/>
-df_selected = df[columns_of_interest]<br/>
-grouped_scores = df_selected.groupby('Fav genre').mean()<br/>
-percentage_scores = grouped_scores.apply(lambda x: 100 * x / x.sum(), axis=1)<br/>
-inverted_percentage_scores = percentage_scores.transpose()<br/>
-inverted_percentage_scores = inverted_percentage_scores.round(1) <br/>
-
-
-**(Isabela)**
-**Análise exploratória e descritiva da base de dados sobre o efeito da muúsica nos transtornos metais**
+**Parte 1: Análise exploratória e descritiva da base de dados sobre o efeito da muúsica nos transtornos metais**
 
 O primeiro passo para iniciar a análise exploratória e descritiva da base de dados foi importar as bibliotecas necessárias. Em seguida, importamos a base de dados contida no arquivo .csv e realizamos a contagem total de linhas e colunas presentes na base.
 
@@ -255,6 +136,122 @@ A partir da Matriz podemos identificar os níveis das correlações, conforme im
 ![Correlação entre váriaveis](img/31.png)
 
 A análise mostra correlações significativas entre as variáveis relacionadas à saúde mental, especialmente entre ansiedade, depressão e insônia, sugerindo que essas condições podem coexistir. O TOC também está relacionado de maneira moderada a essas variáveis, indicando que pode fazer parte de um quadro mais amplo de saúde mental. Horas por dia e BPM parecem não ter uma relação significativa com as variáveis psicológicas.
+
+**Parte 2: Análise quantitativa da base dados para a pesquisa sobre o impacto da música sobre transtornos**
+
+**Tabela de dados:** tab_musicaesaude_r.xlsx <br/>
+**Arquivo Jupyter (python):** Analise_MusicaeSaude_r.jpynb <br/>
+
+* **Gráfico 1**: Indica a representatividade dos participantes por faixa etária,  indicando que a maioria dos participantes são adolescentes e adultos abaixo dos 30 anos.
+* **Gráfico 2**: Indica a representatividade dos pesquisados por streaming utilizado,  indicando que mais da metade dos participantes consome música através do Spotify, seguido do Youtube e de quem não utiliza serviço de streaming de música.
+
+![Gráficos por faixa de idade e streaming](img/graf_1_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>file_path = 'tab_musicaesaude.xlsx'<br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude')<br/>
+faixas_idade = pd.cut(df['Age'], bins=[10, 20, 30, 40, 50, 60], <br/>
+                      labels=['10-20', '20-30', '30-40', '40-50', '50-60'])<br/>
+faixa_idade_counts = faixas_idade.value_counts()<br/>
+streaming_counts = df['Primary streaming service'].value_counts() <br/>
+ <br/>
+* **Gráfico 3**: Compara as avaliações sobre o efeito da música em relação a quem trabalho ouvindo música e quem não trabalha ouvindo música. Indicando maior percepção de impacto positivo da música nas pessoas que trabalham ouvindo música.
+  
+![Gráficos por faixa de idade e streaming](img/graf_2_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+while_working_effects = df.groupby(['While working', 'Music effects']).size().unstack(fill_value=0) <br/>
+while_working_percent = while_working_effects.div(while_working_effects.sum(axis=1), axis=0) * 100 <br/>
+ax = while_working_percent.plot(kind='bar', stacked=True, figsize=(10, 7), color=['#66b3ff', '#ff9999', '#99ff99', '#ffcc99']) <br/>
+ <br/>
+* **Gráfico 4**: Indica a representatividade das pessoas que avaliam a música como benéfica relacionado ao seu genêro de música favorito. Indicando que as pessoas com maior aceitação sobre o benefício da música são as que indicaram como gênero favorito música Gospel e Lofi.
+  
+![Gráficos por faixa de idade e streaming](img/graf_3_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+improve_data = df[df['Music effects'] == 'Improve'] <br/>
+genre_improve_counts = improve_data['Fav genre'].value_counts() <br/>
+genre_total_counts = df['Fav genre'].value_counts() <br/>
+genre_improve_percent = (genre_improve_counts / genre_total_counts) * 100 <br/>
+ax = genre_improve_percent.plot(kind='bar', figsize=(10, 7), color='#66b3ff') <br/>
+ <br/>
+* **Gráfico 5**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de ansiedade. Indicando que pessoas que se classificaram com ansiedade tendem a sentir mais o efeito positivo da música.
+* **Gráfico 6**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de depressão. Indicando que pessoas que se classificaram com depressão tendem a sentir mais o efeito positivo da música.
+  
+![Gráficos por faixa de idade e streaming](img/graf_4_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+anxiety_counts = df['Anxiety_level'].value_counts() <br/>
+depression_counts = df['Depression_level'].value_counts() <br/>
+insomnia_counts = df['Insomnia_level'].value_counts() <br/>
+ocd_counts = df['OCD_level'].value_counts() <br/>
+music_effects = df['Music effects'].value_counts() <br/>
+anxiety_effects = df.groupby('Anxiety_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+depression_effects = df.groupby('Depression_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+insomnia_effects = df.groupby('Insomnia_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+ocd_effects = df.groupby('OCD_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+ <br/>
+* **Gráfico 7**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de insônia. Indicando que pessoas que se classificaram com insônia tendem a sentir um pouco mais o efeito positivo da música.
+* **Gráfico 8**: O gráfico indica a percepção dos pesquisados sobre o efeito da música comparado ao nível de TOC. Indicando que pessoas que se classificaram com TOC tendem a sentir um pouco mais o efeito positivo da música.
+  
+![Gráficos por faixa de idade e streaming](img/graf_5_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>file_path = 'tab_musicaesaude.xlsx' <br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude') <br/>
+anxiety_counts = df['Anxiety_level'].value_counts() <br/>
+depression_counts = df['Depression_level'].value_counts() <br/>
+insomnia_counts = df['Insomnia_level'].value_counts() <br/>
+ocd_counts = df['OCD_level'].value_counts() <br/>
+music_effects = df['Music effects'].value_counts() <br/>
+anxiety_effects = df.groupby('Anxiety_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+depression_effects = df.groupby('Depression_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+insomnia_effects = df.groupby('Insomnia_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+ocd_effects = df.groupby('OCD_level')['Music effects'].value_counts(normalize=True).unstack(fill_value=0) <br/>
+  <br/>
+* **Gráfico 9**: O gráfico indica os usuários que sinalizaram ter impacto positivo da música relacionando com aos estilos musicais ouvidos com maior frequência. Destaque para Rock e Pop que foram os estilos mais ouvidos por quem percebeu melhoria.
+    * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical. 
+    * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
+  
+![Gráficos por faixa de idade e streaming](img/graf_6_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>file_path = 'tab_musicaesaude.xlsx' <br/><br/>
+df = pd.read_excel(file_path, sheet_name='musicaesaude')<br/>
+df_improve = df[df['Music effects'] == 'Improve']<br/>
+score_columns = [<br/>
+    'Score [Country]', 'Score [EDM]', 'Score [Folk]', 'Score [Gospel]', 'Score [Hip hop]',<br/>
+    'Score [Jazz]', 'Score [K pop]', 'Score [Latin]', 'Score [Lofi]', 'Score [Metal]', <br/>
+    'Score [Pop]', 'Score [R&B]', 'Score [Rap]', 'Score [Rock]', 'Score [Video game music]'<br/>
+    ]<br/>
+effects_by_genre = df_improve.groupby('Music effects')[score_columns].sum() <br/>
+total_scores = effects_by_genre.sum(axis=1) <br/>
+effects_percent = (effects_by_genre.T / total_scores).T * 100 <br/>
+ <br/>
+* **Tabela 1**: A tabela abaixo exibe os estilos musicais indicados como favoritos e compara com os estilos que de fato foram mais consumidos pelos usuários. Comprovando que embora os usuários estivessem classificado um gênero como favorito, na prática ouvem frequentemente outros estilos musicais.
+     * Para esta análise se tornar quantitativa foi atribuído um modelo score de acordo com a classificação textual de frequência de consumo de cada estilo musical.
+     * Score: Nunca - 0, Raramente - 1, As vezes - 2, Frequentemente - 3.
+  
+![Gráficos por faixa de idade e streaming](img/tab_7_r.jpg)
+
+**Trecho do código:** <br/>
+<br/>columns_of_interest = [<br/>
+    'Fav genre', 'Score [Country]', 'Score [EDM]', 'Score [Folk]', 'Score [Gospel]', <br/>
+    'Score [Hip hop]', 'Score [Jazz]', 'Score [K pop]', 'Score [Latin]', <br/>
+    'Score [Lofi]', 'Score [Metal]', 'Score [Pop]', 'Score [R&B]', <br/>
+    'Score [Rap]', 'Score [Rock]', 'Score [Video game music]'<br/>
+]<br/>
+df_selected = df[columns_of_interest]<br/>
+grouped_scores = df_selected.groupby('Fav genre').mean()<br/>
+percentage_scores = grouped_scores.apply(lambda x: 100 * x / x.sum(), axis=1)<br/>
+inverted_percentage_scores = percentage_scores.transpose()<br/>
+inverted_percentage_scores = inverted_percentage_scores.round(1) <br/>
 
 
 ## Descrição dos achados
