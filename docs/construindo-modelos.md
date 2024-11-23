@@ -560,6 +560,34 @@ plt.show()
 
 # Preparação dos dados
 
+## Importação da bibliotecas necessárias e carregamento do dataset
+
+## Criação de modelos preditivos
+
+### Random Forest
+
+#### Conclusões
+
+### Random Forest com Undersampling
+
+#### Conclusões
+
+### Random Forest com Oversampling
+
+#### Conclusões
+
+### XGBoost
+
+#### Conclusões
+
+### Random Forest com SMOTE (Synthetic Minority Over-sampling Technique)
+
+#### Conclusões
+
+
+
+
+
 Nesta etapa, deverão ser descritas todas as técnicas utilizadas para pré-processamento/tratamento dos dados.
 
 Algumas das etapas podem estar relacionadas à:
