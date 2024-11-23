@@ -558,9 +558,9 @@ plt.show()
 
 # CASO 2 - Árvore de Decisão
 
-# Preparação dos dados
+## Preparação dos dados
 
-# Descrição dos modelos utilizados
+## Descrição dos modelos utilizados
 
 ## Importação da bibliotecas necessárias e carregamento do dataset
 
