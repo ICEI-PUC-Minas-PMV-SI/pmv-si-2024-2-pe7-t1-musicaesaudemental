@@ -1,4 +1,4 @@
-# CASO 1 - Árvore de Decisão
+# CASO 1 - Árvore de Decisão - Túlio e Renan
 
 # Preparação dos dados
 Para a prepação dos dados que serão utilizados no modelo, utilizamos os passos a seguir:
@@ -556,54 +556,328 @@ plt.title('Visualização da Árvore de Decisão do Modelo XGBoost')
 plt.show()
 ```
 
-# CASO 2 - Árvore de Decisão (Random Forest)
+# CASO 2 - Árvore de Decisão (Random Forest) - Isabela e Renan
 
 ## Preparação dos dados
 
+
+Durante a preparação e análise dos dados, realizamos algumas transformações importantes para garantir maior qualidade e relevância nas informações. Primeiramente, adicionamos uma nova coluna de faixa etária, categorizando os indivíduos em grupos específicos com base em suas idades:
+
+Under 18: para idades menores que 18 anos;
+18-24: para idades entre 18 e 24 anos;
+25-34: para idades entre 25 e 34 anos;
+35-49: para idades entre 35 e 49 anos;
+50+: para idades de 50 anos ou mais.
+Além disso, realizamos a conversão da frequência de escuta de estilos musicais de valores qualitativos para numéricos, possibilitando análises mais precisas. A correspondência ficou assim:
+
+'Never': 0
+'Rarely': 1
+'Sometimes': 2
+'Very frequently': 3
+No que diz respeito ao score de saúde mental, transformamos os valores numéricos em categorias qualitativas para facilitar a interpretação:
+
+'nulo': score igual a 0;
+'baixo': score menor ou igual a 3;
+'médio': score menor ou igual a 6;
+'alto': score maior que 6.
+
+Por fim, realizamos a limpeza do conjunto de dados. Removemos todas as linhas com valores ausentes e eliminamos registros com valores inválidos na coluna de BPM, garantindo a integridade e consistência dos dados para as próximas etapas da análise. Essas transformações foram fundamentais para obter insights mais claros e robustos.
+
+```
+import pandas as pd
+
+file_path = "C:\Puc\db_musica_saude.csv"
+df = pd.read_csv(file_path)
+
+df.head(), df.columns
+
+df.dropna(inplace=True)
+
+df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
+
+df.dropna(subset=['Timestamp'], inplace=True)
+
+df = df[(df['BPM'] != 0) & (df['BPM'] != 999999999)]
+
+df.head()
+```
+
+```
+def age_range(age):
+    if age < 18:
+        return "Under 18"
+    elif 18 <= age < 25:
+        return "18-24"
+    elif 25 <= age < 35:
+        return "25-34"
+    elif 35 <= age < 50:
+        return "35-49"
+    else:
+        return "50+"
+
+df['age_range'] = df['Age'].apply(age_range)
+```
+```
+def anxiety_level(score):
+    if score == 0:
+        return 'nulo'
+    elif score <= 3:
+        return 'baixo'
+    elif score <= 6:
+        return 'médio'
+    else:
+        return 'alto'
+
+for col in ['Anxiety', 'Depression', 'Insomnia', 'OCD']:
+    df[f'{col}_level'] = df[col].apply(anxiety_level)
+
+# 6. Mapear valores de frequência de gêneros musicais ('Never', 'Rarely', 'Sometimes', 'Very frequently')
+freq_mapping = {'Never': 0, 'Rarely': 1, 'Sometimes': 2, 'Very frequently': 3}
+frequency_cols = [col for col in df.columns if 'Frequency [' in col]
+
+for col in frequency_cols:
+    new_col_name = col.replace("Frequency [", "").replace("]", "") + "_frequency"
+    df[new_col_name] = df[col].map(freq_mapping)
+
+df.head()
+```
+```
+df.to_csv("dados_tratados.csv", index=False, encoding="utf-8", sep=",")
+```
 ## Descrição dos modelos utilizados
 
+*Random Forest*
+
+Consiste em um conjunto (ou "floresta") de múltiplas árvores de decisão. Cada árvore é construída usando um subconjunto aleatório dos dados e características.
+
+Combinação de Árvores: As previsões finais são feitas pela média (para regressão) ou votação (para classificação) das previsões de todas as árvores, o que melhora a precisão e a robustez.
+
+Vantagem: Reduz o overfitting que uma única árvore pode ter, tornando-o mais robusto e confiável em dados complexos
+
+*Por que Random Forest foi melhor para este projeto?*
+
+Complexidade dos Dados: O projeto envolve muitos estilos musicais e suas relações com a condição mental, o que pode ser difícil de capturar com precisão por uma única árvore de decisão. O Random Forest, por usar várias árvores, consegue capturar essas complexidades de forma mais eficaz.
+
+Variabilidade e Ruído: Os dados podem conter variabilidade e ruído devido a fatores individuais e subjetivos. O Random Forest suaviza essa variabilidade ao combinar os resultados de múltiplas árvores, fornecendo previsões mais robustas.
+
+Esse modelo é capaz de generalizar melhor novos dados, o que é crucial para prever corretamente os efeitos da música em condições mentais não vistas anteriormente.
+
 ## Importação da bibliotecas necessárias e carregamento do dataset
+```
+# Importando bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+```
+
+# 2. Carregar dados
+
+```
+url = '/content/dados_tratados_V2.csv'  # Use barra simples
+data = pd.read_csv(url, sep = ';')
+```
 
 ## Criação de modelos preditivos
+### Random Forest desconsiderando o desbalanceamentos das classes
 
-### Random Forest
+
 
 #### Conclusões
+Conclusões sobre a análise
+A análise dos resultados do modelo Random Forest com as métricas de classificação (precision, recall, f1-score, e support):
+
+Classe -1 ("Worsen"):
+Precision, Recall, F1-Score: Todos são 0.00, indicando que o modelo não conseguiu prever corretamente nenhum exemplo desta classe. Isso pode ser devido ao baixo número de exemplos no conjunto de teste, o que dificulta o aprendizado do modelo para esta classe. Support: Apenas 3 exemplos, o que é bastante limitado para treinar e testar o modelo de forma eficaz.
+
+Classe 0 ("No effect"):
+Precision, Recall, F1-Score: Todos são 0.00, sugerindo que o modelo não conseguiu prever corretamente nenhum exemplo desta classe. Este é um problema significativo, especialmente porque há um número maior de exemplos (27) em comparação com a classe -1. Support: 27 exemplos, ainda assim, o modelo não conseguiu capturar as características desta classe.
+
+Classe 1 ("Improve"):
+Precision: 0.75, indicando que 75% das previsões feitas para esta classe estavam corretas. Recall: 0.96, o que é bastante alto, significando que o modelo identificou corretamente 96% dos exemplos desta classe. F1-Score: 0.84, uma boa indicação de equilíbrio entre precisão e recall para esta classe. Support: 93 exemplos, um número substancial que provavelmente ajudou o modelo a aprender melhor as características desta classe. Acurácia Geral: 0.72 (72%), que reflete a proporção de previsões corretas, mas é amplamente influenciada pela classe majoritária (1).
+
+Macro Avg e Weighted Avg:
+Macro Avg: As médias de precisão, recall e F1-Score são bastante baixas (0.25, 0.32, 0.28), refletindo o desempenho ruim em classes minoritárias. Weighted Avg: Considera o suporte de cada classe, resultando em valores melhores (0.57, 0.72, 0.63), mas ainda assim indicando a necessidade de melhorias para as classes -1 e 0.
+
+Conclusões e Recomendações:
+O modelo está fortemente enviesado para a classe majoritária (1), o que é uma indicação de desbalanceamento de classes. É interessante considerar técnicas de balanceamento de dados, como oversampling, undersampling, ou uso de algoritmos que lidem melhor com dados desbalanceados.
 
 ### Random Forest com Undersampling
 
+Undersampling é uma técnica de balanceamento de classes que reduz o número de exemplos na classe majoritária. Isso é feito removendo aleatoriamente exemplos até que a proporção entre as classes esteja equilibrada. Embora simples, pode levar à perda de informações valiosas se muitos exemplos forem removidos.
+
 #### Conclusões
+A análise dos resultados do modelo após a aplicação de undersampling com as métricas de classificação (precision, recall, f1-score, e support):
+
+Classe -1 ("Worsen"):
+Precision, Recall, F1-Score: Todos são 0.00, indicando que o modelo não conseguiu prever corretamente nenhum exemplo desta classe. Isso sugere que a classe -1 continua a ser muito difícil de prever, possivelmente devido ao número muito pequeno de exemplos no conjunto de teste. Support: Apenas 3 exemplos, o que não é suficiente para o modelo aprender características significativas, mesmo com undersampling.
+
+Classe 0 ("No effect"):
+Precision: 0.26, indicando que apenas 26% das previsões feitas para esta classe estavam corretas. Recall: 0.22, baixo, significando que o modelo identificou corretamente apenas 22% dos exemplos desta classe. F1-Score: 0.24, indicando um equilíbrio insatisfatório entre precisão e recall para esta classe. Support: 27 exemplos, ainda um número pequeno, mas que deveria ser suficiente para alguma melhora.
+
+Classe 1 ("Improve"):
+Precision: 0.65, indicando que 65% das previsões feitas para esta classe estavam corretas. Recall: 0.38, o que é consideravelmente mais baixo do que o esperado, significando que o modelo identificou corretamente apenas 38% dos exemplos desta classe. F1-Score: 0.48, o que é uma queda significativa em comparação com os métodos anteriores. Support: 93 exemplos, que é a classe majoritária, mas ainda assim, o desempenho é menor que o esperado. Acurácia Geral: 0.33 (33%), o que é bastante baixo, sugerindo que o modelo tem dificuldade em fazer previsões corretas após o undersampling.
+
+Macro Avg e Weighted Avg:
+Macro Avg: As médias de precisão, recall e F1-Score são baixas (0.30, 0.20, 0.24), refletindo o desempenho ruim em todas as classes. Weighted Avg: Considera o suporte de cada classe, resultando em valores ainda insatisfatórios (0.55, 0.33, 0.41).
+
+O undersampling aparentemente reduziu a capacidade do modelo de generalizar bem, especialmente para a classe majoritária 1. A estratégia de undersampling pode ter removido muitos exemplos úteis da classe majoritária, prejudicando o aprendizado do modelo.
 
 ### Random Forest com Oversampling
+Oversampling é uma técnica que aumenta o número de exemplos nas classes minoritárias duplicando-os aleatoriamente ou gerando novas instâncias a partir dos existentes. Isso ajuda a equilibrar a proporção de classes, mas pode levar ao overfitting se não for feito cuidadosamente.
+
 
 #### Conclusões
+
+A análise dos resultados do modelo após o oversampling com as métricas de classificação (precision, recall, f1-score, e support) é a seguinte:
+
+Classe -1 ("Worsen"):
+Precision, Recall, F1-Score: Todos são 0.00, indicando que o modelo não conseguiu prever corretamente nenhum exemplo desta classe. Isso é um problema, especialmente considerando que fizemos oversampling para tentar melhorar o desempenho nesta classe. Support: Apenas 3 exemplos no conjunto de teste, o que é insuficiente para o modelo aprender características representativas desta classe, mesmo após o oversampling.
+
+Classe 0 ("No effect"):
+Precision: 0.12, indicando que apenas 12% das previsões feitas para esta classe estavam corretas. Recall: 0.04, muito baixo, significando que o modelo identificou corretamente apenas 4% dos exemplos desta classe. F1-Score: 0.06, muito baixo, indicando um equilíbrio insatisfatório entre precisão e recall para esta classe. Support: 27 exemplos, um número que, ainda que melhor do que a classe -1, não parece suficiente para um bom desempenho.
+
+Classe 1 ("Improve"):
+Precision: 0.75, indicando que 75% das previsões feitas para esta classe estavam corretas. Recall: 0.91, muito alto, significando que o modelo identificou corretamente 91% dos exemplos desta classe. F1-Score: 0.82, uma boa indicação de equilíbrio entre precisão e recall para esta classe. Support: 93 exemplos, que continua a ser a classe majoritária. Acurácia Geral: 0.70 (70%), que reflete a proporção de previsões corretas, mas ainda fortemente influenciada pela classe majoritária (1).
+
+Macro Avg e Weighted Avg:
+Macro Avg: As médias de precisão, recall e F1-Score são baixas (0.29, 0.32, 0.29), refletindo o desempenho ruim nas classes minoritárias. Weighted Avg: Considera o suporte de cada classe, resultando em valores melhores (0.59, 0.70, 0.63), mas ainda indicando a necessidade de melhorias para as classes -1 e 0.
+
+O modelo ainda está fortemente enviesado para a classe majoritária (1), apesar do oversampling. Mesmo após o oversampling, as classes -1 e 0 não têm um desempenho satisfatório, sugerindo que o modelo pode não estar capturando características distintivas suficientes para essas classes. Tal cenário torna-se recomendável a exploração de outras técnicas de balanceamento.
 
 ### XGBoost
 
+XGBoost é um poderoso algoritmo de boosting que pode lidar com dados desbalanceados através do ajuste de hiperparâmetros como scale_pos_weight, que ajusta a importância das classes minoritárias. Ele constrói modelos sequencialmente, corrigindo erros de modelos anteriores, e é conhecido por sua eficiência e precisão em problemas complexos.
+
 #### Conclusões
+A análise dos resultados do modelo XGBoost após o ajuste dos hiperparâmetros mostra o seguinte:
+
+Classe 0 ("Worsen"):
+Precision, Recall, F1-Score: Todos são 0.00, indicando que o modelo ainda não consegue prever corretamente nenhum exemplo desta classe. Isso pode ser devido ao número extremamente pequeno de exemplos (apenas 3) no conjunto de teste, o que torna difícil para o modelo aprender características significativas para esta classe.
+
+Classe 1 ("No effect"):
+Precision: 0.12, indicando que apenas 12% das previsões feitas para esta classe estavam corretas. Recall: 0.04, muito baixo, significando que o modelo identificou corretamente apenas 4% dos exemplos desta classe. F1-Score: 0.06, indicando um equilíbrio insatisfatório entre precisão e recall para esta classe. Support: 27 exemplos, um número que deveria permitir algum nível de aprendizado, mas o modelo ainda não conseguiu capturar as características desta classe.
+
+Classe 2 ("Improve"):
+Precision: 0.75, indicando que 75% das previsões feitas para esta classe estavam corretas. Recall: 0.91, bastante alto, significando que o modelo identificou corretamente 91% dos exemplos desta classe. F1-Score: 0.82, uma boa indicação de equilíbrio entre precisão e recall para esta classe. Support: 93 exemplos, que continua a ser a classe majoritária e bem representada. Acurácia Geral: 0.70 (70%), que reflete a proporção de previsões corretas, mas ainda fortemente influenciada pela classe majoritária (2).
+
+Macro Avg e Weighted Avg:
+Macro Avg: As médias de precisão, recall e F1-Score são baixas (0.29, 0.32, 0.29), refletindo o desempenho ruim nas classes minoritárias. Weighted Avg: Considera o suporte de cada classe, resultando em valores melhores (0.59, 0.70, 0.63), mas ainda indicando a necessidade de melhorias para as classes 0 e 1.
+
+Apesar de ter apresentado um resultado superior às tentativas anteriores, o uso do XGBoost não foi suficiente para melhorar substancialmente o desempenho nas classes minoritárias.
 
 ### Random Forest com SMOTE (Synthetic Minority Over-sampling Technique)
 
+SMOTE é uma técnica avançada de oversampling que cria exemplos sintéticos para a classe minoritária. Em vez de simplesmente duplicar exemplos, SMOTE gera novos dados interpolando entre exemplos existentes, aumentando a diversidade dos dados minoritários e ajudando a evitar overfitting.
+
 #### Conclusões
+
+A análise dos resultados do modelo usando SMOTE para lidar com o desbalanceamento das classes revela o seguinte:
+
+Classe -1 ("Worsen"):
+Precision, Recall, F1-Score: Todos são 0.00, indicando que o modelo não conseguiu prever corretamente nenhum exemplo desta classe. Isso ainda é um problema, possivelmente devido ao número muito pequeno de exemplos no conjunto de teste.
+
+Classe 0 ("No effect"):
+Precision: 0.17, indicando que 17% das previsões feitas para esta classe estavam corretas. Recall: 0.15, um pouco melhor, significando que o modelo identificou corretamente 15% dos exemplos desta classe. F1-Score: 0.16, indicando um equilíbrio ligeiramente melhor entre precisão e recall, mas ainda insatisfatório. Support: 27 exemplos, um número que deveria permitir algum nível de aprendizado.
+
+Classe 1 ("Improve"):
+Precision: 0.75, indicando que 75% das previsões feitas para esta classe estavam corretas. Recall: 0.78, o que é bom, significando que o modelo identificou corretamente 78% dos exemplos desta classe. F1-Score: 0.77, uma boa indicação de equilíbrio entre precisão e recall para esta classe. Support: 93 exemplos, que continua a ser a classe majoritária e bem representada. Acurácia Geral: 0.63 (63%), que reflete a proporção de previsões corretas, mas ainda fortemente influenciada pela classe majoritária (1).
+
+Macro Avg e Weighted Avg:
+Macro Avg: As médias de precisão, recall e F1-Score são baixas (0.31, 0.31, 0.31), refletindo o desempenho ruim nas classes minoritárias. Weighted Avg: Considera o suporte de cada classe, resultando em valores melhores (0.61, 0.63, 0.62), mas ainda indicando a necessidade de melhorias para as classes -1 e 0.
+
+O uso de SMOTE ajudou a melhorar ligeiramente o desempenho na classe 0, mas não foi suficiente para a classe -1.
 
 ### Conclusão sobre os modelos utilizados
 
+Com base nas análises dos resultados apresentados nas diferentes tentativas, a abordagem que apresentou os melhores resultados em termos de equilíbrio entre precisão, recall e f1-score foi o uso do XGBoost. Aqui está o resumo dos resultados mais relevantes dessa abordagem:
+
+Classe 2 ("Improve") teve um desempenho consistente com boa precisão e recall, mantendo um bom f1-score.
+
+Acurácia Geral foi de 70% que é uma medida da proporção de previsões corretas.
+
+Weighted Avg apresentou valores mais equilibrados, indicando que o modelo conseguiu manter um desempenho razoável ao considerar a distribuição das classes.
+
+Razões para o Desempenho:
+
+O XGBoost é robusto e inclui regularização, que ajuda a prevenir overfitting. O ajuste dos hiperparâmetros permitiu otimizar o aprendizado do modelo, especialmente para a classe majoritária, embora as classes minoritárias ainda representem um desafio significativo devido à falta de dados.
+
 ## Análise dos efeitos da música por faixa etária
 
+Essa visualização ajuda a destacar como diferentes faixas etárias respondem à música em termos de melhoria das condições mentais.
+
 ### Conclusões sobre a análise
+
+O gráfico acima mostra a média dos efeitos da música por faixa etária. Observamos que:
+
+As faixas etárias "Under 18" e "18-24" apresentam as maiores médias de melhoria nos efeitos da música, indicando que essas faixas etárias experimentam os maiores benefícios emocionais ou mentais ao ouvir música.
+
+Faixas etárias mais avançadas, como "50+", também mostram uma melhoria considerável, mas não tão alta quanto as mais jovens.
+
+As faixas "25-34" e "35-49" têm médias mais baixas, mas ainda positivas, sugerindo que a música tem um impacto benéfico, embora menos pronunciado, nessas idades.
 
 ## Correlação entre os estilos musicais com a melhoria na condição mental
 
+O gráfico acima mostra a correlação entre a frequência dos estilos musicais e a melhoria na condição mental dos ouvintes.
+
 ### Conclusões sobre a análise
+
+R&B apresenta a maior correlação positiva com a melhoria, indicando que ouvir R&B está associado a uma melhora na condição mental.
+
+Gospel também tem uma forte correlação positiva, sugerindo que é benéfico para a condição mental.
+
+Pop e Country ambos têm correlações positivas significativas, indicando que são eficazes na melhoria da condição mental.
+
+Clássica e Metal têm correlações levemente negativas, sugerindo que podem não estar associados a uma melhoria na condição mental, pelo menos no contexto desta análise.
 
 ## Conclusão do Caso 2
 
 ### Conclusões técnicas
 
+O objetivo inicial deste projeto era determinar se a frequência com que uma pessoa escuta diferentes estilos musicais está relacionada com a melhoria das suas condições mentais, conforme indicado pela coluna Music effects na base de dados.
+
+Durante o processo, várias abordagens foram exploradas para lidar com o desafio de classes desbalanceadas, incluindo técnicas de oversampling, undersampling, e o uso de algoritmos de ensemble, como o XGBoost.
+
+Resultados Principais:
+Classe Majoritária ("Improve") consistentemente apresentou bons resultados de precisão e recall, indicando que o modelo consegue identificar bem os casos em que a música melhora as condições mentais.
+
+Classes Minoritárias ("Worsen" e "No effect") permaneceram desafiadoras devido ao número insuficiente de exemplos, o que resultou em desempenho fraco nessas categorias.
+
+Ajuste de Hiperparâmetros com XGBoost: Apresentou o melhor equilíbrio no desempenho geral, com uma acurácia de 70%, mas ainda enfrenta limitações nas classes minoritárias.
+
+Desafios e Limitações:
+O desbalanceamento de classes foi o principal obstáculo, com dados insuficientes para algumas categorias, limitando a capacidade do modelo de aprender e generalizar. As técnicas de SMOTE e XGBoost ajudaram parcialmente, mas não resolveram completamente o problema de previsão para as classes menos representadas.
+
+Recomendações Futuras:
+Coleta de Mais Dados: Especialmente para as classes "Worsen" e "No effect", para fornecer um conjunto de dados mais equilibrado.
+
+Exploração de Novas Características: Investigar outras características que possam influenciar a resposta emocional à música.
+
+Combinação de Métodos: Considerar o uso de métodos de ensemble adicionais ou híbridos que possam capturar melhor as diferenças entre as classes.
+
+Análise Qualitativa: Realizar uma análise qualitativa para entender melhor os fatores subjacentes que possam não ser capturados quantitativamente.
+
+Em conclusão, embora o modelo tenha mostrado capacidade de prever a melhoria das condições mentais através da música para a classe majoritária, mais esforços são necessários para alcançar um desempenho robusto nas classes minoritárias. A continuidade deste projeto pode beneficiar-se de uma coleta de dados mais ampla e de técnicas analíticas mais sofisticadas.
+
 ### Considerações finais
 
+A análise dos dados revela que a música, de fato, exerce uma influência positiva na condição mental das pessoas, com variações notáveis entre diferentes faixas etárias e estilos musicais.
+Influência por Faixa Etária:
+Menores de 18 anos e jovens adultos (18-24 anos) são as faixas etárias que apresentam a maior melhoria na condição mental ao ouvir música. Isso sugere que a música desempenha um papel particularmente significativo na promoção do bem-estar mental entre os jovens, possivelmente devido à sua fase de desenvolvimento emocional e social intensa.
 
+*Adultos acima de 50 anos também mostram uma resposta positiva considerável, *indicando que a música continua a ser uma fonte importante de apoio emocional e mental, mesmo em idades mais avançadas.
 
+Estilos Musicais com Maior Efeito:
+R&B e Gospel emergem como os estilos musicais com a maior correlação positiva com a melhoria da condição mental. Esses gêneros são conhecidos por suas letras emotivas e ritmos envolventes, que podem criar uma conexão emocional mais profunda com os ouvintes. Pop e Country também demonstram uma influência positiva significativa, sugerindo que seus temas acessíveis e melodias cativantes contribuem para o bem-estar dos ouvintes.
+
+Observações Gerais:
+Embora a música clássica e o metal apresentem correlações ligeiramente negativas, isso pode refletir preferências pessoais ou contextos de audição específicos que não se alinham com a melhoria do bem-estar mental em geral.
+
+Dessa forma, a música pode ser considerada uma ferramenta poderosa para a melhoria da condição mental, especialmente entre jovens e adultos mais velhos, com certos estilos exercendo uma influência mais significativa. Essas descobertas podem guiar futuras iniciativas de bem-estar que utilizem a música como meio de promover a saúde mental em diversas populações.
 
 
 # Preparação dos dados
