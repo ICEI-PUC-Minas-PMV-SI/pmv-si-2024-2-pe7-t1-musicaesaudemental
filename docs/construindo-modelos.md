@@ -556,7 +556,7 @@ plt.title('Visualização da Árvore de Decisão do Modelo XGBoost')
 plt.show()
 ```
 
-# CASO 2 - Árvore de Decisão
+# CASO 2 - Árvore de Decisão (Random Forest)
 
 ## Preparação dos dados
 
