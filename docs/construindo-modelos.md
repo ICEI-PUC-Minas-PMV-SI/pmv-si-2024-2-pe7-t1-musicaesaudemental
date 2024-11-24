@@ -1,4 +1,4 @@
-# CASO 1 - Árvore de Decisão - Túlio e Renan
+# CASO 1 - Árvore de Decisão - Túlio
 
 # Preparação dos dados
 Para a prepação dos dados que serão utilizados no modelo, utilizamos os passos a seguir:
