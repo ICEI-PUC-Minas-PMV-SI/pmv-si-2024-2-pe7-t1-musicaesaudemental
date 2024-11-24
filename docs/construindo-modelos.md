@@ -1797,7 +1797,7 @@ Combina precisão e recall em uma única métrica, equilibrando os trade-offs en
 Como as classes podem estar desbalanceadas (por exemplo, menos dados de "Worsen"), o F1-Score garante que não priorizamos excessivamente uma métrica em detrimento da outra.
 Ajuda a avaliar, de forma equilibrada, a capacidade do modelo de identificar os efeitos positivos, neutros e negativos da música.
 
-5. Confusion Matrix (Matriz de Confusão) </br>
+5. Confusion Matrix (Matriz de Confusão) (Usado apenas no caso 01) </br>
 Apresenta os resultados reais versus previstos em uma tabela que detalha os verdadeiros positivos, verdadeiros negativos, falsos positivos e falsos negativos. Essa métrica permite uma visualização detalhada dos erros do modelo e é essencial para identificar problemas de desbalanceamento ou classes específicas onde o modelo tem dificuldade.
 
     - Por que usamos? </br>
