@@ -127,6 +127,12 @@ plt.figure(figsize=(25, 15))
 plot_tree(best_model, feature_names=X.columns, class_names=['Worsen', 'Improve', 'No effect'], filled=True)
 plt.show()
 ```
+
+> [!NOTE]
+> Verifique o código do modelo no link abaixo
+> [Arvore de Decisao](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier.ipynb)
+
+
 ### Árvore de Decisão com Undersampling
 Nesta abordagem, a técnica de undersampling foi usada para balancear as classes no conjunto de treino, reduzindo o número de amostras na classe majoritária para igualar o número de amostras das classes minoritárias.
 Apesar de reduzir o impacto do desbalanceamento sem criar dados sintéticos, mantendo a integridade dos dados reais, essa abordagem pode apresentar algumas limitações, que são:
@@ -227,6 +233,11 @@ plt.figure(figsize=(25, 15))
 plot_tree(best_model, feature_names=X.columns, class_names=['Worsen', 'Improve', 'No effect'], filled=True)
 plt.show()
 ```
+
+> [!NOTE]
+> Verifique o código do modelo no link abaixo
+> [Arvore de Decisao com Undersampling](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-undersampling.ipynb)
+
 
 ### Árvore de Decisão com Oversampling
 Nessa abordagem o oversampling manual foi usado para aumentar o número de amostras das classes minoritárias, replicando instâncias existentes até atingir um equilíbrio com a classe majoritária.
@@ -343,6 +354,11 @@ plot_tree(best_model, feature_names=X.columns, class_names=['Worsen', 'Improve',
 plt.show()
 ```
 
+> [!NOTE]
+> Verifique o código do modelo no link abaixo
+> [Arvore de Decisao com Oversampling](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-oversampling.ipynb)
+
+
 ### Árvore de Decisão com SMOTE
 A técnica SMOTE (Synthetic Minority Oversampling Technique) foi aplicada para gerar novas instâncias sintéticas das classes minoritárias, baseando-se em combinações das amostras existentes.
 Com essa técnica é possível gerar novas instâncias de dados, promovendo maior diversidade nos dados balanceados e também auxilia o modelo a aprender padrões representativos, reduzindo o risco de overfitting em amostras duplicadas. As limitações dessa técnica são as seguintes:
@@ -449,6 +465,10 @@ plt.figure(figsize=(25, 15))
 plot_tree(best_model, feature_names=X.columns, class_names=['Worsen', 'Improve', 'No effect'], filled=True)
 plt.show()
 ```
+
+> [!NOTE]
+> Verifique o código do modelo no link abaixo
+> [Arvore de Decisao com SMOTE](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-smote.ipynb)
 
 ### Árvore de Decisão com SMOTE e XGBoost
 Nesta abordagem, o SMOTE foi combinado com o modelo XGBoost, que utiliza um método de boosting baseado em árvores para melhorar o desempenho. Combinando SMOTE com XGBoost conseguimos aumentar a diversidade das classes minoritárias, lidar eficientemente com desbalanceamento ao ajustar pesos para classes minoritárias, captar interações complexas entre variáveis por meio de ensembles de árvores e também oferece excelente desempenho em tarefas de classificação multiclasses e alta flexibilidade nos hiperparâmetros.
@@ -571,6 +591,11 @@ xgb.plot_tree(best_model, num_trees=0)  # A árvore de decisão número 0 do mod
 plt.title('Visualização da Árvore de Decisão do Modelo XGBoost')
 plt.show()
 ```
+
+> [!NOTE]
+> Verifique o código do modelo no link abaixo
+> [Arvore de Decisao com SMOTE e XGBoost](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-xgboost.ipynb)
+
 # Avaliação dos modelos criados
 
 ## Métricas utilizadas
@@ -631,8 +656,9 @@ Permite compreender onde o modelo está errando (por exemplo, confundir "Worsen"
 ### Árvore de Decisão
 Esse modelo foi treinado considerando o debalanceamento entre as classes sem a aplicação de técnicas que pudessem auxiliar nesse desbalanceamento.
 
-[Print Acurácia e precisão)
+![Metricas arvore decisao](img/metricas-arvore-decisao.PNG)
 
+![Visualizacao Arvore de Decisão](img/arvore-decisao.png)
 No geral, esse modelo apresentou uma acurácia ok, pois atingiu 77,17%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois é uma métrica que foi muito influenciada pela classe majoritária "Improve".
 
 Classe "Improve": </br>
@@ -677,7 +703,9 @@ Classe "Worsen":
 #### Árvore de Decisão com Undersampling
 Esse modelo foi treinado considerando a aplicação da técnicas de undersampling, para auxiliar no desbalanceamento das classes.
 
-[Print Acurácia e precisão)
+![Metricas arvore decisao com undersampling](img/metricas-undersampling.PNG)
+
+![Visualizacao Arvore de Decisão com Undersampling](img/arvore-decisao-undersampling.png)
 
 No geral, esse modelo apresentou uma acurácia ruim, pois atingiu 28,57%, o que pode ter relação com a remoção de exemplos, até que a proporção entre as classes esteja equilibrada
 
@@ -723,7 +751,9 @@ Classe "Worsen":
 #### Árvore de Decisão com Oversampling
 Esse modelo foi treinado considerando a aplicação da técnica de Oversampling. que consiste em aumentar os exemplos nas classes minoritárias. Porém, como esse modelo faz esse aumento duplicando os exemplos já existetes ou gerando novas instâncias dos exemplos que já existem, isso pode levar ao overfitting.
 
-[Print Acurácia e precisão)
+![Metricas arvore decisao com oversampling](img/metricas-oversampling.PNG)
+
+![Visualizacao Arvore de Decisão com Oversampling](img/arvore-decisao-oversampling.png)
 
 No geral, esse modelo apresentou uma acurácia ok, pois atingiu 63,587%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois é uma métrica que foi muito influenciada pela classe majoritária "Improve".
 
@@ -769,7 +799,9 @@ Classe "Worsen":
 #### Árvore de Decisão com SMOTE
 Esse modelo foi treinado considerando a aplicação da técnica de SMOTE, que consiste em criar exemplos sintéticos para as classes minoritárias.
 
-[Print Acurácia e precisão)
+![Metricas arvore decisao com SMOTE](img/metricas-smote.PNG)
+
+![Visualizacao Arvore de Decisão com SMOTE](img/arvore-decisao-smote.png)
 
 No geral, esse modelo apresentou uma acurácia ok, pois atingiu 76,49%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois devemos nos basear também nas outras métricas afim de formar uma conclusão sobre o modelo.
 
@@ -815,7 +847,9 @@ Classe "Worsen":
 #### Árvore de Decisão com SMOTE e XGBoost
 Esse modelo foi treinado considerando a aplicação da técnica de SMOTE com XGBoost, que consiste em criar exemplos sintéticos para as classes minoritárias e também se beneficia de lidar com dados desbalanceados se utilizando de hiperparâmetros.
 
-[Print Acurácia e precisão)
+![Metricas arvore decisao com XGBoost](img/metricas-xgboost.PNG)
+
+![Visualizacao Arvore de Decisão com XGBoost](img/arvore-decisao-xgboost.png)
 
 No geral, esse modelo apresentou uma acurácia ok, pois atingiu 88,96%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois devemos nos basear também nas outras métricas afim de formar uma conclusão sobre o modelo.
 
