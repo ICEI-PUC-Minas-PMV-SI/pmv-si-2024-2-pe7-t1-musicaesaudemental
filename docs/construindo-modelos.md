@@ -571,6 +571,353 @@ xgb.plot_tree(best_model, num_trees=0)  # A árvore de decisão número 0 do mod
 plt.title('Visualização da Árvore de Decisão do Modelo XGBoost')
 plt.show()
 ```
+# Avaliação dos modelos criados
+
+## Métricas utilizadas
+Na avaliação dos modelos de classificação, utilizamos algumas métricas para avaliar a qualidade e desempenho do modelo. Cada métrica utilizada tem o objetivo de fornecer uma perspectiva diferente sobre como o modelo está se comportando em relação ao conjunto de dados.
+
+1. Acurácia </br>
+Mede a proporção de previsões corretas (tanto positivas quanto negativas) em relação ao total de amostras. Essa é uma métrica muito útil quando as classes estão balanceadas e não é recomendada para problemas com classes desbalanceadas, pois pode acontecer de ocultar o desempenho para classes minoritárias.
+
+    - Por que usamos? </br>
+A acurácia fornece uma visão geral sobre o desempenho do modelo ao medir a proporção de previsões corretas. Apesar de ser uma métrica genérica, ela é útil como ponto de partida para identificar se o modelo está aprendendo algo relevante dos dados.
+
+    - Justificativa no projeto: </br>
+Ajuda a determinar se o modelo, de forma geral, consegue distinguir entre os diferentes impactos da música ("Improve", "Worsen" ou "No effect") na saúde mental.
+Entretanto, dado o possível desbalanceamento das classes (como menor incidência de "Worsen"), não é suficiente como única métrica para avaliar os modelos. 
+
+2. Precision (Precisão) </br>
+Mede a proporção de previsões positivas corretas em relação ao total de previsões positivas realizadas. Essa é uma métrica muito importante de ser avaliada em problemas onde o custo de um falso positivo é alto. Um exemplo desses cenários é em Diagnósticos médicos e fraudes financeiras.
+
+    - Por que usamos? </br>
+A precisão mede a proporção de previsões positivas corretas feitas pelo modelo, evitando falsos positivos. É essencial quando queremos ter confiança nas classificações positivas.
+
+    - Justificativa no projeto: </br>
+Crucial para identificar quais gêneros musicais são previstos como tendo efeitos positivos ("Improve") ou neutros ("No Effect") com alta confiabilidade.
+Reduz a chance de atribuir erroneamente um gênero musical a um efeito positivo, o que seria enganoso na análise final.
+
+3. Recall (Revocação ou Sensibilidade) </br>
+Mede a proporção de previsões positivas corretas em relação ao total de amostras que são realmente positivas. Essa é uma métrica muito importante de ser avaliada em problemas onde o custo de um falso positivo é alto. Um exemplo desses cenários é em detectar doenças graves e fraudes financeiras.
+
+    - Por que usamos? </br>
+Recall mede a capacidade do modelo de encontrar todas as instâncias positivas reais. Ela é importante quando o objetivo é minimizar os falsos negativos.
+
+    - Justificativa no projeto: </br>
+Importante para garantir que identificamos todos os casos em que um gênero musical melhora ou piora o estado mental, mesmo que isso implique aceitar alguns falsos positivos.
+Em contextos relacionados à saúde mental, deixar de identificar um efeito real pode ser crítico. Por exemplo, se um gênero musical contribui para piorar a saúde mental, queremos ter certeza de identificá-lo.
+
+4. F1-Score </br>
+Essa é uma métrica que combina precision e recall em uma única métrica e que considera o equilíbrio entre as duas. É a média harmônica dessas métricas. É uma métrica útil quando há desbalanceamento de classes e que permite avaliar o desempenho geral de forma mais equilibrada do que a acurácia.
+
+    - Por que usamos? </br>
+Combina precisão e recall em uma única métrica, equilibrando os trade-offs entre os dois. É particularmente útil para problemas de classificação multiclasses e com desbalanceamento.
+
+    - Justificativa no projeto: </br>
+Como as classes podem estar desbalanceadas (por exemplo, menos dados de "Worsen"), o F1-Score garante que não priorizamos excessivamente uma métrica em detrimento da outra.
+Ajuda a avaliar, de forma equilibrada, a capacidade do modelo de identificar os efeitos positivos, neutros e negativos da música.
+
+5. Confusion Matrix (Matriz de Confusão) </br>
+Apresenta os resultados reais versus previstos em uma tabela que detalha os verdadeiros positivos, verdadeiros negativos, falsos positivos e falsos negativos. Essa métrica permite uma visualização detalhada dos erros do modelo e é essencial para identificar problemas de desbalanceamento ou classes específicas onde o modelo tem dificuldade.
+
+    - Por que usamos? </br>
+A matriz de confusão detalha os erros do modelo para cada classe, mostrando como as previsões se alinham com os valores reais.
+
+    - Justificativa no projeto: </br>
+Fundamental para identificar quais efeitos ("Improve", "No Effect", "Worsen") estão sendo mais ou menos identificados corretamente.
+Permite compreender onde o modelo está errando (por exemplo, confundir "Worsen" com "No Effect"), possibilitando ajustes específicos para melhorar o desempenho.
+
+## Discussão dos resultados obtidos
+
+### Árvore de Decisão
+Esse modelo foi treinado considerando o debalanceamento entre as classes sem a aplicação de técnicas que pudessem auxiliar nesse desbalanceamento.
+
+[Print Acurácia e precisão)
+
+No geral, esse modelo apresentou uma acurácia ok, pois atingiu 77,17%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois é uma métrica que foi muito influenciada pela classe majoritária "Improve".
+
+Classe "Improve": </br>
+- Precision: 0.80 </br>
+    - Indica que o modelo conseguiu atingir 80% de precisão das previsões realizadas.    
+
+- Recall: 0.94 </br>
+    - Indica que o modelo teve 94% de previsões positivas corretas, indicando uma confiabilidade considerável nessa classe para o modelo.
+
+- F1-Score: 0.86 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 86% de média.
+
+- Support: 140 </br>
+    - Indica que o modelo teve 140 casos para realizar os testes, o que pode ter influenciado na precisão e recall mais altos.
+
+Classe "No effect":
+- Precision: 0.56 </br>
+    - Indica que o modelo conseguiu atingir 56% de precisão das previsões realizadas, estando um pouco acima de 50% mas não obtendo um resultado tão satisfatório quando observamos as outras métricas.    
+
+- Recall: 0.25 </br>
+    - Indica que o modelo teve 25% de previsões positivas corretas, indicando uma baixa confiabilidade para o modelo referente a essa classe. Isso indica que o modelo pode ter considerado muitos falsos positivos, o que diminui consideravelmente essa métrica.
+
+- F1-Score: 0.34 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 34% de média.
+
+- Support: 40 </br>
+    - Indica que o modelo teve 40 casos para realizar os testes, o que influenciou nas outras métricas.
+
+Classe "Worsen":
+- Precision: 0.0 </br>
+    - Indica que o modelo conseguiu atingir 0.0% de precisão das previsões realizadas, não conseguindo atingir nenhuma resultado para a classe em questão.    
+
+- Recall: 0.0 </br>
+    - Indica que o modelo teve 0.0% de previsões positivas corretas.
+
+- F1-Score: 0.0 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 0.0% de média.
+
+- Support: 4 </br>
+    - Indica que o modelo teve 4 casos para realizar os testes, o que tem relacão com as outras métricas terem sido ruins.
+
+#### Árvore de Decisão com Undersampling
+Esse modelo foi treinado considerando a aplicação da técnicas de undersampling, para auxiliar no desbalanceamento das classes.
+
+[Print Acurácia e precisão)
+
+No geral, esse modelo apresentou uma acurácia ruim, pois atingiu 28,57%, o que pode ter relação com a remoção de exemplos, até que a proporção entre as classes esteja equilibrada
+
+Classe "Improve": </br>
+- Precision: 0.22 </br>
+    - Indica que o modelo conseguiu atingir 22% de precisão das previsões realizadas.    
+
+- Recall: 0.40 </br>
+    - Indica que o modelo teve 40% de previsões positivas corretas.
+
+- F1-Score: 0.29 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 29% de média.
+
+- Support: 5 </br>
+    - Indica que o modelo teve 5 casos para realizar os testes, o que pode ter influenciado na precisão e recall mais altos.
+
+Classe "No effect":
+- Precision: 0.0 </br>
+    - Indica que o modelo conseguiu atingir 56% de precisão das previsões realizadas.    
+
+- Recall: 0.0 </br>
+    - Indica que o modelo teve 0.0% de previsões positivas corretas.
+
+- F1-Score: 0.0 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 0.0% de média.
+
+- Support: 4 </br>
+    - Indica que o modelo teve 4 casos para realizar os testes, o que influenciou nas outras métricas.
+
+Classe "Worsen":
+- Precision: 0.40 </br>
+    - Indica que o modelo conseguiu atingir 40.0% de precisão das previsões realizadas.    
+
+- Recall: 0.40 </br>
+    - Indica que o modelo teve 40.0% de previsões positivas corretas.
+
+- F1-Score: 0.40 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 40.0% de média.
+
+- Support: 5 </br>
+    - Indica que o modelo teve 4 casos para realizar os testes, o que tem relacão com as outras métricas terem sido ruins.
+
+#### Árvore de Decisão com Oversampling
+Esse modelo foi treinado considerando a aplicação da técnica de Oversampling. que consiste em aumentar os exemplos nas classes minoritárias. Porém, como esse modelo faz esse aumento duplicando os exemplos já existetes ou gerando novas instâncias dos exemplos que já existem, isso pode levar ao overfitting.
+
+[Print Acurácia e precisão)
+
+No geral, esse modelo apresentou uma acurácia ok, pois atingiu 63,587%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois é uma métrica que foi muito influenciada pela classe majoritária "Improve".
+
+Classe "Improve": </br>
+- Precision: 0.79 </br>
+    - Indica que o modelo conseguiu atingir 79% de precisão das previsões realizadas.    
+
+- Recall: 0.75 </br>
+    - Indica que o modelo teve 75% de previsões positivas corretas.
+
+- F1-Score: 0.77 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 77% de média.
+
+- Support: 139 </br>
+    - Indica que o modelo teve 140 casos para realizar os testes, o que pode ter influenciado na precisão e recall mais altos.
+
+Classe "No effect":
+- Precision: 0.28 </br>
+    - Indica que o modelo conseguiu atingir 28% de precisão das previsões realizadas.    
+
+- Recall: 0.33 </br>
+    - Indica que o modelo teve 33% de previsões positivas corretas.
+      
+- F1-Score: 0.30 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 34% de média.
+
+- Support: 40 </br>
+    - Indica que o modelo teve 40 casos para realizar os testes, o que influenciou nas outras métricas.
+
+Classe "Worsen":
+- Precision: 0.0 </br>
+    - Indica que o modelo conseguiu atingir 0.0% de precisão das previsões realizadas.    
+
+- Recall: 0.0 </br>
+    - Indica que o modelo teve 0.0% de previsões positivas corretas.
+
+- F1-Score: 0.0 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 0.0% de média.
+
+- Support: 5 </br>
+    - Indica que o modelo teve 5 casos para realizar os testes, o que tem relacão com as outras métricas terem sido ruins.
+
+#### Árvore de Decisão com SMOTE
+Esse modelo foi treinado considerando a aplicação da técnica de SMOTE, que consiste em criar exemplos sintéticos para as classes minoritárias.
+
+[Print Acurácia e precisão)
+
+No geral, esse modelo apresentou uma acurácia ok, pois atingiu 76,49%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois devemos nos basear também nas outras métricas afim de formar uma conclusão sobre o modelo.
+
+Classe "Improve": </br>
+- Precision: 0.72 </br>
+    - Indica que o modelo conseguiu atingir 72% de precisão das previsões realizadas.    
+
+- Recall: 0.63 </br>
+    - Indica que o modelo teve 63% de previsões positivas corretas.
+
+- F1-Score: 0.67 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 67% de média.
+
+- Support: 142 </br>
+    - Indica que o modelo teve 142 casos para realizar os testes, o que pode ter influenciado na precisão e recall mais altos.
+
+Classe "No effect":
+- Precision: 0.68 </br>
+    - Indica que o modelo conseguiu atingir 68% de precisão das previsões realizadas.    
+
+- Recall: 0.71 </br>
+    - Indica que o modelo teve 71% de previsões positivas corretas.
+      
+- F1-Score: 0.69 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 69.0% de média.
+
+- Support: 134 </br>
+    - Indica que o modelo teve 134 casos para realizar os testes, o que influenciou nas outras métricas.
+
+Classe "Worsen":
+- Precision: 0.88 </br>
+    - Indica que o modelo conseguiu atingir 88.0% de precisão das previsões realizadas.    
+
+- Recall: 0.95 </br>
+    - Indica que o modelo teve 95.0% de previsões positivas corretas.
+
+- F1-Score: 0.91 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 91.0% de média.
+
+- Support: 141 </br>
+    - Indica que o modelo teve 141 casos para realizar os testes, o que tem relacão com as outras métricas terem sido ruins.
+ 
+#### Árvore de Decisão com SMOTE e XGBoost
+Esse modelo foi treinado considerando a aplicação da técnica de SMOTE com XGBoost, que consiste em criar exemplos sintéticos para as classes minoritárias e também se beneficia de lidar com dados desbalanceados se utilizando de hiperparâmetros.
+
+[Print Acurácia e precisão)
+
+No geral, esse modelo apresentou uma acurácia ok, pois atingiu 88,96%, porém não podemos apenas nos basear nessa métrica para avaliar o modelo como um todo, pois devemos nos basear também nas outras métricas afim de formar uma conclusão sobre o modelo.
+
+Classe "Improve": </br>
+- Precision: 0.86 </br>
+    - Indica que o modelo conseguiu atingir 86% de precisão das previsões realizadas.    
+
+- Recall: 0.81 </br>
+    - Indica que o modelo teve 81% de previsões positivas corretas.
+
+- F1-Score: 0.84 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 84% de média.
+
+- Support: 142 </br>
+    - Indica que o modelo teve 142 casos para realizar os testes, o que pode ter influenciado na precisão e recall mais altos.
+
+Classe "No effect":
+- Precision: 0.88 </br>
+    - Indica que o modelo conseguiu atingir 88% de precisão das previsões realizadas.    
+
+- Recall: 0.87 </br>
+    - Indica que o modelo teve 87% de previsões positivas corretas.
+      
+- F1-Score: 0.85 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 85.0% de média.
+
+- Support: 135 </br>
+    - Indica que o modelo teve 135 casos para realizar os testes..
+
+Classe "Worsen":
+- Precision: 0.99 </br>
+    - Indica que o modelo conseguiu atingir 99.0% de precisão das previsões realizadas.    
+
+- Recall: 0.99 </br>
+    - Indica que o modelo teve 99.0% de previsões positivas corretas.
+
+- F1-Score: 0.99 </br>
+    - Indica a média entre Recall e Precisão, onde obteve 99.0% de média.
+
+- Support: 140 </br>
+    - Indica que o modelo teve 140 casos para realizar os testes.
+ 
+# Pipeline de pesquisa e análise de dados 
+1. Carregamento e exploração do dataset: </br>
+    - Utilizamos o pandas para realizar o carregamento do dataset e fizemos algumas análises iniciais dos dados para identificar dados inconsistentes, ausência de dados e dados que precisariam passar por mapeamento ou encode. Nessa análise exploratoria inicial, avaliamos também o balanceamento inicial das classes, considerando a disparidade em casos onde a música teve um efeito de posivo, negativo ou de nenhum efeito.
+ 
+2. Pré-processamento dos dados: </br>
+    - Realizamos o mapeamento da variável alvo 'Music effects' para incluir o 'Worsen" e codificamos os valores 'Improve', 'No effect' e 'Worsen' para 1, 0 e -1, respectivamente. </br>
+    - > [!NOTE]
+    - > Para o teste realizado com XGBoost e SMOTE juntos, tivemos que fazer um enconde diferente para os valores 'Improve', 'No effect' e 'Worsen' para 2, 1 e 01, respectivamente.
+
+3. Treinamento dos modelos: </br>
+Utilizamos os seguintes algoritmos supervisionados para a implementação dos modelos:
+    3.1 Árvore de Decisão(Decision Tree)
+        - Árvore de Decisão com Undersampling
+        - Árvore de Decisão com Oversampling
+        - Árvore de Decisão com SMOTE
+        - Árvore de Decisão com SMOTE e XGBoost
+
+4. Análise dos resultados:
+Após o treinamento do modelos, utilizamos as seguintes métricas para avaliar a qualidade e robustez dos modelos
+    - Acurácia
+    - Precisão
+    - F1-score
+    - Recall
+    - Matrix de Confusão
+
+Utilizamos também a visualização da árvore gerada para melhor interpretação dos dados.
+
+## Resultados Obtidos
+### Árvore de Decisão
+Este modelo apresentou um desempenho favorável apenas para a classe majoritária "Improve", com as métricas indicando esse desempenho. Porém, para as classes "No Effect" e "Worsen", esse modelo apresentou um desempenho abaixo, não conseguindo ter previsões consideráveis para essas classes.
+
+#### Árvore de Decisão com Undersampling 
+Utilizando da técnica de Undersampling, esse modelo apresentou o pior desempenho para todas as classes, tendo que ser desconsiderado da solução final.
+
+#### Árvore de Decisão com Oversampling
+Esse modelo utilizou-se da técnica de oversampling e, mesmo se utilizando dessa técnica para lidar com o desbalanceamento das classes, apresentou um desempenho desfavorável no geral. Por mais que na classe de "Improve" tenha conseguido obter métricas relativamente interessantes, no geral obteve uma acurácia menor do que o modelo que utilizou apenas arvore de decisão.
+
+#### Árvore de Decisão com SMOTE
+Com a utilização da técnica de SMOTE, esse modelo apresentou uma acurácia de 76% no geral, porém conseguiu lidar relativamente bem com as classes minoritárias. Com essa técnica, conseguimos obter métricas favoráveis para as todas as classes.
+
+#### Árvore de Decisão com SMOTE e XGBoost
+Esse modelo alinhou as técnicas de SMOTE e XGBoost e obteve o melhor resultado geral considerando todas as métricas avaliadas. É um bom modelo a ser considerado para a solução final. 
+
+## Conclusão
+
+### Árvore de Decisão
+Por se tratar do modelo que não utilizou nenhuma técnica para tratar os desbalanceamentos das classes minoritárias, teve um resultado positivo apenas para a classe "Improve". Sendo assim, utilizamos de outras técnicas para fazer o balanceamento das classes na tentativa de obter melhor resultado para todas as classes e melhor métricas que nos auxilie na tomada de decisão.
+
+#### Árvore de Decisão com Undersampling
+Essa técnica reduziu substancialmente os exemplos, o que afetou o desempenho e a capacidade do modelo em realizar o aprendizado. Desse modo, obteve uma acurácia geral muito baixa e as métricas também foram afetadas.
+
+#### Árvore de Decisão com Oversampling
+Esse modelo apresentou um enviesamento forte para a classe "Improve". Dessa forma, mesmo após a aplicação da técnica de oversampling, esse modelo apresentou um desempenho ruim para as demais classes, o que indica uma dificuldade do modelo em apresentar resultados que possam ser considerados quando o dataset não consegue ter dados suficientes para todas as classes.
+
+#### Árvore de Decisão com SMOTE
+Esse modelo apresentou, com a utilização da técnica de SMOTE para tratar o desbalanceamento das classes, um desempenho favorável para as classes "No effect" e "Worsen". Dessa forma, é um modelo que pode ser utilizado para a solução final, pois conseguiu desempenho para todas as classes.
+
+#### Árvore de Decisão com SMOTE e XGBoost
+Agregando as técnicas de SMOTE e XGBoost e aplicando nesse modelo, conseguimos obter o melhor desempenho e as melhores métricas na construção do algoritmo de arvore de decisão. Esse modelo apresentou métricas consistentes e equilibradas para todas as classes, o que auxilia na tomada de decisão a cerca da sua aplicação na solução final.
+
 # CASO 2 - Árvore de Decisão (Random Forest) - Isabela e Renan
 
 ## Preparação dos dados
