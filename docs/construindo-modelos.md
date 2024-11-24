@@ -1197,6 +1197,97 @@ Apesar de ter apresentado um resultado superior às tentativas anteriores, o uso
 
 SMOTE é uma técnica avançada de oversampling que cria exemplos sintéticos para a classe minoritária. Em vez de simplesmente duplicar exemplos, SMOTE gera novos dados interpolando entre exemplos existentes, aumentando a diversidade dos dados minoritários e ajudando a evitar overfitting.
 
+```
+# Importando bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from imblearn.over_sampling import SMOTE
+```
+```
+# Separar variáveis independentes e dependentes
+style_columns = [col for col in data.columns if 'frequency' in col]
+X = data_clean[style_columns]
+y = data_clean['Music effects']
+```
+```
+# Verificar valores únicos na coluna 'Music effects'
+print("Valores únicos antes da limpeza:", data['Music effects'].unique())
+Valores únicos antes da limpeza: ['No effect' 'Improve' 'Worsen']
+```
+```
+# Remover registros com valores ausentes na coluna 'Music effects'
+data_clean = data.dropna(subset=['Music effects'])
+```
+```
+# Codificar a variável alvo incluindo 'Worsen'
+data_clean['Music effects'] = data_clean['Music effects'].map({'Improve': 1, 'No effect': 0, 'Worsen': -1})
+```
+```
+# Verificar os valores únicos após o mapeamento
+print("Valores únicos após mapeamento:", data_clean['Music effects'].unique())
+Valores únicos após mapeamento: [ 0  1 -1]
+```
+```
+# Separar variáveis independentes e dependentes
+X = data_clean[style_columns]
+y = data_clean['Music effects']
+```
+```
+# Verificar se ainda há NaNs em y após codificação
+print(f'Valores ausentes em y: {y.isnull().sum()}')
+Valores ausentes em y: 0
+```
+```
+# Dividir os dados em conjuntos de treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+```
+```
+# Visualização do balanço das classes antes do SMOTE
+plt.figure(figsize=(8, 4))
+sns.countplot(x=y_train)
+plt.title('Distribuição das Classes Antes do SMOTE')
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_15.png)
+```
+# Aplicar SMOTE no conjunto de treino
+smote = SMOTE(random_state=42)
+X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+```
+```
+# Visualização do balanço das classes após o SMOTE
+plt.figure(figsize=(8, 4))
+sns.countplot(x=y_train_resampled)
+plt.title('Distribuição das Classes Após o SMOTE')
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_16.png)
+```
+# Normalizar os dados
+scaler = StandardScaler()
+X_train_resampled = scaler.fit_transform(X_train_resampled)
+X_test = scaler.transform(X_test)
+```
+```
+# Modelagem
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train_resampled, y_train_resampled)
+```
+![Importação da Base de Dados](img/Caso2_17.png)
+```
+# Avaliação do modelo
+y_pred = model.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
+![Importação da Base de Dados](img/Caso2_18.png)
+
 #### Conclusões
 
 A análise dos resultados do modelo usando SMOTE para lidar com o desbalanceamento das classes revela o seguinte:
