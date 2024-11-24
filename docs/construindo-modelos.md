@@ -130,7 +130,7 @@ plt.show()
 
 > [!NOTE]
 > Verifique o código do modelo no link abaixo
-> [Arvore de Decisao](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier.ipynb)
+> [Arvore de Decisao](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental/blob/main/src/decision-tree-classifier.ipynb)
 
 
 ### Árvore de Decisão com Undersampling
@@ -236,7 +236,7 @@ plt.show()
 
 > [!NOTE]
 > Verifique o código do modelo no link abaixo
-> [Arvore de Decisao com Undersampling](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-undersampling.ipynb)
+> [Arvore de Decisao com Undersampling](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental/blob/main/src/decision-tree-classifier-undersampling.ipynb)
 
 
 ### Árvore de Decisão com Oversampling
@@ -356,7 +356,7 @@ plt.show()
 
 > [!NOTE]
 > Verifique o código do modelo no link abaixo
-> [Arvore de Decisao com Oversampling](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-oversampling.ipynb)
+> [Arvore de Decisao com Oversampling](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental/blob/main/src/decision-tree-classifier-oversampling.ipynb)
 
 
 ### Árvore de Decisão com SMOTE
@@ -468,7 +468,7 @@ plt.show()
 
 > [!NOTE]
 > Verifique o código do modelo no link abaixo
-> [Arvore de Decisao com SMOTE](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-smote.ipynb)
+> [Arvore de Decisao com SMOTE](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental/blob/main/src/decision-tree-classifier-smote.ipynb)
 
 ### Árvore de Decisão com SMOTE e XGBoost
 Nesta abordagem, o SMOTE foi combinado com o modelo XGBoost, que utiliza um método de boosting baseado em árvores para melhorar o desempenho. Combinando SMOTE com XGBoost conseguimos aumentar a diversidade das classes minoritárias, lidar eficientemente com desbalanceamento ao ajustar pesos para classes minoritárias, captar interações complexas entre variáveis por meio de ensembles de árvores e também oferece excelente desempenho em tarefas de classificação multiclasses e alta flexibilidade nos hiperparâmetros.
@@ -594,7 +594,7 @@ plt.show()
 
 > [!NOTE]
 > Verifique o código do modelo no link abaixo
-> [Arvore de Decisao com SMOTE e XGBoost](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-analise_diabetes/blob/main/src/decision-tree-classifier-xgboost.ipynb)
+> [Arvore de Decisao com SMOTE e XGBoost](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental/blob/main/src/decision-tree-classifier-xgboost.ipynb)
 
 # Avaliação dos modelos criados
 
