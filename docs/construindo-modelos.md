@@ -763,6 +763,9 @@ Variabilidade e Ruído: Os dados podem conter variabilidade e ruído devido a fa
 Esse modelo é capaz de generalizar melhor novos dados, o que é crucial para prever corretamente os efeitos da música em condições mentais não vistas anteriormente.
 
 ## Importação da bibliotecas necessárias e carregamento do dataset
+
+Foram utilizadas as bibliotecas Pandas, Numpy, Matplotlib e Seaborn.
+
 ```
 # Importando bibliotecas
 import pandas as pd
