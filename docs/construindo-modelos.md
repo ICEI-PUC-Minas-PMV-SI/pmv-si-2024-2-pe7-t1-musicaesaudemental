@@ -1127,6 +1127,12 @@ Embora a música clássica e o metal apresentem correlações ligeiramente negat
 
 Dessa forma, a música pode ser considerada uma ferramenta poderosa para a melhoria da condição mental, especialmente entre jovens e adultos mais velhos, com certos estilos exercendo uma influência mais significativa. Essas descobertas podem guiar futuras iniciativas de bem-estar que utilizem a música como meio de promover a saúde mental em diversas populações.
 
+# Vídeo Explicativo - Caso 02 
+
+Para acesso do vídeo acesse:
+
+https://drive.google.com/drive/folders/1BbgB_29gA9RQ_wQTPIhvEOTXmBlGsepE?usp=sharing
+
 
 # Preparação dos dados
 
