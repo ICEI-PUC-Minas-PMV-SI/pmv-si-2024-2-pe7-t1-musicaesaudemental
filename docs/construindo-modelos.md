@@ -978,6 +978,98 @@ O undersampling aparentemente reduziu a capacidade do modelo de generalizar bem,
 ### Random Forest com Oversampling
 Oversampling é uma técnica que aumenta o número de exemplos nas classes minoritárias duplicando-os aleatoriamente ou gerando novas instâncias a partir dos existentes. Isso ajuda a equilibrar a proporção de classes, mas pode levar ao overfitting se não for feito cuidadosamente.
 
+![Importação da Base de Dados](img/Caso2_8.png)
+
+```
+# Importando bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from imblearn.over_sampling import RandomOverSampler
+```
+```
+# 2. Carregar dados
+url = '/content/dados_tratados_V2.csv'  # Use barra simples
+data = pd.read_csv(url, sep = ';')
+```
+```
+# Verificar valores únicos na coluna 'Music effects'
+print("Valores únicos antes da limpeza:", data['Music effects'].unique())
+Valores únicos antes da limpeza: ['No effect' 'Improve' 'Worsen']
+```
+```
+# Remover registros com valores ausentes na coluna 'Music effects'
+data_clean = data.dropna(subset=['Music effects'])
+```
+```
+# Codificar a variável alvo incluindo 'Worsen'
+data_clean['Music effects'] = data_clean['Music effects'].map({'Improve': 1, 'No effect': 0, 'Worsen': -1})
+```
+```
+# Verificar os valores únicos após o mapeamento
+print("Valores únicos após mapeamento:", data_clean['Music effects'].unique())
+Valores únicos após mapeamento: [ 0  1 -1]
+```
+```
+# Separar variáveis independentes e dependentes
+X = data_clean[style_columns]
+y = data_clean['Music effects']
+```
+```
+# Verificar se ainda há NaNs em y após codificação
+print(f'Valores ausentes em y: {y.isnull().sum()}')
+Valores ausentes em y: 0
+```
+```
+# Dividir os dados em conjuntos de treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+```
+```
+# Visualização do balanço das classes antes do oversampling
+plt.figure(figsize=(8, 4))
+sns.countplot(x=y_train)
+plt.title('Distribuição das Classes Antes do Oversampling')
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_9.png)
+```
+# Aplicar oversampling no conjunto de treino
+ros = RandomOverSampler(random_state=42)
+X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
+```
+```
+# Visualização do balanço das classes após o oversampling
+plt.figure(figsize=(8, 4))
+sns.countplot(x=y_train_resampled)
+plt.title('Distribuição das Classes Após o Oversampling')
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_10.png)
+```
+# Normalizar os dados
+scaler = StandardScaler()
+X_train_resampled = scaler.fit_transform(X_train_resampled)
+X_test = scaler.transform(X_test)
+```
+```
+# Modelagem
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train_resampled, y_train_resampled)
+```
+![Importação da Base de Dados](img/Caso2_11.png)
+```
+# Avaliação do modelo
+y_pred = model.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
+![Importação da Base de Dados](img/Caso2_12.png)
+
 
 #### Conclusões
 
