@@ -831,9 +831,7 @@ X_test = scaler.transform(X_test)
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 ```
-|  RandomForestClassifier?i             |
-|---------------------------------------|
-|RandomForestClassifier(random_state=42)|
+![Importação da Base de Dados](img/Caso2_1.png)
 
 ```
 # Avaliação do modelo
@@ -841,6 +839,8 @@ y_pred = model.predict(X_test)
 print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 ```
+![Importação da Base de Dados](img/Caso2_2.png)
+
 #### Conclusões
 Conclusões sobre a análise
 A análise dos resultados do modelo Random Forest com as métricas de classificação (precision, recall, f1-score, e support):
