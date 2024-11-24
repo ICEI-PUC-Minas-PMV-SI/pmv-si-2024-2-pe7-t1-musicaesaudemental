@@ -791,6 +791,7 @@ data = pd.read_csv(url, sep = ';')
 ```
 # Verificar valores únicos na coluna 'Music effects'
 print("Valores únicos antes da limpeza:", data['Music effects'].unique())
+Valores únicos antes da limpeza: ['No effect' 'Improve' 'Worsen']
 ```
 ```
 # Remover registros com valores ausentes na coluna 'Music effects'
@@ -803,6 +804,7 @@ data_clean['Music effects'] = data_clean['Music effects'].map({'Improve': 1, 'No
 ```
 # Verificar os valores únicos após o mapeamento
 print("Valores únicos após mapeamento:", data_clean['Music effects'].unique())
+Valores únicos após mapeamento: [ 0  1 -1]
 ```
 ```
 # Separar variáveis independentes e dependentes
@@ -812,6 +814,7 @@ y = data_clean['Music effects']
 ```
 # Verificar se ainda há NaNs em y após codificação
 print(f'Valores ausentes em y: {y.isnull().sum()}')
+Valores ausentes em y: 0
 ```
 ```
 # Dividir os dados em conjuntos de treino e teste
@@ -828,6 +831,10 @@ X_test = scaler.transform(X_test)
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 ```
+|  RandomForestClassifier?i             |
+|---------------------------------------|
+|RandomForestClassifier(random_state=42)|
+
 ```
 # Avaliação do modelo
 y_pred = model.predict(X_test)
