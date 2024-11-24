@@ -1370,6 +1370,413 @@ Para acesso do vídeo acesse:
 
 https://drive.google.com/drive/folders/1BbgB_29gA9RQ_wQTPIhvEOTXmBlGsepE?usp=sharing
 
+# CASO 3 - Random Forest - Eduardo Ramón
+
+# Preparação dos dados
+Para a prepação dos dados que serão utilizados no modelo, foi utilizado os seguintes passos:
+
+## Limpeza dos dados
+Foi realizado a remoção das linhas com dados faltantes
+
+
+df2=df.copy()
+df2 = df2.dropna()
+
+## Codificacao dos dados
+Foi realizado o mapeamento da variável alvo 'Music effects' convertendo-a em uma target binária onde os resultados 'Worsen" e  "No effect" se tornam apenas um resultado, sendo esse "No improve".
+
+
+df_relevantes['target_binary'] = df_relevantes['Music effects'].apply(lambda x: 'Improve' if x == 'Improve' else 'No Improve')
+
+
+## Variáveis consideradas para treinamento do modelo
+Para realizar o treinamento e teste do modelo, foi realizado a separação das colunas relevantes contendo as colunas de frequência, dos gêneros, das doenças mentais, da idade e dos efeitos da musica no tratamento.
+
+
+colunas_relevantes = ['Age','Fav genre','Anxiety','Frequency','Depression', 'Insomnia', 'OCD','Music effects']
+colunas_existentes = [col for col in colunas_relevantes if col in df2.columns]
+
+df_relevantes = df2[colunas_existentes]
+
+
+## Separação dos dados 
+Para o treinamento e teste do modelo, separei os dados em 80% do dataset para treinamento e 20% para testes do modelo.
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state= 50)
+
+
+# Descrição dos modelos
+## Radom Forest 
+A Floresta Aleatória foi escolhida para este projeto porque ela é um modelo extremamente poderoso e eficiente, especialmente em situações complexas como a que estamos tratando — entender os efeitos da música na saúde mental. Ela combina a força de várias árvores de decisão, o que a torna ainda mais precisa e robusta. Separo abaixo alguns dos motivos pelo qual o modelo foi escolhido. 
+
+1. Alta Precisão e Robustez: A Floresta Aleatória combina várias árvores de decisão, o que a torna mais confiável e menos propensa a erros ou sobreajuste nos dados.
+   
+2. Lida com Dados Diversificados: Ela pode trabalhar com dados tanto contínuos quanto categóricos, sem necessidade de transformações complexas, sendo ideal para problemas com variáveis mistas.
+
+3. Captura de Padrões Complexos: A Floresta Aleatória consegue identificar relações não-lineares e interações entre variáveis, o que é fundamental para entender como diferentes fatores influenciam a saúde mental com base na música.
+
+4. Flexibilidade e Versatilidade: Ela pode ser aplicada facilmente em problemas de classificação, mesmo com dados variados e sem precisar de grandes ajustes.
+
+Para a construção do modelo, foi realizado a vericição do melhor algoritimo a ser utilizado importando as seguintes bibliotecas e o dataset foi carregado em memória pelo pandas.
+
+
+import pandas as pd 
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import roc_curve, auc, classification_report, precision_recall_curve
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
+
+No trecho de código a seguir, foi realizado o carregamento de algumas informações do dataset
+
+
+df = pd.read_csv("mxmh_survey_results.csv")
+df.head()
+
+
+O trecho a seguir é responsável por calcular cada valor único que aparece na coluna 'Music effects' com os resultados de 'Improve', 'No effect' e 'Worsen'
+
+
+counts = df_relevantes['Music effects'].value_counts()
+percentages = df_relevantes['Music effects'].value_counts(normalize=True) * 100
+
+Para fazer a junção dos valores 'worsen' e 'no effect', foi utilizado o código a seguir para criar uma nova coluna chamada 'target_binary', onde todos os valores diferentes de 'improve' foram agrupados como 'No Improve', simplificando a análise. Isso permitiu trabalhar com duas categorias claras: 'Improve' e 'No Improve'.
+
+
+df_relevantes['target_binary'] = df_relevantes['Music effects'].apply(lambda x: 'Improve' if x == 'Improve' else 'No Improve')
+
+Foi criado um gráfico para a visualização dos resultados através do código abaixo.
+
+
+plt.figure(figsize=(10, 6))
+bars = sns.barplot(x=counts.index, y=counts.values, palette='viridis')
+
+
+for i, (count, percentage) in enumerate(zip(counts.values, percentages)):
+    bars.text(i, count, f'n={count}\n{percentage:.1f}%',
+             ha='center', va='bottom')
+
+
+
+plt.title('Distribuição da Variável Music effects')
+plt.xlabel('Classes')
+plt.ylabel('Contagem')
+
+
+plt.show()
+
+
+![Captura de ecrã 2024-11-24 180912](https://github.com/user-attachments/assets/ae48c920-3337-4e26-917c-ef7d62b5c956)
+
+O trecho a seguir é responsável por calcular cada valor único que aparece na coluna 'Music effects' com os resultados de 'Improve'e 'No Improve'.
+
+
+counts = df_relevantes['target_binary'].value_counts()
+percentages = df_relevantes['target_binary'].value_counts(normalize=True) * 100
+
+O trecho a seguir é responsável por calcular cada valor único que aparece na coluna 'Music effects' com os resultados de 'Improve'e 'No Improve'.
+
+
+counts = df_relevantes['target_binary'].value_counts()
+percentages = df_relevantes['target_binary'].value_counts(normalize=True) * 100
+
+Foi criado um gráfico para a visualização dos resultados através do código abaixo.
+
+
+plt.figure(figsize=(10, 6))
+bars = sns.barplot(x=counts.index, y=counts.values, palette='viridis')
+
+for i, (count, percentage) in enumerate(zip(counts.values, percentages)):
+    bars.text(i, count, f'n={count}\n{percentage:.1f}%', 
+             ha='center', va='bottom')
+
+
+
+plt.title('Distribuição da Target Binária')
+plt.xlabel('Classes')
+plt.ylabel('Contagem')
+
+
+
+plt.show()
+
+![Captura de ecrã 2024-11-24 181456](https://github.com/user-attachments/assets/11b8831f-64d6-433b-8b4a-87fda2c3006b)
+
+
+ O código a seguir foi utilizado para criar uma nova coluna chamada 'target'. Ele verifica se o valor na coluna 'target_binary' é igual a 'Improve'. Se for, o valor será True, que é convertido para 1. Se não for, o valor será False, que é convertido para 0. Assim, a coluna 'target' terá valores binários (0 ou 1) representando se o efeito da música foi considerado como "melhora" ou não.
+ 
+
+ df_relevantes['target'] = (df_relevantes['target_binary'] == 'Improve').astype(int)
+
+  Foi criado um código pd.get_dummies() que foi usado para criar variáveis dummies a partir da coluna 'Fav genre' (gênero favorito). Cada valor único da coluna se tornou uma nova coluna binária, onde 1 indica que o gênero é o preferido e 0 indica que não é. Essas novas colunas são adicionadas ao DataFrame df_relevantes.
+
+
+df_relevantes = pd.concat([df_relevantes, pd.get_dummies(df_relevantes['Fav genre'], prefix='genre')], axis=1)
+
+
+Aqui é feito a separação dos dados X e y, onde X são as informações que o modelo vai usar para aprender e y é o que queremos prever 'Improve' ou 'No Improve' (se a música teve ou não efeito positivo)
+
+
+X = df_relevantes.drop('target', axis=1)
+y = df_relevantes['target']
+
+
+Neste trecho é feito a separação dos dados para teste e treinamento
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state= 50)
+
+
+Fiz a otimização de hiperparâmetros para o modelo de Random Forest e  foi definindo o grid de parâmetros para teste.
+
+
+param_grid = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [4, 5],      
+    'min_samples_split': [ 5, 10],      
+    'min_samples_leaf': [ 5, 10],          
+    'max_features': ['sqrt', 'log2']   
+}
+
+
+Em seguida foi criado o modelo base
+
+
+rf_base = RandomForestClassifier(random_state=50)
+
+
+Para testar várias combinações de hiperparâmetros do modelo e encontrar a melhor configuração com base em uma métrica de avaliação foi utilizado o código a seguir
+
+
+grid_search = GridSearchCV(
+    estimator=rf_base,
+    param_grid=param_grid,
+    cv=5,                  
+    n_jobs=-1,            
+    scoring='accuracy',      
+    verbose=1             
+
+
+Os trechos de códigos a seguir mostram o treinamento dos modelos com todos os parâmetros, a visualização dos melhores parametros encontrado, a seleção do melhor modelo encontrado, previsões com o melhor modelo (probabilidades), a aplicação o limiar de 0,7 para transformar as probabilidades em classes, e a avaliação do modelo otimizado.
+
+*1. O treinamento dos modelos com todos os parâmetros*
+
+print("Iniciando busca em grid...")
+grid_search.fit(X_train, y_train)
+
+
+*2.  A visualização dos melhores parametros encontrado*
+
+print("\nMelhores parâmetros encontrados:")
+print(grid_search.best_params_)
+
+
+*3.  A seleção do melhor modelo encontrado*
+
+melhor_modelo = grid_search.best_estimator_
+
+
+*4. A aplicação o limiar de 0,7 para transformar as probabilidades em classes*
+
+y_prob = melhor_modelo.predict_proba(X_test)[:, 1] 
+y_prob_train = melhor_modelo.predict_proba(X_train)[:, 1]  
+
+
+
+
+limiar = 0.7
+y_pred = (y_prob >= limiar).astype(int)
+y_pred_train = (y_prob_train >= limiar).astype(int)
+
+
+
+print("\nDesempenho do modelo otimizado:")
+print(f"Acurácia: {accuracy_score(y_train, y_pred_train):.4f}")
+print("\nRelatório de classificação:")
+print(classification_report(y_train, y_pred_train))
+
+
+*5. A avaliação do modelo otimizado*
+
+
+print("\nDesempenho do modelo otimizado:")
+print(f"Acurácia: {accuracy_score(y_test, y_pred):.4f}")
+print("\nRelatório de classificação:")
+print(classification_report(y_test, y_pred))
+
+
+Após a análise das métricas de qualidade, é feito a visualização  dos resultados para cada combinação de parâmetros testada.
+
+
+resultados = pd.DataFrame(grid_search.cv_results_)
+resultados_ordenados = resultados.sort_values('rank_test_score')
+print("\nTop 5 melhores combinações de parâmetros:")
+print(resultados_ordenados[['params', 'mean_test_score', 'std_test_score']].head())
+
+![Captura de ecrã 2024-11-24 155937](https://github.com/user-attachments/assets/9a82d3b7-9566-4918-8195-879780b7d3da)
+
+## Curva ROC
+
+Utilizei a curva ROC para ver como o modelo se comportava ao tentar classificar corretamente as amostras em diferentes limiares. Levando em consideração que a área sob a curva (AUC) é uma medida que mostra o quão bem o modelo consegue separar as duas classes: quanto mais alta a AUC, melhor o modelo é em identificar corretamente os casos positivos e negativos, sendo que uma AUC próxima de 1 indica um desempenho muito bom. 
+
+Para a construção do ROC, foram importadas as bibliotecas necessárias e criadas as seguintes codificações:
+
+
+from sklearn.metrics import roc_curve, auc, classification_report, precision_recall_curve
+
+
+
+import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, auc
+
+
+*Fazendo previsões com o melhor modelo (probabilidades)* 
+
+
+y_prob = melhor_modelo.predict_proba(X_test)[:, 1]  # Probabilidade da classe positiva
+
+
+*Calculando FPR (Taxa de Falsos Positivos) e TPR (Taxa de Verdadeiros Positivos)* 
+
+
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+
+
+*Calculando a área sob a curva (AUC)*
+
+
+roc_auc = auc(fpr, tpr)
+
+ Após as previsões e calculos foi criado um trecho de código para que o gráfico ROC fosse exibido, tendo como resultado a AUC aparecendo como 0.72, bem próxima de 1 indicando um bom desempenho como mostra o código e a figura abaixo:
+ 
+
+plt.figure(figsize=(8, 6))
+plt.plot(fpr, tpr, color='blue', lw=2, label=f'Curva ROC (AUC = {roc_auc:.4f})')
+plt.plot([0, 1], [0, 1], color='gray', lw=2, linestyle='--')  # Linha de base (aleatória)
+plt.xlabel('Taxa de Falsos Positivos (FPR)')
+plt.ylabel('Taxa de Verdadeiros Positivos (TPR)')
+plt.title('Curva ROC')
+plt.legend(loc='lower right')
+plt.grid(True)
+plt.show()
+
+
+![Captura de ecrã 2024-11-24 163300](https://github.com/user-attachments/assets/9382a7d7-29cc-4f69-8428-6f4cd2c6ee34)
+
+## Curvas de Precisão e Recall
+
+Neste caso, a curva de precisão e recall foi utilizada para ajustar o limiar do modelo, ajudando a encontrar um equilíbrio entre identificar corretamente os casos em que a música melhora a saúde mental e evitar identificar falsos positivos. Isso permite que o modelo seja mais preciso, focando na identificação de verdadeiros melhoramentos sem errar tanto ao classificar casos negativos. Para isso criei os códigos abaixo:
+
+*1. Importar as bibliotecas necessárias para plotar gráficos e calcular a curva de precisão e recall.*
+
+import matplotlib.pyplot as plt
+from sklearn.metrics import precision_recall_curve
+
+
+*2. Fazendo previsões com o melhor modelo (probabilidades)*
+
+y_prob = melhor_modelo.predict_proba(X_test)[:, 1]  # Probabilidade da classe positiva
+
+
+*3.Calculando precisão, recall e os limiares*
+
+
+precision, recall, thresholds = precision_recall_curve(y_test, y_prob)
+
+
+Com o código criado a seguir, foi possível gerar a visualização do gráfico de Curvas de Precisão e Recall, conforme mostrado abaixo, juntamente com a imagem resultante.
+
+
+plt.figure(figsize=(8, 6))
+plt.plot(thresholds, precision[:-1], color='blue', lw=2, label='Precisão')
+plt.plot(thresholds, recall[:-1], color='red', lw=2, label='Recall')
+plt.xlabel('Limiar de Decisão')
+plt.ylabel('Valor')
+plt.title('Curvas de Precisão e Recall')
+plt.legend(loc='best')
+plt.grid(True)
+plt.show()
+
+![Captura de ecrã 2024-11-24 165556](https://github.com/user-attachments/assets/b8308440-4340-4b30-b59c-64118bce0bf0)
+
+*(O corte foi feito na junção da Precisão e Recall)*
+
+
+# Avaliação dos modelos criados
+
+## Métricas utilizadas
+Para avaliar a performance dos modelos de classificação, utilizamos diversas métricas, cada uma oferecendo uma visão diferente sobre o comportamento do modelo em relação aos dados. Essas métricas ajudam a entender melhor os pontos fortes e fracos de cada modelo.
+
+*1. Acurácia </br>*
+A acurácia mede a proporção de previsões corretas (tanto positivas quanto negativas) em relação ao total de amostras. Essa métrica é útil quando as classes estão equilibradas, mas pode ser enganosa em casos de classes desbalanceadas, onde pode ocultar o desempenho em classes minoritárias.
+
+*Por que usamos?</br>*
+A acurácia dá uma visão geral do desempenho do modelo, mostrando se ele consegue fazer previsões corretas de forma consistente. Embora seja uma métrica básica, é útil para começar a entender como o modelo está se saindo.
+
+ *Justificativa no projeto:</br>*
+Ela ajuda a verificar se o modelo é capaz de distinguir os diferentes impactos da música na saúde mental (como "Improve" ou "No Improve"). 
+
+*2. Precision (Precisão) </br>* 
+A precisão indica a proporção de previsões positivas corretas em relação ao total de previsões positivas feitas. Ela é especialmente importante quando o custo de um falso positivo é alto, como em diagnósticos médicos ou fraudes financeiras.
+
+ *Por que usamos?</br>*
+A precisão ajuda a evitar que o modelo classifique erroneamente exemplos negativos como positivos. Isso é fundamental quando precisamos garantir que nossas previsões positivas sejam realmente precisas.
+
+ *Justificativa no projeto:</br>*
+É essencial para garantir que o modelo acerte ao classificar quais gêneros musicais realmente melhoram ou não o estado mental sem gerar falsas conclusões.
+
+*3. Recall (Revocação ou Sensibilidade)</br>*
+O recall mede a capacidade do modelo de identificar todas as amostras positivas, em relação ao total de amostras realmente positivas. Ele é fundamental quando queremos minimizar os falsos negativos.
+
+*Por que usamos?</br>*
+O recall avalia o quão bem o modelo consegue encontrar todos os exemplos positivos reais. Isso é importante quando a principal preocupação é não deixar passar nenhum caso relevante.
+
+*Justificativa no projeto:</br>*
+Para garantir que o modelo identifique todos os casos em que um gênero musical tem um impacto real na saúde mental, mesmo que isso signifique aceitar alguns falsos positivos. Em questões de saúde mental, perder um efeito relevante pode ser prejudicial.
+
+*4. F1-Score</br>*
+O F1-Score combina as métricas de precisão e recall, levando em consideração o equilíbrio entre elas. Ele é útil especialmente quando há desbalanceamento de classes, já que proporciona uma avaliação mais equilibrada do desempenho do modelo.
+
+*Por que usamos?</br>*
+O F1-Score oferece uma média harmônica entre precisão e recall, ajudando a equilibrar os trade-offs entre as duas métricas. É especialmente útil para cenários com muitas classes desbalanceadas.
+
+*Justificativa no projeto:</br>*
+Como as classes podem estar desbalanceadas, o F1-Score permite avaliar o modelo de forma equilibrada, sem favorecer excessivamente a precisão ou o recall. Ele ajuda a medir como o modelo lida com os efeitos positivos, neutros e negativos da música.
+
+ 
+# Pipeline de pesquisa e análise de dados
+1. Carregamento e exploração do dataset:
+2. Pré-processamento dos dados:
+3. Treinamento dos modelos:
+4. Análise dos resultados:
+
+
+ 
+## Conclusão
+
+O propósito deste projeto foi explorar se a frequência com que uma pessoa escuta diversos gêneros musicais está ligada a melhorias em sua saúde mental, conforme refletido na coluna "Music effects" do conjunto de dados. 
+
+Ao longo do processo, várias abordagens foram exploradas para lidar com o problema das classes desbalanceadas, incluindo a transformação das classes "No effect" e "Worsen" em uma única classe "No Improve", a fim de simplificar a distribuição e melhorar o desempenho do modelo.
+
+Resultados Principais:
+A classe majoritária ("Improve") apresentou consistentemente bons resultados de precisão e recall, o que sugere que o modelo é eficaz em identificar corretamente os casos em que a música tem um impacto positivo nas condições mentais.
+
+Classes Minoritárias ("No Improve") essa classe continuara sendo difícel de modelar devido à escassez de exemplos, o que resultou em um desempenho insatisfatório nessas categorias.
+
+Desafios e Limitações:
+O desbalanceamento entre as classes foi o principal desafio, pois a escassez de dados em algumas categorias impediu que o modelo aprenda de forma eficaz e faça boas generalizações.
+
+Coleta de Dados Adicionais: Focar na ampliação do conjunto de dados, especialmente para as classes "Worsen" e "No effect", visando equilibrar melhor as categorias.
+
+Investigação de Novas Variáveis: Explorar novas características que possam ter impacto na resposta emocional à música.
+
+Dado o modelo construido podemos verificar um resultado aceitável na prenveção de melhorias na saúde mental na classe "Improve", mesmo tendo poucos dados no dataset para tratamento, ainda assim acredito que o projeto poderia ser melhorado, caso fosse composto por mais dados para serem tratados.
+
+# Vídeo Explicativo - Caso 03
 # Avaliação dos modelos criados
 
 ## Métricas utilizadas
