@@ -1094,9 +1094,9 @@ O modelo ainda está fortemente enviesado para a classe majoritária (1), apesar
 
 ### XGBoost
 
-XGBoost é um poderoso algoritmo de boosting que pode lidar com dados desbalanceados através do ajuste de hiperparâmetros como scale_pos_weight, que ajusta a importância das classes minoritárias. Ele constrói modelos sequencialmente, corrigindo erros de modelos anteriores, e é conhecido por sua eficiência e precisão em problemas complexos.
-
 ![Importação da Base de Dados](img/xgboost.png)
+
+XGBoost é um poderoso algoritmo de boosting que pode lidar com dados desbalanceados através do ajuste de hiperparâmetros como scale_pos_weight, que ajusta a importância das classes minoritárias. Ele constrói modelos sequencialmente, corrigindo erros de modelos anteriores, e é conhecido por sua eficiência e precisão em problemas complexos.
 
 ```
 # Importando bibliotecas
@@ -1200,9 +1200,10 @@ Apesar de ter apresentado um resultado superior às tentativas anteriores, o uso
 
 ### Random Forest com SMOTE (Synthetic Minority Over-sampling Technique)
 
+![Importação da Base de Dados](img/smote.png)
+
 SMOTE é uma técnica avançada de oversampling que cria exemplos sintéticos para a classe minoritária. Em vez de simplesmente duplicar exemplos, SMOTE gera novos dados interpolando entre exemplos existentes, aumentando a diversidade dos dados minoritários e ajudando a evitar overfitting.
 
-![Importação da Base de Dados](img/smote.png)
 
 ```
 # Importando bibliotecas
