@@ -1093,6 +1093,89 @@ O modelo ainda está fortemente enviesado para a classe majoritária (1), apesar
 
 XGBoost é um poderoso algoritmo de boosting que pode lidar com dados desbalanceados através do ajuste de hiperparâmetros como scale_pos_weight, que ajusta a importância das classes minoritárias. Ele constrói modelos sequencialmente, corrigindo erros de modelos anteriores, e é conhecido por sua eficiência e precisão em problemas complexos.
 
+```
+# Importando bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report, confusion_matrix
+import xgboost as xgb
+```
+```
+# 2. Carregar dados
+url = '/content/dados_tratados_V2.csv'  # Use barra simples
+data = pd.read_csv(url, sep = ';')
+```
+```
+# Verificar valores únicos na coluna 'Music effects'
+print("Valores únicos antes da limpeza:", data['Music effects'].unique())
+Valores únicos antes da limpeza: ['No effect' 'Improve' 'Worsen']
+```
+```
+# Remover registros com valores ausentes na coluna 'Music effects'
+data_clean = data.dropna(subset=['Music effects'])
+```
+```
+# Codificar a variável alvo com valores positivos
+data_clean['Music effects'] = data_clean['Music effects'].map({'Improve': 2, 'No effect': 1, 'Worsen': 0})
+```
+```
+# Verificar os valores únicos após o mapeamento
+print("Valores únicos após mapeamento:", data_clean['Music effects'].unique())
+Valores únicos após mapeamento: [1 2 0]
+```
+```
+# Separar variáveis independentes e dependentes
+style_columns = [col for col in data.columns if 'frequency' in col]
+X = data_clean[style_columns]
+y = data_clean['Music effects']
+```
+```
+# Verificar se ainda há NaNs em y após codificação
+print(f'Valores ausentes em y: {y.isnull().sum()}')
+Valores ausentes em y: 0
+```
+```
+# Dividir os dados em conjuntos de treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+```
+```
+# Normalizar os dados
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+```
+```
+# Ajustar hiperparâmetros do XGBoost
+model = xgb.XGBClassifier(
+    use_label_encoder=False,
+    eval_metric='mlogloss',
+    scale_pos_weight=2,
+    max_depth=5,
+    n_estimators=200,
+    learning_rate=0.1,
+    gamma=0.1,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    random_state=42
+)
+```
+```
+# Treinar o modelo
+model.fit(X_train, y_train)
+```
+![Importação da Base de Dados](img/Caso2_13.png)
+```
+# Avaliação do modelo
+y_pred = model.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
+![Importação da Base de Dados](img/Caso2_14.png)
+
 #### Conclusões
 A análise dos resultados do modelo XGBoost após o ajuste dos hiperparâmetros mostra o seguinte:
 
