@@ -1364,6 +1364,28 @@ As faixas "25-34" e "35-49" têm médias mais baixas, mas ainda positivas, suger
 
 O gráfico acima mostra a correlação entre a frequência dos estilos musicais e a melhoria na condição mental dos ouvintes.
 
+```
+# Selecionar colunas relacionadas a frequência dos estilos musicais
+style_columns = [col for col in data.columns if 'frequency' in col]
+```
+```
+# Calcular a correlação entre a melhoria da condição mental e a frequência dos estilos musicais
+correlations = data[style_columns + ['Music effects']].corr()['Music effects'].drop('Music effects').sort_values(ascending=False)
+```
+```
+# Visualizar as correlações
+plt.figure(figsize=(12, 6))
+sns.barplot(x=correlations.index, y=correlations.values, palette="viridis")
+plt.title('Correlação entre Estilos Musicais e Melhoria na Condição Mental')
+plt.ylabel('Correlação')
+plt.xlabel('Estilo Musical (Frequência)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+![Importação da Base de Dados](img/Caso2_20.png)
+
 ### Conclusões sobre a análise
 
 R&B apresenta a maior correlação positiva com a melhoria, indicando que ouvir R&B está associado a uma melhora na condição mental.
