@@ -1324,6 +1324,32 @@ O XGBoost é robusto e inclui regularização, que ajuda a prevenir overfitting.
 
 Essa visualização ajuda a destacar como diferentes faixas etárias respondem à música em termos de melhoria das condições mentais.
 
+```
+# Mapear 'Music effects' para valores numéricos
+data['Music effects'] = data['Music effects'].map({'Improve': 1, 'No effect': 0, 'Worsen': -1})
+```
+```
+# Calcular a média dos efeitos da música por faixa etária
+age_effects = data.groupby('age_range')['Music effects'].mean()
+```
+```
+# Configurar o estilo do Seaborn
+sns.set(style="whitegrid")
+```
+```
+# Criar uma visualização da melhoria dos efeitos da música por faixa etária
+plt.figure(figsize=(10, 6))
+sns.barplot(x=age_effects.index, y=age_effects.values, palette="viridis")
+plt.title('Média dos Efeitos da Música por Faixa Etária')
+plt.ylabel('Média dos Efeitos da Música')
+plt.xlabel('Faixa Etária')
+plt.xticks(rotation=45)
+plt.ylim(0, 1)
+plt.tight_layout()
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_19.png)
+
 ### Conclusões sobre a análise
 
 O gráfico acima mostra a média dos efeitos da música por faixa etária. Observamos que:
