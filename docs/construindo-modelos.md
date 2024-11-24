@@ -865,6 +865,7 @@ O modelo está fortemente enviesado para a classe majoritária (1), o que é uma
 Undersampling é uma técnica de balanceamento de classes que reduz o número de exemplos na classe majoritária. Isso é feito removendo aleatoriamente exemplos até que a proporção entre as classes esteja equilibrada. Embora simples, pode levar à perda de informações valiosas se muitos exemplos forem removidos.
 
 ![Importação da Base de Dados](img/Caso2_3.png)
+[Fonte da Imagem](https://www.kaggle.com/code/rafjaa/resampling-strategies-for-imbalanced-datasets#t1)
 
 ```
 # Importando bibliotecas
@@ -979,6 +980,8 @@ O undersampling aparentemente reduziu a capacidade do modelo de generalizar bem,
 Oversampling é uma técnica que aumenta o número de exemplos nas classes minoritárias duplicando-os aleatoriamente ou gerando novas instâncias a partir dos existentes. Isso ajuda a equilibrar a proporção de classes, mas pode levar ao overfitting se não for feito cuidadosamente.
 
 ![Importação da Base de Dados](img/Caso2_8.png)
+[Fonte da Imagem](https://www.kaggle.com/code/rafjaa/resampling-strategies-for-imbalanced-datasets#t1)
+
 
 ```
 # Importando bibliotecas
