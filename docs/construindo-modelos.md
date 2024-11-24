@@ -2158,6 +2158,9 @@ Investigação de Novas Variáveis: Explorar novas características que possam t
 Dado o modelo construido podemos verificar um resultado aceitável na prenveção de melhorias na saúde mental na classe "Improve", mesmo tendo poucos dados no dataset para tratamento, ainda assim acredito que o projeto poderia ser melhorado, caso fosse composto por mais dados para serem tratados.
 
 # Vídeo Explicativo - Caso 03
+
+https://drive.google.com/file/d/1iuBeEfITjXS6UFwFBxgj2pwor1luTVoq/view?usp=drivesdk
+
 # Avaliação dos modelos criados
 
 ## Métricas utilizadas
