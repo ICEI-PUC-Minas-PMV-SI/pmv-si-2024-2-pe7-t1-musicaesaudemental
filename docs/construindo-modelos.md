@@ -128,6 +128,10 @@ plot_tree(best_model, feature_names=X.columns, class_names=['Worsen', 'Improve',
 plt.show()
 ```
 ### Árvore de Decisão com Undersampling
+Nesta abordagem, a técnica de undersampling foi usada para balancear as classes no conjunto de treino, reduzindo o número de amostras na classe majoritária para igualar o número de amostras das classes minoritárias.
+Apesar de reduzir o impacto do desbalanceamento sem criar dados sintéticos, mantendo a integridade dos dados reais, essa abordagem pode apresentar algumas limitações, que são:
+- Perda de informações na classe majoritária, o que pode limitar o desempenho geral do modelo.
+- Em problemas com poucos dados, a remoção de amostras pode comprometer a capacidade de generalização.
 
 Para a construção do modelo, foram importadas as bibliotecas necessárias e o dataset foi carregado em memória usando o pandas.
 ```
@@ -225,6 +229,10 @@ plt.show()
 ```
 
 ### Árvore de Decisão com Oversampling
+Nessa abordagem o oversampling manual foi usado para aumentar o número de amostras das classes minoritárias, replicando instâncias existentes até atingir um equilíbrio com a classe majoritária.
+Com essa técnica, todas as amostras do conjunto de dados original são preservados e melhora a capacidade do modelo de aprender sobre as classes minoritárias. Entretanto, essa abordagem pode apresentar as seguintes limitações:
+- Pode levar o modelo a superestimar padrões nos dados replicados, reduzindo sua capacidade de generalização.
+- O aumento do tamanho do conjunto de dados pode resultar em maior custo computacional.
 
 Para a construção do modelo, foram importadas as bibliotecas necessárias e o dataset foi carregado em memória usando o pandas.
 ```
@@ -336,6 +344,10 @@ plt.show()
 ```
 
 ### Árvore de Decisão com SMOTE
+A técnica SMOTE (Synthetic Minority Oversampling Technique) foi aplicada para gerar novas instâncias sintéticas das classes minoritárias, baseando-se em combinações das amostras existentes.
+Com essa técnica é possível gerar novas instâncias de dados, promovendo maior diversidade nos dados balanceados e também auxilia o modelo a aprender padrões representativos, reduzindo o risco de overfitting em amostras duplicadas. As limitações dessa técnica são as seguintes:
+- Pode introduzir ruído ou instâncias irreais se os dados originais forem muito dispersos.
+- Requer maior processamento em comparação com oversampling simples.
 
 Para a construção do modelo, foram importadas as bibliotecas necessárias e o dataset foi carregado em memória usando o pandas.
 ```
@@ -439,6 +451,10 @@ plt.show()
 ```
 
 ### Árvore de Decisão com SMOTE e XGBoost
+Nesta abordagem, o SMOTE foi combinado com o modelo XGBoost, que utiliza um método de boosting baseado em árvores para melhorar o desempenho. Combinando SMOTE com XGBoost conseguimos aumentar a diversidade das classes minoritárias, lidar eficientemente com desbalanceamento ao ajustar pesos para classes minoritárias, captar interações complexas entre variáveis por meio de ensembles de árvores e também oferece excelente desempenho em tarefas de classificação multiclasses e alta flexibilidade nos hiperparâmetros.
+Como suas limitações, essa técnica apresenta: 
+- Maior custo computacional devido ao treinamento iterativo e ao ajuste de hiperparâmetros.
+- Menor interpretabilidade em comparação às árvores de decisão simples.
 
 O código utiliza diversas bibliotecas para manipulação, visualização e modelagem dos dados, incluindo pandas para manipulação do dataset, Seaborn e Matplotlib para visualizações gráficas, imblearn para balanceamento com SMOTE e XGBoost para construção do modelo de classificação.
 ```
@@ -555,6 +571,90 @@ xgb.plot_tree(best_model, num_trees=0)  # A árvore de decisão número 0 do mod
 plt.title('Visualização da Árvore de Decisão do Modelo XGBoost')
 plt.show()
 ```
+
+# Avaliação dos modelos criados
+
+## Métricas utilizadas
+Na avaliação dos modelos de classificação, utilizamos algumas métricas para avaliar a qualidade e desempenho do modelo. Cada métrica utilizada tem o objetivo de fornecer uma perspectiva diferente sobre como o modelo está se comportando em relação ao conjunto de dados.
+
+1. Acurácia
+Mede a proporção de previsões corretas (tanto positivas quanto negativas) em relação ao total de amostras. Essa é uma métrica muito útil quando as classes estão balanceadas e não é recomendada para problemas com classes desbalanceadas, pois pode acontecer de ocultar o desempenho para classes minoritárias.
+
+- Por que usamos?
+A acurácia fornece uma visão geral sobre o desempenho do modelo ao medir a proporção de previsões corretas. Apesar de ser uma métrica genérica, ela é útil como ponto de partida para identificar se o modelo está aprendendo algo relevante dos dados.
+
+- Justificativa no projeto:
+Ajuda a determinar se o modelo, de forma geral, consegue distinguir entre os diferentes impactos da música ("Improve", "Worsen" ou "No effect") na saúde mental.
+Entretanto, dado o possível desbalanceamento das classes (como menor incidência de "Worsen"), não é suficiente como única métrica para avaliar os modelos. 
+
+2. Precision (Precisão)
+Mede a proporção de previsões positivas corretas em relação ao total de previsões positivas realizadas. Essa é uma métrica muito importante de ser avaliada em problemas onde o custo de um falso positivo é alto. Um exemplo desses cenários é em Diagnósticos médicos e fraudes financeiras.
+
+- Por que usamos?
+A precisão mede a proporção de previsões positivas corretas feitas pelo modelo, evitando falsos positivos. É essencial quando queremos ter confiança nas classificações positivas.
+
+- Justificativa no projeto:
+Crucial para identificar quais gêneros musicais são previstos como tendo efeitos positivos ("Improve") ou neutros ("No Effect") com alta confiabilidade.
+Reduz a chance de atribuir erroneamente um gênero musical a um efeito positivo, o que seria enganoso na análise final.
+
+3. Recall (Revocação ou Sensibilidade)
+Mede a proporção de previsões positivas corretas em relação ao total de amostras que são realmente positivas. Essa é uma métrica muito importante de ser avaliada em problemas onde o custo de um falso positivo é alto. Um exemplo desses cenários é em detectar doenças graves e fraudes financeiras.
+
+- Por que usamos?
+Recall mede a capacidade do modelo de encontrar todas as instâncias positivas reais. Ela é importante quando o objetivo é minimizar os falsos negativos.
+
+- Justificativa no projeto:
+Importante para garantir que identificamos todos os casos em que um gênero musical melhora ou piora o estado mental, mesmo que isso implique aceitar alguns falsos positivos.
+Em contextos relacionados à saúde mental, deixar de identificar um efeito real pode ser crítico. Por exemplo, se um gênero musical contribui para piorar a saúde mental, queremos ter certeza de identificá-lo.
+
+4. F1-Score
+Essa é uma métrica que combina precision e recall em uma única métrica e que considera o equilíbrio entre as duas. É a média harmônica dessas métricas. É uma métrica útil quando há desbalanceamento de classes e que permite avaliar o desempenho geral de forma mais equilibrada do que a acurácia.
+
+- Por que usamos?
+Combina precisão e recall em uma única métrica, equilibrando os trade-offs entre os dois. É particularmente útil para problemas de classificação multiclasses e com desbalanceamento.
+
+- Justificativa no projeto:
+Como as classes podem estar desbalanceadas (por exemplo, menos dados de "Worsen"), o F1-Score garante que não priorizamos excessivamente uma métrica em detrimento da outra.
+Ajuda a avaliar, de forma equilibrada, a capacidade do modelo de identificar os efeitos positivos, neutros e negativos da música.
+
+5. Confusion Matrix (Matriz de Confusão)
+Apresenta os resultados reais versus previstos em uma tabela que detalha os verdadeiros positivos, verdadeiros negativos, falsos positivos e falsos negativos. Essa métrica permite uma visualização detalhada dos erros do modelo e é essencial para identificar problemas de desbalanceamento ou classes específicas onde o modelo tem dificuldade.
+
+- Por que usamos?
+A matriz de confusão detalha os erros do modelo para cada classe, mostrando como as previsões se alinham com os valores reais.
+
+- Justificativa no projeto:
+Fundamental para identificar quais efeitos ("Improve", "No Effect", "Worsen") estão sendo mais ou menos identificados corretamente.
+Permite compreender onde o modelo está errando (por exemplo, confundir "Worsen" com "No Effect"), possibilitando ajustes específicos para melhorar o desempenho.
+
+## Discussão dos resultados obtidos
+### Árvore de Decisão
+#### Árvore de Decisão com Undersampling
+#### Árvore de Decisão com Oversampling
+#### Árvore de Decisão com SMOTE
+#### Árvore de Decisão com SMOTE e XGBoost
+
+# Pipeline de pesquisa e análise de dados
+1. Carregamento e exploração do dataset:
+2. Pré-processamento dos dados:
+3. Treinamento dos modelos:
+4. Análise dos resultados:
+
+## Resultados Obtidos
+### Árvore de Decisão
+#### Árvore de Decisão com Undersampling
+#### Árvore de Decisão com Oversampling
+#### Árvore de Decisão com SMOTE
+#### Árvore de Decisão com SMOTE e XGBoost
+
+## Conclusão
+### Árvore de Decisão
+#### Árvore de Decisão com Undersampling
+#### Árvore de Decisão com Oversampling
+#### Árvore de Decisão com SMOTE
+#### Árvore de Decisão com SMOTE e XGBoost
+
+## Observações importantes
 
 # CASO 2 - Árvore de Decisão (Random Forest) - Isabela e Renan
 
