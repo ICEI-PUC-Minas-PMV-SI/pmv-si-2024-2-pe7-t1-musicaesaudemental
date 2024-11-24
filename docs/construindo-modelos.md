@@ -864,6 +864,100 @@ O modelo está fortemente enviesado para a classe majoritária (1), o que é uma
 
 Undersampling é uma técnica de balanceamento de classes que reduz o número de exemplos na classe majoritária. Isso é feito removendo aleatoriamente exemplos até que a proporção entre as classes esteja equilibrada. Embora simples, pode levar à perda de informações valiosas se muitos exemplos forem removidos.
 
+![Importação da Base de Dados](img/Caso2_3.png)
+
+```
+# Importando bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from imblearn.under_sampling import RandomUnderSampler
+```
+```
+# 2. Carregar dados
+url = '/content/dados_tratados_V2.csv'  # Use barra simples
+data = pd.read_csv(url, sep = ';')
+```
+```
+# Verificar valores únicos na coluna 'Music effects'
+print("Valores únicos antes da limpeza:", data['Music effects'].unique())
+Valores únicos antes da limpeza: ['No effect' 'Improve' 'Worsen']
+```
+```
+# Remover registros com valores ausentes na coluna 'Music effects'
+data_clean = data.dropna(subset=['Music effects'])
+```
+```
+# Codificar a variável alvo incluindo 'Worsen'
+data_clean['Music effects'] = data_clean['Music effects'].map({'Improve': 1, 'No effect': 0, 'Worsen': -1})
+```
+```
+# Verificar os valores únicos após o mapeamento
+print("Valores únicos após mapeamento:", data_clean['Music effects'].unique())
+Valores únicos após mapeamento: [ 0  1 -1]
+```
+```
+# Separar variáveis independentes e dependentes
+X = data_clean[style_columns]
+y = data_clean['Music effects']
+```
+```
+# Verificar se ainda há NaNs em y após codificação
+print(f'Valores ausentes em y: {y.isnull().sum()}')
+Valores ausentes em y: 0
+```
+```
+# Dividir os dados em conjuntos de treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+```
+```
+# Visualização do balanço das classes antes do undersampling
+plt.figure(figsize=(8, 4))
+sns.countplot(x=y_train)
+plt.title('Distribuição das Classes Antes do Undersampling')
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_4.png)
+```
+# Aplicar undersampling no conjunto de treino
+undersample = RandomUnderSampler(random_state=42)
+X_train_resampled, y_train_resampled = undersample.fit_resample(X_train, y_train)
+```
+```
+# Visualização do balanço das classes após o undersampling
+plt.figure(figsize=(8, 4))
+sns.countplot(x=y_train_resampled)
+plt.title('Distribuição das Classes Após o Undersampling')
+plt.show()
+```
+![Importação da Base de Dados](img/Caso2_5.png)
+```
+# Normalizar os dados
+scaler = StandardScaler()
+X_train_resampled = scaler.fit_transform(X_train_resampled)
+X_test = scaler.transform(X_test)
+```
+```
+# Modelagem
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train_resampled, y_train_resampled)
+```
+![Importação da Base de Dados](img/Caso2_6.png)
+```
+# Avaliação do modelo
+y_pred = model.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
+![Importação da Base de Dados](img/Caso2_7.png)
+
+
+
 #### Conclusões
 A análise dos resultados do modelo após a aplicação de undersampling com as métricas de classificação (precision, recall, f1-score, e support):
 
