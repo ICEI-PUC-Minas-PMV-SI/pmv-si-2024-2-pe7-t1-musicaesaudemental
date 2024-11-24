@@ -1448,7 +1448,7 @@ Para acesso do vídeo acesse:
 https://drive.google.com/drive/folders/1BbgB_29gA9RQ_wQTPIhvEOTXmBlGsepE?usp=sharing
 
 
-# Preparação dos dados
+<!-- # Preparação dos dados
 
 Nesta etapa, deverão ser descritas todas as técnicas utilizadas para pré-processamento/tratamento dos dados.
 
@@ -1502,4 +1502,4 @@ Em pesquisa e experimentação em sistemas de informação, um pipeline de pesqu
 
 Todas as tarefas realizadas nesta etapa deverão ser registradas em formato de texto junto com suas explicações de forma a apresentar  os códigos desenvolvidos e também, o código deverá ser incluído, na íntegra, na pasta "src".
 
-Além disso, deverá ser entregue um vídeo onde deverão ser descritas todas as etapas realizadas. O vídeo, que não tem limite de tempo, deverá ser apresentado por **todos os integrantes da equipe**, de forma que, cada integrante tenha oportunidade de apresentar o que desenvolveu e as  percepções obtidas.
+Além disso, deverá ser entregue um vídeo onde deverão ser descritas todas as etapas realizadas. O vídeo, que não tem limite de tempo, deverá ser apresentado por **todos os integrantes da equipe**, de forma que, cada integrante tenha oportunidade de apresentar o que desenvolveu e as  percepções obtidas. -->
