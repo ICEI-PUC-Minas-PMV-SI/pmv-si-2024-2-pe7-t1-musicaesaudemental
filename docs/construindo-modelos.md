@@ -788,8 +788,52 @@ data = pd.read_csv(url, sep = ';')
 ## Criação de modelos preditivos
 ### Random Forest desconsiderando o desbalanceamentos das classes
 
-
-
+```
+# Verificar valores únicos na coluna 'Music effects'
+print("Valores únicos antes da limpeza:", data['Music effects'].unique())
+```
+```
+# Remover registros com valores ausentes na coluna 'Music effects'
+data_clean = data.dropna(subset=['Music effects'])
+```
+```
+# Codificar a variável alvo incluindo 'Worsen'
+data_clean['Music effects'] = data_clean['Music effects'].map({'Improve': 1, 'No effect': 0, 'Worsen': -1})
+```
+```
+# Verificar os valores únicos após o mapeamento
+print("Valores únicos após mapeamento:", data_clean['Music effects'].unique())
+```
+```
+# Separar variáveis independentes e dependentes
+X = data_clean[style_columns]
+y = data_clean['Music effects']
+```
+```
+# Verificar se ainda há NaNs em y após codificação
+print(f'Valores ausentes em y: {y.isnull().sum()}')
+```
+```
+# Dividir os dados em conjuntos de treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+```
+```
+# Normalizar os dados
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+```
+```
+# Modelagem
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+```
+```
+# Avaliação do modelo
+y_pred = model.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
 #### Conclusões
 Conclusões sobre a análise
 A análise dos resultados do modelo Random Forest com as métricas de classificação (precision, recall, f1-score, e support):
