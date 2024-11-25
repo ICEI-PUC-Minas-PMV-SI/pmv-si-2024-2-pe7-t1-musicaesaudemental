@@ -2317,7 +2317,7 @@ https://drive.google.com/file/d/1iuBeEfITjXS6UFwFBxgj2pwor1luTVoq/view?usp=drive
 
 * Resultados Iniciais: Inicialmente com o modelo feito da forma mais básica possível os resultados foram os seguintes
 
-  ![Resultado Naive Bayes](docs/img/bayes_01.png)
+  ![Resultado Naive Bayes](img/bayes_01.png)
 
     
     * Esse resultado demonstrou que a classe 1.0 estava com um aproveitamento acima do esperado, possuindo excelentes valores na tabela, com uma precisão de 80%, recall de 70% e um f1-score de 75%, porém, esse primeiro resultado veio junto com um viés para o 0.0, que acabou por não conseguir bons resultados.
@@ -2328,7 +2328,7 @@ https://drive.google.com/file/d/1iuBeEfITjXS6UFwFBxgj2pwor1luTVoq/view?usp=drive
         * Oversampling é uma técnica muito utilizada para algoritmos em database com classes muito desbalanceadas, que consiste em aumentar os dados com a classe que está em minoria no dataset, fazendo assim com que o algoritmo continue pegando resultados da classe que está em maioria, mas que ela não se torne tão dominante ao ponto de criar um viés no algoritmo
     * Para a utilização do oversampling, foi utilizado a técnica SMOTE, que é uma técnica para aumentar o número de casos da classe minoritária com a função de tentar equiparar as classes sem precisar duplicar. Os resultados foram os seguintes:
 
-      ![Resultado Naive Bayes Oversampling](docs/img/bayes_02.png)
+      ![Resultado Naive Bayes Oversampling](img/bayes_02.png)
 
 
     * Houve um aumento nas entradas verdadeiro positivos, como nos indica a Matrix de Confusão, o que significa que o algoritmo está errando menos falso positivos, porém essa melhora não se refletiu na precisão, por conta do oversampling realizado. Além desse resultado, em relação a classe 1.0, todos os resultados pioraram especialmente o recall, como apresentado na Matrix de Confusão, o número de falso positivos aumentou consideravelmente
@@ -2336,7 +2336,7 @@ https://drive.google.com/file/d/1iuBeEfITjXS6UFwFBxgj2pwor1luTVoq/view?usp=drive
         * Apesar de contraintuitivo, um undersampling(que é o contrário do oversampling, onde a classe minoritária recebe menos amostra de dados) é bom para se ver como a classe majoritária vai se comportar ocupando a maior parte do dataset. É esperado que esse seja o melhor algoritmo para a classe 1, já que ela vai ocupar a amostra de dados quase por inteira.
         * O undersampling foi feito utilizando um atributo do framework utilizado, no qual definimos os valores priori inicial de cada classe, fazendo isso temos a classe 0.0 possuindo 0.2 e a classe 1.0 possuindo 0.8. Esse valor inicial vai ser levado em consideração durante os cálculos Bayesianos para a verificação da probabilidade de as classes acontecerem em cada feature, então causando esse desbalanceamento, vamos ter um contexto em que a classe 1.0 já vai ter a maior quantidade de dados. Os resultados foram os seguintes:
 
-      ![Resultado Naive Bayes Undersampling](docs/img/bayes_03.png)
+      ![Resultado Naive Bayes Undersampling](img/bayes_03.png)
   
         * Apesar de uma melhora baixa no recall da classe 1.0, o undersampling não causou praticamente nenhuma diferença na classe 0.0, já que, por ela já estar desbalanceada no contexto comum, mesmo com dados mais desbalanceados ainda, resultou apenas em um falso positivo a mais
 
