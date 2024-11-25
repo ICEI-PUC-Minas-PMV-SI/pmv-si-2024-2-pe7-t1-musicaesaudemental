@@ -2218,6 +2218,141 @@ Dado o modelo construido podemos verificar um resultado aceitável na prenveçã
 
 https://drive.google.com/file/d/1iuBeEfITjXS6UFwFBxgj2pwor1luTVoq/view?usp=drivesdk
 
+# CASO 04 - Gaussian Naive Bayes - Gabriel
+
+* O Naive Bayes foi escolhido por ser um algoritmo de aprendizado de máquina bastante simples, já que se baseia na maior probabilidade de a hipótese ser verdadeira e é linear, já que possui apenas dois vetores de entrada para as probabilidades (SAMMUT e WEBB, 2010). Com a simplicidade do Naive Bayes, a premissa do algoritmo é conseguir achar um padrão para acertar a coluna target "Music effects" com uma precisão de mais de 70%.
+
+* Para o início do desenvolvimento do algoritmo, primeiro foi necessário realizar o pré-processamento para se adequar aos requisitos do aplicativo e para facilitar na obtenção de resultados
+    * Formatação das colunas binários: Para a utilização dos Gaussian Naive Bayes, as colunas com valores binários foram formatadas para uma escala booleana, onde “Yes” se tornou 1 e “No” se tornou 0. A decisão da mudança foi para simplicidade de trabalhar com o dados, já que se eventualmente fosse necessário realizar algum ou realizar alguma interação matemática, os valores já estariam convertido
+    ```
+    # Mapear 'yes' para 1 e 'no' para 0
+    boolean_mapping = {
+        'Yes': 1,
+        'No': 0
+    }
+    # Lista das colunas para transformar em booleano
+    colunas_booleanas = ['While working', 'Instrumentalist', 'Composer', 'Exploratory', 'Foreign languages']
+
+    # Aplica o mapping
+    df[colunas_booleanas] = df[colunas_booleanas].replace(boolean_mapping)
+    
+    # Formatar colunas_booleanas para boolean
+    df[colunas_booleanas] = df[colunas_booleanas].astype(bool)
+    ```
+    * Formatação das colunas de frequencia musical: Como no tópico anterior, a formatação das colunas musicais também foram realizadas para fazer um "encoding manual", porém como nesse caso não são binários, não serão apenas 0 e 1, então foi realizado o encoding da escala "Never, Rarely, Sometimes, Very Frequently" para uma escala de 0 a 3, e os motivos são os mesmos que o do tópico anterior, que é para a simplicidade de trabalhar com os dados numéricos
+    ```
+    # Atribuir um peso a cada resposta nas colunas de frequencia
+    peso_respostas = {
+        'Never': 0,
+        'Rarely': 1,
+        'Sometimes': 2,
+        'Very frequently': 3
+    }
+
+    # Coluna inicial e final das frequencias para aplicar o peso de cada frequencia
+    coluna_inicial = 'Frequency [Classical]'
+    coluna_final = 'Frequency [Video game music]'
+    
+    # Selecionar todas as colunas entre 'coluna_inicial' e 'coluna_final'
+    colunas_musicas = df.loc[:, coluna_inicial:coluna_final].columns
+    
+    # Troca dos valores antigos para o peso
+    df[colunas_musicas] = df[colunas_musicas].replace(peso_respostas)
+    ```
+    * Formatação da coluna Music effects: A coluna "target" do algoritmo foi formatada para possuir apenas dois valores, onde as entradas com o resultado “Worsen” foram removidas da coluna, já que o mesmo possuia apenas 17 entradas no database, e as entrada nulas foram consideradas como "No effect" já que não são consideradas como uma melhoria ou como uma piora no resultado das músicas escutadas.
+    ```
+    # Substituir 'Improve' por 1, 'No effect' e valores vazios por 0, e remover o restante
+    df['Music effects'] = df['Music effects'].apply(lambda x: 1 if x == 'Improve' else (0 if x == 'No effect' or pd.isnull(x) else None))
+
+    # Remover as linhas onde o valor em 'Music effects' é None (ou seja, não é 'Improve' nem 'No effect')
+    df.dropna(subset=['Music effects'], inplace=True)
+    ```
+    * Colunas com valores faltantes: Em relação as colunas com valores faltantes, a coluna com mais valores faltantes em uma grande escala foi a de BPM com mais de 100 entradas vazias, enquanto as outras como Instrumentalist foram 13. Todos esses valores faltantes foram substituídos pela média da coluna.
+    ```
+    # Trata os NaN somente nas colunas numericas
+    df = df.apply(lambda x: x.fillna(x.mean()) if x.dtype in ['float64', 'int64'] else x)
+    ```
+    * Standard Scaler: Como o database utilizado possui bastante variância nas suas colunas, foi utilizado o Standard Scaler para normalização da features, o qual facilita o uso de algoritmos de aprendizado de máquina.
+    ```
+    #Padronizar o X
+    from sklearn.preprocessing import StandardScaler  
+    sc = StandardScaler()  
+    x_train = sc.fit_transform(x_train)  
+    x_test = sc.transform(x_test)  
+    ```
+
+* Seleção das features: O Naive Bayes vai trabalhar com as features assumindo que elas são independentes, porém nem sempre vai ser possível(SAMMUT e WEBB, 2010), então como feature será utilizado as colunas de frequencias(ex: Frequency (Rock)), as colunas mais pessoais(ex: Age, While Working) e as colunas de transtornos mentais(ex: Anxiety). Utilizando essa features é esperado atingir o resultado.
+
+* Desenvolvimento do algoritmo: Com o pré-processamento feito, e com as features e classe target definida, é dado o início do desenvolvimento da aplicação
+    * Métricas utilizadas: Para a avaliação de cada aspecto que será demonstrado, será utilizado duas métricas principais, a primeira sendo uma Matrix de Confusão que é uma métrica que consegue trazer muita informação de forma muito simples, já que o "target" é binário, será mostrado apenas positivos verdadeiro se falsos positivos de cada valor. A segunda métrica é uma tabela possuindo as colunas: precision, recall, f1-score e support. O algoritmo tem como objetivo conseguir uma boa precisão, porém o recall precisa ser levado em conta para não ser um algoritmo que entrega muitos falsos positivos, fazendo com que o F1-score também se faça presente para ver a média dos dois
+    ```
+    # Verificar precisão
+    from sklearn.metrics import accuracy_score
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Accuracy: {accuracy:.4f}")
+
+    # Confusion Matrix
+    from sklearn.metrics import confusion_matrix  
+    cm = confusion_matrix(y_test, y_pred)  
+    print(cm)
+
+    # Converter o relatório em um DataFrame
+    from sklearn.metrics import classification_report 
+
+    # Criar o relatório de classificação
+    report = classification_report(y_test, y_pred, output_dict=True)  # output_dict=True retorna um dicionário
+
+    report_df = pd.DataFrame(report).transpose() 
+    report_df = report_df[['precision', 'recall', 'f1-score', 'support']] 
+
+    # Exibir a tabela
+    print(report_df)
+    ```
+    * Separação do database: Inicialmente, foi utilizado uma proporção de 80/20 do database, porém conforme os testes foram progredindo, notou-se que alguns algoritmos estavam se saindo melhor com uma testagem menor e outros com amostragem de treino menor, o que pode ter auxiliado com o víes do algoritmo. A amostragem definida foi 85/15 para todos os algoritmos, para padronizar os resultados
+    ```
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.15, random_state = 42)  
+    ```
+
+* Funcionamento do algoritmo: O algoritmo vai funcionar verificando a probabilidade de cada features ter a coluna "Music effects" como 0 ou 1, já que é uma premissa do algoritmo que as features sejam independentes. No treino, ele vai receber esses dados e começar a montar seus dados para quando começarem os testes, ele ter a resposta de, por exemplo, uma pessoa que ouve rock frequentemente ter tido Improve, e depois de verificar todas as features, ele voltará com o Improve ou No effect, o qual teve as maiores probabilidades. Como dito anterior, é um algoritmo bastante simples (tanto é que é conhecido como "Simple Bayes" ou "Dumb Bayes') e possui bastante vantagens como ser linear, o que ajuda bastante com o tempo, porém com o database utilizado, ele possui alguns pontos fracos como colunas dependentes, já que as músicas podem estar relacionadas com a saúde mental e o quanto uma pessoa ouve de música pode estar relacionada com os gostos musicais dela.
+
+* Resultados Iniciais: Inicialmente com o modelo feito da forma mais básica possível os resultados foram os seguintes
+
+  ![Resultado Naive Bayes](docs/img/bayes_01.png)
+
+    
+    * Esse resultado demonstrou que a classe 1.0 estava com um aproveitamento acima do esperado, possuindo excelentes valores na tabela, com uma precisão de 80%, recall de 70% e um f1-score de 75%, porém, esse primeiro resultado veio junto com um viés para o 0.0, que acabou por não conseguir bons resultados.
+    * Esses resultados já indicam um problema que é o desbalanceamento de dados das classes, visto a diferença gritante nos resultados, onde para obter bons resultados, se faz criar um algoritmo enviesado, que vai acertar todos os resultados da classe com maiores amostras. Logo, o proximo tópico será focado em resolver essa questão
+
+* Oversampling x Undersampling
+    * Oversampling
+        * Oversampling é uma técnica muito utilizada para algoritmos em database com classes muito desbalanceadas, que consiste em aumentar os dados com a classe que está em minoria no dataset, fazendo assim com que o algoritmo continue pegando resultados da classe que está em maioria, mas que ela não se torne tão dominante ao ponto de criar um viés no algoritmo
+    * Para a utilização do oversampling, foi utilizado a técnica SMOTE, que é uma técnica para aumentar o número de casos da classe minoritária com a função de tentar equiparar as classes sem precisar duplicar. Os resultados foram os seguintes:
+
+      ![Resultado Naive Bayes Oversampling](docs/img/bayes_02.png)
+
+
+    * Houve um aumento nas entradas verdadeiro positivos, como nos indica a Matrix de Confusão, o que significa que o algoritmo está errando menos falso positivos, porém essa melhora não se refletiu na precisão, por conta do oversampling realizado. Além desse resultado, em relação a classe 1.0, todos os resultados pioraram especialmente o recall, como apresentado na Matrix de Confusão, o número de falso positivos aumentou consideravelmente
+    * Undersampling
+        * Apesar de contraintuitivo, um undersampling(que é o contrário do oversampling, onde a classe minoritária recebe menos amostra de dados) é bom para se ver como a classe majoritária vai se comportar ocupando a maior parte do dataset. É esperado que esse seja o melhor algoritmo para a classe 1, já que ela vai ocupar a amostra de dados quase por inteira.
+        * O undersampling foi feito utilizando um atributo do framework utilizado, no qual definimos os valores priori inicial de cada classe, fazendo isso temos a classe 0.0 possuindo 0.2 e a classe 1.0 possuindo 0.8. Esse valor inicial vai ser levado em consideração durante os cálculos Bayesianos para a verificação da probabilidade de as classes acontecerem em cada feature, então causando esse desbalanceamento, vamos ter um contexto em que a classe 1.0 já vai ter a maior quantidade de dados. Os resultados foram os seguintes:
+
+      ![Resultado Naive Bayes Undersampling](docs/img/bayes_03.png)
+  
+        * Apesar de uma melhora baixa no recall da classe 1.0, o undersampling não causou praticamente nenhuma diferença na classe 0.0, já que, por ela já estar desbalanceada no contexto comum, mesmo com dados mais desbalanceados ainda, resultou apenas em um falso positivo a mais
+
+* Avaliações
+    * Com todos os testes realizado, ficou claro que ao se trabalhar com esse dataset para aprendizado de máquinas, a grande questão inicialmente será as classes desbalanceadas. Apesar da simplificação dos dados removendo uma classe, que já não possui muitas entradas, essa questão se manteve apesar das tentativas de equilibrá-las para conseguir resultados mais equilibrados nas métricas selecionadas.
+    * Além das alternativas mostradas aqui, uma possível forma de contornar a questão das classes desbalanceadas, seria gerar novas features, que apesar de terem sido testadas nesse algoritmo, levaram a resultados praticamente idênticos aos mostrados aqui. Essa é uma boa alternativa, mas também exige muita maestria para gerar frutos, já que novas features podem ser criadas ou features existentes podem ser mescladas, gerando uma feature extra, e essa feature extra pode gerar novos insights para o algoritmo ou não, e conseguir esse insight para salvar classes desbalanceadas, pode se provar uma tarefa difícil.
+    * O Naive Bayes, apesar de ser um algoritmo visto como um "faz tudo" tem como um defeito a dificuldade de lidar com dados desbalanceados, então toda sua simplicidade e inocência foram escondidas pela dificuldade desses dados, já que os dados estavam tão desbalanceados que a classe minoritária em um contexto de undersampling não teve praticamente nenhuma diferença.
+    * Ainda sobre o Naive Bayes, uma grande parte do algoritmo é acreditar que todas as classes são independentes, e nesse database, alguns dados podem ser considerados dependentes dependendo da visão, já que uma pessoa que toca instrumento pode ter seu estilo de música influenciado, uma pessoa que só houve música no trabalho pode evitar alguns gêneros, entre outros. No cálculo do algoritmo só é considerado a chance da classe 0.0 ou 1.0 acontecer com base no contexto de cada feature, então não é considerado essas ligações, e é algo que poderia ser trabalhado no tópico anterior, de novas features
+
+* Bibliografia:
+    * Encyclopedia of Machine Learning, Claude Sammut, Geoffrey I. Webb, 2010
+
+* Vídeo Caso 04: https://drive.google.com/file/d/1cjvoMjqmS3FsY0H20CXTBiq9DOoazLqb/view?usp=sharing
+
+
+
 <!-- # Preparação dos dados
 
 Nesta etapa, deverão ser descritas todas as técnicas utilizadas para pré-processamento/tratamento dos dados.
