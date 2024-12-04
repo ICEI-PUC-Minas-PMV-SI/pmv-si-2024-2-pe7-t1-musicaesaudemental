@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
 from sklearn.metrics import precision_score, accuracy_score
+from xgboost import Booster
 
 app = Flask(__name__)
+booster = Booster()
 
 # Carregar os modelos treinados
 models = {
@@ -15,6 +17,10 @@ models = {
 }
 
 effect_mapping = {0: 'Worsen', 1: 'No effect', 2: 'Improve'}
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "running"}), 200
 
 @app.route('/predict-all', methods=['POST'])
 def predict_all():
@@ -69,7 +75,39 @@ def predict_all():
                     "musicEffect": f"Erro: {str(e)}"
                 })
 
-        return jsonify(results), 200
+        if results:
+            valid_results = [r for r in results if r["accuracy"] is not None and r["precision"] is not None]
+            
+            if not valid_results:
+                return jsonify({"status": "error", "message": "Nenhum resultado válido"}), 400
+            
+            max_precision = max(r["precision"] for r in valid_results)
+            candidates = [r for r in valid_results if r["precision"] == max_precision]
+
+            
+            if len(candidates) > 1:
+                max_accuracy = max(r["accuracy"] for r in candidates)
+                candidates = [r for r in candidates if r["accuracy"] == max_accuracy]
+
+            
+            if len(candidates) > 1:
+                effect_counts = {}
+                for r in candidates:
+                    effect = r["musicEffect"]
+                    effect_counts[effect] = effect_counts.get(effect, 0) + 1
+                most_frequent_effect = max(effect_counts, key=effect_counts.get)
+                candidates = [r for r in candidates if r["musicEffect"] == most_frequent_effect]
+
+            if len(candidates) > 1:
+                return jsonify({"status": "empate", "candidates": candidates}), 200
+            
+            best_model = candidates[0]
+            return jsonify({"status": "success", "best_model": best_model}), 200
+
+        return jsonify({"status": "error", "message": "Nenhum resultado foi processado"}), 400
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+    
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000, debug=True)
