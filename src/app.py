@@ -1,4 +1,7 @@
+from pathlib import Path
+import pickle
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 import joblib
 import json
@@ -7,6 +10,7 @@ from sklearn.metrics import precision_score, accuracy_score
 from xgboost import Booster
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 booster = Booster()
 
 # Carregar os modelos treinados
