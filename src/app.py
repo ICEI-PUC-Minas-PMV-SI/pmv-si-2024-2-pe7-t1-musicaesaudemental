@@ -1,6 +1,7 @@
 from pathlib import Path
 import pickle
 from flask import Flask, request, jsonify
+from flask_restful import Resource, Api
 from flask_cors import CORS
 import pandas as pd
 import joblib
@@ -11,6 +12,7 @@ from xgboost import Booster
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
+api = Api(app)
 booster = Booster()
 
 # Carregar os modelos treinados
@@ -131,6 +133,7 @@ def predict_all():
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+ 
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
