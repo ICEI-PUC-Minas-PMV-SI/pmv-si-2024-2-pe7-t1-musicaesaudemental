@@ -11,7 +11,7 @@ from sklearn.metrics import precision_score, accuracy_score
 from xgboost import Booster
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"], "allow_headers": "*"}})
 api = Api(app)
 booster = Booster()
 
@@ -134,6 +134,7 @@ def predict_all():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
  
+   
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
