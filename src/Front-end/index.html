@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música e Saúde Mental</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Música e Saúde Mental - Previsão do status de melhora da saúde do usuário</h1>
+        <p class="description">Previsão baseada em modelos preditivos treinados. Preencha os campos abaixo e descubra se os estilos musicais que você mais escuta irão te ajudar na sua saúde mental.</p>
+
+        <div class="content">
+            <!-- Informação sobre categorias -->
+            <div class="info-box">
+                <h3>Informações sobre categorias</h3>
+                <p>Preencha os campos com os valores de frequência que representam quanto você escuta cada estilo musical. Além disso, inclua as informações relacionadas à sua idade e os níveis de sintomas.</p>
+            </div>
+
+            <!-- Formulário -->
+            <form class="form" method="POST" action="/prever">
+                <p>Atribua uma nota, 0 (nunca), 1 (raramente), 2 (às vezes) a 3 (com frequência) para a frequência de cada estilo musical abaixo.</p>
+
+                <label for="classical">Classical Frequency:</label>
+                <select id="classical" name="classical" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="country">Country Frequency:</label>
+                <select id="country" name="country" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="edm">EDM Frequency:</label>
+                <select id="edm" name="edm" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="folk">Folk Frequency:</label>
+                <select id="folk" name="folk" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="gospel">Gospel Frequency:</label>
+                <select id="gospel" name="gospel" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="jazz">Jazz Frequency:</label>
+                <select id="jazz" name="jazz" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="hiphop">Hip-hop Frequency:</label>
+                <select id="hiphop" name="hiphop" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="kpop">K-pop Frequency:</label>
+                <select id="kpop" name="kpop" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="latin">Latin Frequency:</label>
+                <select id="latin" name="latin" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="lofi">Lofi Frequency:</label>
+                <select id="lofi" name="lofi" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="metal">Metal Frequency:</label>
+                <select id="metal" name="metal" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="pop">Pop Frequency:</label>
+                <select id="pop" name="pop" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="rb">R&B Frequency:</label>
+                <select id="rb" name="rb" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="rap">Rap Frequency:</label>
+                <select id="rap" name="rap" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="rock">Rock Frequency:</label>
+                <select id="rock" name="rock" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="videogame">Video Game Music Frequency:</label>
+                <select id="videogame" name="videogame" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <!-- Repetir os demais estilos musicais aqui com o mesmo padrão -->
+
+                <p>Atribua uma nota para nível que você se autorelata ter dos transtornos abaixo de 0 a 10.</p>
+
+                <label for="anxiety">Anxiety Level:</label>
+                <select id="anxiety" name="anxiety" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <label for="depression">Depression Level:</label>
+                <select id="depression" name="depression" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <label for="insomnia">Insomnia Level:</label>
+                <select id="insomnia" name="insomnia" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <label for="ocd">OCD Level:</label>
+                <select id="ocd" name="ocd" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <!-- Repetir os demais transtornos aqui com o mesmo padrão -->
+
+                <p>Informe sua idade.</p>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required placeholder="Ex: 13">
+
+                <button type="submit">Enviar</button>
+            </form>
+
+            <!-- Previsão -->
+            <div class="prediction-box">
+                <h3>Previsão</h3>
+                <p>O resultado será exibido aqui após o envio do formulário.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
