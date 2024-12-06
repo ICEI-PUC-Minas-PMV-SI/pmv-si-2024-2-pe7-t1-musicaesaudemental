@@ -1,0 +1,107 @@
+body {
+    background-color: #042e58;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 30px;
+}
+
+.title {
+    text-align: center;
+    color: #ffb700;
+    font-size: 2.5rem; /* Tamanho maior para dar mais destaque */
+    margin-bottom: 10px;
+}
+
+.description {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.info-box,
+.prediction-box {
+    padding: 30px;
+    background-color: #093a6d;
+    border: 2px solid #125394;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-box h3,
+.prediction-box h3 {
+    color: #ffb700;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: white;
+}
+
+.form label {
+    color: white;
+    font-size: 1rem;
+}
+
+.form select,
+.form input {
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+input#age {
+    width: 100%; /* Deixa o campo de idade igual aos outros */
+}
+
+button {
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #2ecc71; /* Efeito de hover */
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Ajusta o layout para colunas em telas menores */
+    }
+    .info-box,
+    .prediction-box {
+        padding: 20px;
+    }
+    .form {
+        gap: 15px;
+    }
+}
