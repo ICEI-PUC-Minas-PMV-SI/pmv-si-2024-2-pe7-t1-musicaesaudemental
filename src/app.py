@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
+import json
+from collections import Counter
 from sklearn.metrics import precision_score, accuracy_score
 from xgboost import Booster
 
@@ -14,6 +16,15 @@ models = {
     "decision-tree-oversampling": joblib.load("src/models/decision-tree-classifier-oversampling.pkl"),
     "decision-tree-smote": joblib.load("src/models/decision-tree-classifier-smote.pkl"),
     "decision-tree-xgboost": joblib.load("src/models/decision-tree-classifier-xgboost.pkl")
+}
+
+# Carregar métricas individualmente
+model_metrics = {
+    "decision-tree": json.load(open("src/metrics/decision-tree-classifier.json")),
+    "decision-tree-undersampling": json.load(open("src/metrics/decision-tree-classifier-undersampling.json")),
+    "decision-tree-oversampling": json.load(open("src/metrics/decision-tree-classifier-oversampling.json")),
+    "decision-tree-smote": json.load(open("src/metrics/decision-tree-classifier-smote.json")),
+    "decision-tree-xgboost": json.load(open("src/metrics/decision-tree-classifier-xgboost.json"))
 }
 
 effect_mapping = {0: 'Worsen', 1: 'No effect', 2: 'Improve'}
@@ -35,37 +46,27 @@ def predict_all():
         # Converter para DataFrame
         df = pd.DataFrame(input_data)
 
-        # Verificar se "labels" está presente no DataFrame
-        if 'labels' in df.columns:
-            y_test = df.pop('labels')  # Retirar os rótulos para calcular métricas
-        else:
-            return jsonify({"status": "error", "message": "Payload deve conter a coluna 'labels' com os rótulos reais"}), 400
-
-        # Garantir que y_test seja numérico
-        if isinstance(y_test.iloc[0], str):
-            reverse_mapping = {v: k for k, v in effect_mapping.items()}
-            y_test = y_test.map(reverse_mapping)
-
         results = []
 
         for model_name, model in models.items():
             try:
                 # Fazer a previsão
                 y_pred = model.predict(df)
+                predicted_effect = effect_mapping[y_pred[0]]
 
-                # Calcular métricas
-                accuracy = accuracy_score(y_test, y_pred)
-                precision = precision_score(y_test, y_pred, average='macro', zero_division=0)
-
-                # Converter previsões para rótulos descritivos
-                y_pred_labels = [effect_mapping[pred] for pred in y_pred]
+                # Recuperar métricas do arquivo JSON
+                metrics = model_metrics[model_name]
+                precision_per_class = metrics.get("precision_per_class", {})
+                overall_precision = metrics.get("precision", 0)
+                accuracy = metrics.get("accuracy", 0)
 
                 # Adicionar resultados
                 results.append({
-                    "accuracy": round(accuracy, 2),
-                    "precision": round(precision, 2),
+                    "accuracy": accuracy,
+                    "precision": overall_precision,
+                    "precision_per_class": precision_per_class,
                     "model": model_name,
-                    "musicEffect": y_pred_labels[0] if y_pred_labels else "Unknown"
+                    "musicEffect": predicted_effect
                 })
             except Exception as e:
                 results.append({
@@ -74,40 +75,58 @@ def predict_all():
                     "model": model_name,
                     "musicEffect": f"Erro: {str(e)}"
                 })
-
+        print(results)
         if results:
             valid_results = [r for r in results if r["accuracy"] is not None and r["precision"] is not None]
-            
             if not valid_results:
                 return jsonify({"status": "error", "message": "Nenhum resultado válido"}), 400
-            
-            max_precision = max(r["precision"] for r in valid_results)
-            candidates = [r for r in valid_results if r["precision"] == max_precision]
 
-            
-            if len(candidates) > 1:
-                max_accuracy = max(r["accuracy"] for r in candidates)
-                candidates = [r for r in candidates if r["accuracy"] == max_accuracy]
+            # Contar previsões de classes
+            class_counts = Counter(r["musicEffect"] for r in valid_results)
+            most_common_class, max_count = class_counts.most_common(1)[0]
+            print(class_counts)
+            # Filtrar modelos que retornaram a classe mais comum
+            common_class_candidates = [
+                r for r in valid_results if r["musicEffect"] == most_common_class
+            ]
+            print(common_class_candidates)
 
-            
-            if len(candidates) > 1:
-                effect_counts = {}
-                for r in candidates:
-                    effect = r["musicEffect"]
-                    effect_counts[effect] = effect_counts.get(effect, 0) + 1
-                most_frequent_effect = max(effect_counts, key=effect_counts.get)
-                candidates = [r for r in candidates if r["musicEffect"] == most_frequent_effect]
+            # Resolver empate por precisão geral
+            if len(common_class_candidates) > 1:
+                max_precision = max(r["precision"] for r in common_class_candidates)
+                common_class_candidates = [
+                    r for r in common_class_candidates if r["precision"] == max_precision
+                ]
 
-            if len(candidates) > 1:
-                return jsonify({"status": "empate", "candidates": candidates}), 200
-            
-            best_model = candidates[0]
-            return jsonify({"status": "success", "best_model": best_model}), 200
+            # Resolver empate por acurácia
+            if len(common_class_candidates) > 1:
+                max_accuracy = max(r["accuracy"] for r in common_class_candidates)
+                common_class_candidates = [
+                    r for r in common_class_candidates if r["accuracy"] == max_accuracy
+                ]
+
+            # Caso ainda haja empate, retorno todos os candidatos
+            if len(common_class_candidates) > 1:
+                return jsonify({"status": "empate", "candidates": common_class_candidates}), 200
+
+            # Melhor modelo escolhido
+            best_model = common_class_candidates[0]
+            response = {
+                "status": "success",
+                "best_model": best_model,
+                "metrics": {
+                    "overall_precision": best_model["precision"],
+                    "class_precision": best_model["precision_per_class"].get(
+                        str(next(k for k, v in effect_mapping.items() if v == best_model["musicEffect"])), 0
+                    )
+                }
+            }
+            return jsonify(response), 200
 
         return jsonify({"status": "error", "message": "Nenhum resultado foi processado"}), 400
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
-    
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
