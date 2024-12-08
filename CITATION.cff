@@ -1,29 +1,25 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title:
+title: O efeito da música na saúde mental das pessoas 
 authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
+  - family-names: Ramon Cardoso Fernandes 
+    given-names: Eduardo
+  - family-names: Rodrigues de Lima
+    given-names: Gabriel
+  - family-names: Bersan Mariano Pádua
+    given-names: Isabela
+  - family-names: Silva Rodrigures 
+    given-names: Renan
+  - family-names: Ribeiro Maia
+    given-names: Tulio
+  - family-names: Nardin
+    given-names: Luciana
+  - name-suffix: Professo
     affiliation: PUC Minas
-    family-names:
-    given-names:
 keywords:
-  -
-  -
-repository-code:
+  - Saúde Mental
+  - Música
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2023-06-30
