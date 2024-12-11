@@ -1,7 +1,12 @@
 {
   "routes": [
     {
-      "route": "./Front-end/html_v3.html"
+      "routes": [
+        {
+          "route": "/",
+          "src": "./Front-end/html_v3.html"
+        }
+      ]
     }
   ]
 }
