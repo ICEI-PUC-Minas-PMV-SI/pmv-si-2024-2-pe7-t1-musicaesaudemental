@@ -12,9 +12,9 @@ authors:
     given-names: Renan
   - family-names: Ribeiro Maia
     given-names: Tulio
-  - family-names: Nardin
+  - family-names: De Nardin
     given-names: Luciana
-  - name-suffix: Professo
+  - name-suffix: Professor
     affiliation: PUC Minas
 keywords:
   - Saúde Mental
@@ -22,4 +22,4 @@ keywords:
 repository-code: https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe7-t1-musicaesaudemental
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2023-06-30
+date-released: 2023-12-12
