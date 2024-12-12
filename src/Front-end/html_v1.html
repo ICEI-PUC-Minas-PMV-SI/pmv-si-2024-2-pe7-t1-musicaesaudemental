@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Música e Saúde Mental</title>
     <link rel="stylesheet" href="styles.css">
-    
 </head>
 <body>
     <div class="container">
@@ -20,11 +19,11 @@
             </div>
 
             <!-- Formulário -->
-            <form class="form" method="POST" action="/prever" id="musicForm">
+            <form class="form" method="POST" action="/prever">
                 <p>Atribua uma nota, 0 (nunca), 1 (raramente), 2 (às vezes) a 3 (com frequência) para a frequência de cada estilo musical abaixo.</p>
 
                 <label for="classical">Classical Frequency:</label>
-                <select id="Classical_frequency" name="Classical_frequency" required>
+                <select id="classical" name="classical" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -32,7 +31,7 @@
                 </select>
 
                 <label for="country">Country Frequency:</label>
-                <select id="Country_frequency" name="Country_frequency" required>
+                <select id="country" name="country" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -40,7 +39,7 @@
                 </select>
 
                 <label for="edm">EDM Frequency:</label>
-                <select id="EDM_frequency" name="EDM_frequency" required>
+                <select id="edm" name="edm" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -48,7 +47,7 @@
                 </select>
 
                 <label for="folk">Folk Frequency:</label>
-                <select id="Folk_frequency" name="Folk_frequency" required>
+                <select id="folk" name="folk" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -56,15 +55,7 @@
                 </select>
 
                 <label for="gospel">Gospel Frequency:</label>
-                <select id="Gospel_frequency" name="Gospel_frequency" required>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-
-                <label for="hiphop">Hip-hop Frequency:</label>
-                <select id="Hip hop_frequency" name="Hip hop_frequency" required>
+                <select id="gospel" name="gospel" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -72,15 +63,23 @@
                 </select>
 
                 <label for="jazz">Jazz Frequency:</label>
-                <select id="Jazz_frequency" name="Jazz_frequency" required>
+                <select id="jazz" name="jazz" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                
+
+                <label for="hiphop">Hip-hop Frequency:</label>
+                <select id="hiphop" name="hiphop" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
                 <label for="kpop">K-pop Frequency:</label>
-                <select id="K pop_frequency" name="K pop_frequency" required>
+                <select id="kpop" name="kpop" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -88,7 +87,7 @@
                 </select>
 
                 <label for="latin">Latin Frequency:</label>
-                <select id="Latin_frequency" name="Latin_frequency" required>
+                <select id="latin" name="latin" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -96,7 +95,7 @@
                 </select>
 
                 <label for="lofi">Lofi Frequency:</label>
-                <select id="Lofi_frequency" name="Lofi_frequency" required>
+                <select id="lofi" name="lofi" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -104,7 +103,7 @@
                 </select>
 
                 <label for="metal">Metal Frequency:</label>
-                <select id="Metal_frequency" name="Metal_frequency" required>
+                <select id="metal" name="metal" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -112,7 +111,7 @@
                 </select>
 
                 <label for="pop">Pop Frequency:</label>
-                <select id="Pop_frequency" name="Pop_frequency" required>
+                <select id="pop" name="pop" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -120,7 +119,7 @@
                 </select>
 
                 <label for="rb">R&B Frequency:</label>
-                <select id="R&B_frequency" name="R&B_frequency" required>
+                <select id="rb" name="rb" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -128,7 +127,7 @@
                 </select>
 
                 <label for="rap">Rap Frequency:</label>
-                <select id="Rap_frequency" name="Rap_frequency" required>
+                <select id="rap" name="rap" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -136,7 +135,7 @@
                 </select>
 
                 <label for="rock">Rock Frequency:</label>
-                <select id="Rock_frequency" name="Rock_frequency" required>
+                <select id="rock" name="rock" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -144,7 +143,7 @@
                 </select>
 
                 <label for="videogame">Video Game Music Frequency:</label>
-                <select id="Video game music_frequency" name="Video game music_frequency" required>
+                <select id="videogame" name="videogame" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -156,7 +155,7 @@
                 <p>Atribua uma nota para nível que você se autorelata ter dos transtornos abaixo de 0 a 10.</p>
 
                 <label for="anxiety">Anxiety Level:</label>
-                <select id="Anxiety" name="Anxiety" required>
+                <select id="anxiety" name="anxiety" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -171,7 +170,7 @@
                 </select>
 
                 <label for="depression">Depression Level:</label>
-                <select id="Depression" name="Depression" required>
+                <select id="depression" name="depression" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -186,7 +185,7 @@
                 </select>
 
                 <label for="insomnia">Insomnia Level:</label>
-                <select id="Insomnia" name="Insomnia" required>
+                <select id="insomnia" name="insomnia" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -201,7 +200,7 @@
                 </select>
 
                 <label for="ocd">OCD Level:</label>
-                <select id="OCD" name="OCD" required>
+                <select id="ocd" name="ocd" required>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -220,59 +219,17 @@
                 <p>Informe sua idade.</p>
 
                 <label for="age">Age:</label>
-                <input type="number" id="Age" name="Age" required placeholder="Ex: 13">
+                <input type="number" id="age" name="age" required placeholder="Ex: 13">
 
                 <button type="submit">Enviar</button>
             </form>
 
-            <!-- Previsão 
+            <!-- Previsão -->
             <div class="prediction-box">
                 <h3>Previsão</h3>
                 <p>O resultado será exibido aqui após o envio do formulário.</p>
             </div>
         </div>
-    </div> -->
-    <div class="prediction-box" id="predictionBox">
-        <h3>Previsão</h3>
-        <p id="result">O resultado será exibido aqui após o envio do formulário.</p>
     </div>
-    
-    <script>
-        document.getElementById('musicForm').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Evita o comportamento padrão do formulário
-    
-            // Captura os dados do formulário
-            const formData = new FormData(event.target);
-    
-            // Cria um array de objetos JSON com base nos dados do formulário
-            const data = Array.from(formData.entries()).map(([key, value]) => ({ [key]: value }));
-    
-            const apiUrl = 'https://pmv-si-2024-2-pe7-t1-musicaesaudemental.onrender.com/predict-all';
-    
-            try {
-                // Envia os dados para a API
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data), // Envia o array de objetos
-                });
-    
-                if (!response.ok) {
-                    throw new Error('Erro na solicitação');
-                }
-    
-                const result = await response.json();
-    
-                // Exibe o resultado
-                document.getElementById('result').textContent = `Previsão: ${result.best_model.musicEffect}`;
-            } catch (error) {
-                document.getElementById('result').textContent = `Erro: ${error.message}`;
-            }
-        });
-    </script>
 </body>
 </html>
-
-
