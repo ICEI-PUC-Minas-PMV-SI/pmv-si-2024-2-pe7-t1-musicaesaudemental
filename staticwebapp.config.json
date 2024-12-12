@@ -4,7 +4,7 @@
       "routes": [
         {
           "route": "/",
-          "src": "./Front-end/html_v3.html"
+          "src": "./Front-end/index.html"
         }
       ]
     }
