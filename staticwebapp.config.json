@@ -1,12 +1,1 @@
-{
-  "routes": [
-    {
-      "routes": [
-        {
-          "route": "/",
-          "src": "./Front-end/index.html"
-        }
-      ]
-    }
-  ]
-}
+{}
