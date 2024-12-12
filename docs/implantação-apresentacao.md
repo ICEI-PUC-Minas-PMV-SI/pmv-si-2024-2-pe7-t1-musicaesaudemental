@@ -40,3 +40,9 @@ Teste realizado com 200 usuários simultâneos fazendo requisição e com uma ta
 Nesta seção, um vídeo de, no máximo, 5 minutos onde deverá ser descrito o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que a implantação foi realizada e, as conclusões alcançadas.
 
 https://youtu.be/cPr0TrNk8ak
+
+# Front-end
+
+O front-end do projeto está disponível e acessível publicamente através do link abaixo:
+
+https://yellow-moss-00824c70f.4.azurestaticapps.net/
