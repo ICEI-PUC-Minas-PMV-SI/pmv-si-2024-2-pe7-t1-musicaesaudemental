@@ -1,1 +1,7 @@
-{}
+{
+  "routes": [
+    {
+      "route": "/Front-end/index.html"
+    }
+  ]
+}
